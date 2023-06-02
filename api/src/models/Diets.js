@@ -4,9 +4,7 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define("diets", {
-    // id: {
-    //   type: DataTypes.UUID,
-    // },
+    //crear el ID no es necesario ya que suequelize me otorga un ID automaticamente que es suficiente para nuestro uso.
     name: {
       type: DataTypes.STRING,
       allowNull: false,

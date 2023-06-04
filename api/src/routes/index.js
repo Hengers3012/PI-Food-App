@@ -1,18 +1,14 @@
 const { Router } = require("express");
-const axios = require("axios");
+const morgan = require("morgan");
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
 const router = Router();
 
+router.use(morgan("dev"));
+
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-// const getInfoSpoonacularApi = async () => {
-//   const urlSpoonacularApi = await axios.get(
-//     "https://api.spoonacular.com/recipes"
-//   );
-//   const infoSpoonacularApi = await urlSpoonacularApi.data.map()
-// };
 
 module.exports = router;

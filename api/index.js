@@ -17,12 +17,40 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
+// const server = require("./src/app.js");
+// const { conn } = require("./src/db.js");
+
+// // Syncing all the models at once.
+// conn.sync({ force: true }).then(() => {
+//   server.listen(3001, () => {
+//     console.log("%s listening at 3001"); // eslint-disable-line no-console
+//   });
+// });
+const server = require("./src/app.js");
+const { conn, Diet } = require("./src/db.js");
+const model = require("./src/Data/DataInfo.js");
+require("dotenv").config();
+const { PORT } = process.env;
+
+const dietToBd = async function () {
+  const dietsApi = await model.allDiets();
+  try {
+    dietsApi.forEach((diet) => {
+      Diet.findOrCreate({
+        where: {
+          name: diet,
+        },
+      });
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  server.listen(PORT, () => {
+    dietToBd();
+    console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
   });
 });

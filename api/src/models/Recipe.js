@@ -12,14 +12,14 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
       },
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      // title: {
+      // name: {
       //   type: DataTypes.STRING,
       //   allowNull: false,
       // },
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       image: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -35,6 +35,11 @@ module.exports = (sequelize) => {
       instructions: {
         type: DataTypes.ARRAY(DataTypes.TEXT),
         allowNull: false,
+      },
+      createdInDb: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
       },
     },
     { timestamps: false }

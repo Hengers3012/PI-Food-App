@@ -1,45 +1,61 @@
+//---------------------------------------------------------------------------------
+//-     Controler para obtener la receta atravez de su Nombre o tipo de Dieta     -
+//---------------------------------------------------------------------------------
+// En este Controller (getRecipes), realizaremos 3 cosas:
+// 1. Debe poder buscarla independientemente de mayúsculas o minúsculas.  "✔"
+// 2. Si no existe la receta, debe mostrar un mensaje adecuado.  "✔"
+// 3. Debe buscar tanto las de la API como las de la base de datos.  "✔"
+
 const { Diet } = require("../db");
 const allData_Info = require("../Data/All_Data_Info");
 const data = require("../../data.json");
-//model
-//   allData => getRecipeInfo
-//   allDbData,
-//   allApiData,
 
 const getRecipeInfo = async (req, res) => {
   try {
     const { name } = req.query;
-    // este name puede ser nombre de receta o tipo de dieta
+
+    // El nombre solicitado puede ser: un nombre de receta o un tipo de dieta.
+
+    // Al concatenar en "allData_Info" la info de la API externa con la BDD food, obtengo la información de ambas directamente.
     const recipeInfo = await allData_Info();
+
     if (name) {
-      let queryDiet = await Diet.findOne({
-        where: { name: name.toLowerCase() },
+      let dietQuery = await Diet.findOne({
+        where: {
+          name: name.toLowerCase(),
+        },
       });
-      if (queryDiet) {
-        //caso dietQuery
-        let byDietQuery = await recipeInfo.filter((r) => {
-          let names = r.diets.map((d) => d.name);
-          if (names.includes(name)) return r;
+
+      if (dietQuery) {
+        //Si se recibe una petición de dieta: "diet Query".
+
+        let byDietQuery = await recipeInfo.filter((recipe) => {
+          let names = recipe.diets.map((diet) => diet.name);
+          if (names.includes(name)) return recipe;
         });
+
         byDietQuery.length
           ? res.status(200).send(byDietQuery)
           : res
               .status(400)
-              .send("No existen recetas con el tipo de dieta indicado");
+              .send("No existen recetas con el tipo de dieta indicado.");
       } else {
-        //caso recipeQuery
-        let recipeQuery = await recipeInfo.filter((r) =>
-          r.name.toLowerCase().includes(name.toString().toLowerCase())
+        //Si se recibe una petición de receta: "recipe Query".
+        let recipeQuery = await recipeInfo.filter((recipe) =>
+          recipe.name.toLowerCase().includes(name.toString().toLowerCase())
         );
+
         recipeQuery.length
           ? res.status(200).send(recipeQuery)
-          : res.status(400).send("No existen recetas con ese nombre");
+          : res
+              .status(400)
+              .send("No existen recetas con ese nombre establecido.");
       }
     }
-    //en caso de que no haya query name, devuelvo todo
+    //Ahora bien, si no recibimos ninguna petición de nombre: "query name", entonces devuelvo toda la información recibida.
     else res.status(200).send(recipeInfo);
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 };
 module.exports = getRecipeInfo;

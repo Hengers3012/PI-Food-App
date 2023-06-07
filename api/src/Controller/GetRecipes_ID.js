@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
-//                Controler para obtener la receta atravez de su ID
+//-             Controler para obtener la receta atravez de su ID             -
 //-----------------------------------------------------------------------------
 // En este Controller (getRecipe_ID), realizaremos 3 cosas:
-// 1. Obtener el detalle de una receta en particular através del ID.
-// 2. Debe traer solo los datos pedidos en la ruta de detalle de receta.
-// 3. Incluir los tipos de dieta asociados.
+// 1. Obtener el detalle de una receta en particular através del ID. "✔"
+// 2. Debe traer solo los datos pedidos en la ruta de detalle de receta. "✔"
+// 3. Incluir los tipos de dieta asociados. "✔"
 
 const allData_Info = require("../Data/All_Data_Info");
 
@@ -15,15 +15,15 @@ const getRecipeByID = async (req, res) => {
     if (id) {
       const recipeData = await allData_Info();
 
-      //Si se ingresa un id.
+      //Si se ingresa un ID, busco la receta con el ID recibido.
       const recipeID = await recipeData.filter((element) => element.id == id);
 
       recipeID.length
         ? res.send(recipeID[0])
-        : res.status(404).send("No existe receta con el id establecido");
+        : res.status(404).send("No existe receta con el id establecido.");
     } else {
-      //Si no se ingresa un id.
-      res.send("Favor de ingresar un ID");
+      //Si no se ingresa un ID, respondo con el siguiente mensaje, para que ingrecen un ID.
+      res.send("Favor de ingresar un ID.");
     }
   } catch (err) {
     console.log(err);

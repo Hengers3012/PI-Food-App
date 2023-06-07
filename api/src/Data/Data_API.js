@@ -7,7 +7,9 @@ const allDataAPI = async function () {
     const urlApi = await axios.get(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`
     );
+    //
     const infoApi = urlApi.data.results.map((element) => {
+      //
       return {
         id: element.id,
         name: element.title,
@@ -23,9 +25,12 @@ const allDataAPI = async function () {
         }),
       };
     });
+    //
     return infoApi;
+    //
   } catch (err) {
     console.log(err);
   }
 };
+
 module.exports = allDataAPI;

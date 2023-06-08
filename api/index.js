@@ -26,16 +26,17 @@
 //     console.log("%s listening at 3001"); // eslint-disable-line no-console
 //   });
 // });
+
+require("dotenv").config();
 const server = require("./src/app.js");
 const { conn, Diet } = require("./src/db.js");
-const model = require("./src/Data/DataInfo.js");
-require("dotenv").config();
+const getDataDiets = require("./src/Data/Data_Diets.js");
 const { PORT } = process.env;
 
-const dietToBd = async function () {
-  const dietsApi = await model.allDiets();
+const dietsBDD = async function () {
+  const dietsAPI = await getDataDiets();
   try {
-    dietsApi.forEach((diet) => {
+    dietsAPI.forEach((diet) => {
       Diet.findOrCreate({
         where: {
           name: diet,
@@ -50,7 +51,7 @@ const dietToBd = async function () {
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   server.listen(PORT, () => {
-    dietToBd();
+    dietsBDD();
     console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
   });
 });

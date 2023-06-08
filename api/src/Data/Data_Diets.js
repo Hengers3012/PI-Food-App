@@ -7,10 +7,14 @@ const getDataDiets = async function () {
     const dietList = await axios.get(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`
     );
-    const repeated = await dietList.data.results.map((d) => d.diets).flat(1);
+
+    const repeated = await dietList.data.results
+      .map((diet) => diet.diets)
+      .flat(1);
+
     return [...new Set(repeated)];
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 };
 

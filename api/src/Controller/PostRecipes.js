@@ -36,6 +36,7 @@ const createRecipe = async (req, res) => {
           name: diets,
         },
       });
+
       newRecipe.addDiet(dietDBB[0]);
     });
     //Si la receta se agrego correctamente a la BDD, respondo con el siguiente mensaje.

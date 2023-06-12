@@ -1,12 +1,12 @@
 import React from "react";
 import CardRecipe from "../Card/Card.jsx";
-import styles from "./Cards.module.css";
+import styles from "./Cards.modules.css";
 
-export default function Cards(props) {
+export default function CardsRecipes(props) {
   const { recipes } = props;
 
   return (
-    <div>
+    <div className={styles.cardsContainer}>
       {recipes.map(({ id, name, health_score, image, diets }) => (
         <CardRecipe
           id={id}

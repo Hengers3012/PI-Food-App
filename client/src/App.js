@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Landing_Page_App from "./Components/Landing_Page/Landing_Page";
+import LandingPageApp from "./Components/Landing_Page/Landing_Page";
 import styles from "./App.module.css";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <div className={styles.App}>
         <Switch>
-          <Route exact path="/" component={Landing_Page_App} />
+          <Route exact path="/" component={LandingPageApp} />
           <Route exact path="/home" />
         </Switch>
       </div>

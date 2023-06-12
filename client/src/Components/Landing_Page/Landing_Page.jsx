@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Landing_Page.module.css";
 
-export default function Landing_Page_App() {
+export default function LandingPageApp() {
   return (
     <div className={styles.contLanding}>
       <div className={styles.routeBar}>
@@ -12,6 +13,11 @@ export default function Landing_Page_App() {
         <div className={styles.other}>
           <h1>Henry Food</h1>
         </div>
+      </div>
+      <div>
+        <Link className={styles.btnHome} to="/home">
+          HOME PAGE
+        </Link>
       </div>
     </div>
   );

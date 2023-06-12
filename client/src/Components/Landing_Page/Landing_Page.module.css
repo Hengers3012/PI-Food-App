@@ -1,11 +1,13 @@
 .contLanding {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
 
   height: 100%;
   width: 100%;
 
-  background-color: #1b334a;
+  background-color: rgb(27, 51, 74);
 
   overflow: hidden;
 }
@@ -33,7 +35,7 @@
   margin-left: 10px;
   border: solid green;
 
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .logo img {
@@ -55,4 +57,15 @@
   width: auto;
   margin-right: 10px;
   border: solid red;
+  color: rgb(229, 229, 229);
+}
+
+.btnHome {
+  display: flex;
+  position: absolute;
+  text-align: center;
+  align-items: center;
+
+  font-size: xx-large;
+  color: rgb(255, 195, 0);
 }

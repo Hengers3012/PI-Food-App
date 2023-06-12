@@ -1,2 +1,8 @@
-export const FILTER = "FILTER";
+export const GET_RECIPES = "GET_RECIPES";
+export const GET_DIETS = "GET_DIETS";
+
+export const SEARCH_BAR = "SEARCH_BAR";
+
+export const FILTER_FOR_DIETS = "FILTER_FOR_DIETS";
+
 export const ORDER = "ORDER";

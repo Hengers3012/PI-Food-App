@@ -1,6 +1,58 @@
 .contLanding {
+  display: flex;
+  justify-content: center;
+
   height: 100%;
   width: 100%;
-  color: #ffc300;
+
   background-color: #1b334a;
+
+  overflow: hidden;
+}
+
+.routeBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 98%;
+  height: 10%;
+
+  margin-top: 10px;
+
+  border: solid white;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  height: 100px;
+  width: 100px;
+  margin-left: 10px;
+  border: solid green;
+
+  overflow: hidden;
+}
+
+.logo img {
+  transition: all 0.5s ease;
+
+  background-size: cover;
+
+  overflow: hidden;
+}
+
+.logo img:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.other {
+  display: flex;
+  height: 60px;
+  width: auto;
+  margin-right: 10px;
+  border: solid red;
 }

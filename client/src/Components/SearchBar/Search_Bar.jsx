@@ -16,6 +16,8 @@ export default function SearchBar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    dispatch(search_Bar(recipe));
+    setRecipe("");
   };
 
   return (
@@ -24,15 +26,16 @@ export default function SearchBar() {
         onSubmit={(event) => {
           handleSubmit(event);
         }}
-      ></form>
-      <input
-        type="search"
-        onChange={(event) => {
-          handleInputChange(event);
-        }}
-        value={recipe}
-      />
-      <button type="submit">Shearch</button>
+      >
+        <input
+          type="search"
+          onChange={(event) => {
+            handleInputChange(event);
+          }}
+          value={recipe}
+        />
+        <button type="submit">Search</button>
+      </form>
     </div>
   );
 }

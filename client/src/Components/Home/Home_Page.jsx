@@ -1,6 +1,9 @@
 import React from "react";
 import { useState } from "react";
+
 import CardsRecipes from "../Cards/Cards";
+import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
+
 import styles from "./Home_Page.module.css";
 
 export default function HomePage() {
@@ -8,8 +11,8 @@ export default function HomePage() {
 
   return (
     <div className={styles.homeContainer}>
-      <h2>Henry Food</h2>
-      <div className={styles.recipes}>
+      <NavBarTop />
+      <div className={styles.cardRecipeContainer}>
         <CardsRecipes recipes={recipes} />
       </div>
     </div>

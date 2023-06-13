@@ -29,6 +29,7 @@ export default function SearchBar() {
       >
         <input
           type="search"
+          placeholder="Escribe el nombre de la receta o dieta deseada..."
           onChange={(event) => {
             handleInputChange(event);
           }}

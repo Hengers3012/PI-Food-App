@@ -8,18 +8,20 @@ export default function NavBarTop() {
   return (
     <div className={styles.containerNavBarTop}>
       <SearchBar className={styles.containerSearchBar} />
-      <Link>
-        {/* to={`/favorites`} */}
-        <button>Favorites</button>
-      </Link>
-      <Link>
-        {/* to={`/recipes/${"id"}`} */}
-        <button>Random Recipe</button>
-      </Link>
-      <Link>
-        {/*to="/CreateRecipe"*/}
-        <button>Create Recipe</button>
-      </Link>
+      <div className={styles.containerNavBarRoute}>
+        <Link>
+          {/* to={`/favorites`} */}
+          <button>Favorites</button>
+        </Link>
+        <Link>
+          {/* to={`/recipes/${"id"}`} */}
+          <button>Random Recipe</button>
+        </Link>
+        <Link>
+          {/*to="/CreateRecipe"*/}
+          <button>Create Recipe</button>
+        </Link>
+      </div>
     </div>
   );
 }

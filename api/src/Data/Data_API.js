@@ -14,8 +14,8 @@ const allDataAPI = async function () {
         id: element.id,
         name: element.title,
         summary_of_the_dish: element.summary.replace(/<[^>]+>/g, ""),
-        diets: element.diets.map((d) => {
-          return { name: d };
+        diets: element.diets.map((diet) => {
+          return { name: diet };
         }),
         health_score: element.healthScore,
         image: element.image,

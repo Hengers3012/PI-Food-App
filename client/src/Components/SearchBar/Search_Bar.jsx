@@ -8,16 +8,16 @@ import styles from "./Search_Bar.module.css";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
-  const [recipe, setRecipe] = useState("");
+  const [recipeName, setRecipeName] = useState("");
 
   const handleInputChange = (event) => {
-    setRecipe(event.target.value);
+    setRecipeName(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(search_Bar(recipe));
-    setRecipe("");
+    dispatch(search_Bar(recipeName));
+    setRecipeName("");
   };
 
   return (
@@ -33,7 +33,7 @@ export default function SearchBar() {
           onChange={(event) => {
             handleInputChange(event);
           }}
-          value={recipe}
+          value={recipeName}
         />
         <button type="submit">Search</button>
       </form>

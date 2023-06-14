@@ -21,3 +21,13 @@
   width: 95%;
   border: solid red;
 }
+
+.containerCard_indiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 80%;
+  width: 95%;
+  border: solid red;
+}

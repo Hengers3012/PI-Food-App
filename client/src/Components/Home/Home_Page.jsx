@@ -15,7 +15,10 @@ export default function HomePage() {
       <div className={styles.cardRecipeContainer}>
         {recipes.map((element, index) => {
           return (
-            <div key={`cardRecipe ${index}`}>
+            <div
+              className={styles.containerCard_indiv}
+              key={`cardRecipe ${index}`}
+            >
               <div>
                 <CardsRecipes
                   id={element.id}

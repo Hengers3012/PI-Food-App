@@ -13,12 +13,9 @@ export default function HomePage() {
     <div className={styles.homeContainer}>
       <NavBarTop />
       <div className={styles.cardRecipeContainer}>
-        {recipes.map((element, index) => {
+        {recipes.map((element) => {
           return (
-            <div
-              className={styles.containerCard_indiv}
-              key={`cardRecipe ${index}`}
-            >
+            <div className={styles.containerCard_indiv}>
               <div>
                 <CardsRecipes
                   id={element.id}

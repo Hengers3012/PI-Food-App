@@ -13,7 +13,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get("/recipes/:id", getRecipeByID);
-router.get("/recipes", getRecipeInfo);
+router.get(`/recipes`, getRecipeInfo);
 
 router.get("/diets", getDiets);
 

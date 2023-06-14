@@ -13,7 +13,21 @@ export default function HomePage() {
     <div className={styles.homeContainer}>
       <NavBarTop />
       <div className={styles.cardRecipeContainer}>
-        <CardsRecipes recipes={recipes} />
+        {recipes.map((element, index) => {
+          return (
+            <div key={`cardRecipe ${index}`}>
+              <div>
+                <CardsRecipes
+                  id={element.id}
+                  health_score={element.health_score}
+                  img={element.image}
+                  name={element.name}
+                  diets={element.diets}
+                />
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

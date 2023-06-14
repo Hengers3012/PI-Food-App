@@ -32,11 +32,11 @@ export const getDiets_Info = () => {
 export const search_Bar = (recipe_diets_name) => {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`/recipe/?name=${recipe_diets_name}`);
+      const res = await axios.get(`/recipe/?name=${recipe_diets_name}`);
 
       return dispatch({
         type: SEARCH_BAR,
-        payload: response.data,
+        payload: res.data,
       });
     } catch (error) {
       return alert("La Dieta o Receta no Existe...");

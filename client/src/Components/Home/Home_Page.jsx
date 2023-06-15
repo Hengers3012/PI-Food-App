@@ -7,16 +7,16 @@ import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
 import styles from "./Home_Page.module.css";
 
 export default function HomePage() {
-  const [recipes] = useState([]);
+  const [recipeName] = useState([]);
 
-  console.log({ recipes });
+  console.log({ recipeName });
 
   return (
     <div className={styles.homeContainer}>
       <NavBarTop />
       <div className={styles.cardRecipeContainer}>
         <h1>Hola</h1>
-        {recipes.map((element) => {
+        {recipeName.map((element) => {
           return (
             <div className={styles.containerCard_indiv}>
               <div>

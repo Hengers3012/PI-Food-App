@@ -7,7 +7,7 @@ const initial_State = {
   detail: [],
 };
 
-const reducer = (state = initial_State, { type, payload }) => {
+function reducer(state = initial_State, { type, payload }) {
   console.log({ state });
   console.log({ payload });
   switch (type) {
@@ -56,6 +56,6 @@ const reducer = (state = initial_State, { type, payload }) => {
     default:
       return;
   }
-};
+}
 
 export default reducer;

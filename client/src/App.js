@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import LandingPageApp from "./Components/Landing_Page/Landing_Page";
 import HomePage from "./Components/Home/Home_Page";
+import CreatedRecipeApp from "./Components/Created_Recipe/Created_Recipe";
 
 import styles from "./App.module.css";
 
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPageApp} />
           <Route exact path="/home" component={HomePage} />
+          <Route exact path="/created_recipe" component={CreatedRecipeApp} />
         </Switch>
       </div>
     </BrowserRouter>

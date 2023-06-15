@@ -9,16 +9,7 @@ export default function NavBarTop() {
     <div className={styles.containerNavBarTop}>
       <SearchBar className={styles.containerSearchBar} />
       <div className={styles.containerNavBarRoute}>
-        <Link>
-          {/* to={`/favorites`} */}
-          <button>Favorites</button>
-        </Link>
-        <Link>
-          {/* to={`/recipes/${"id"}`} */}
-          <button>Random Recipe</button>
-        </Link>
-        <Link>
-          {/*to="/CreateRecipe"*/}
+        <Link to="/created_recipe">
           <button>Create Recipe</button>
         </Link>
       </div>

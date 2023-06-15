@@ -34,16 +34,23 @@ export function getDiets_Info() {
 export function search_Bar(recipe_diets_name) {
   return async function (dispatch) {
     try {
-      var response = await axios.get(`/recipes/?name=${recipe_diets_name}`);
+      const response = await axios.get(`/recipes/?name=${recipe_diets_name}`);
       console.log(response);
 
       return dispatch({
         type: SEARCH_BAR,
-        payload: response,
+        payload: response.data,
       });
     } catch (error) {
       return alert(`La Dieta o Receta ${recipe_diets_name} no Existe...`);
     }
+  };
+}
+
+export function post_Recipe(created) {
+  return async function (dispatch) {
+    const post_for_Axios = await axios.post("/recipes", created);
+    return post_for_Axios;
   };
 }
 

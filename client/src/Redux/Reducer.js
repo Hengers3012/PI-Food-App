@@ -1,13 +1,18 @@
-import { GET_RECIPES, GET_DIETS, SEARCH_BAR } from "./Action_Types";
+import {
+  GET_RECIPES,
+  GET_DIETS,
+  POST_RECIPE,
+  SEARCH_BAR,
+} from "./Action_Types";
 
-const initial_State = {
+const initialState = {
   recipes: [],
   allRecipes: [],
   diets: [],
   detail: [],
 };
 
-function reducer(state = initial_State, { type, payload }) {
+function reducer(state = initialState, { type, payload }) {
   console.log({ state });
   console.log({ payload });
   switch (type) {
@@ -25,12 +30,16 @@ function reducer(state = initial_State, { type, payload }) {
       };
 
     case SEARCH_BAR:
-      let resultSearch = [...state.allRecipes];
+      let resultSearch = [...state.recipes];
       return {
         ...state,
-        recipes: resultSearch.length > 0 ? payload : state.allRecipes,
+        recipes: resultSearch.length > 0 ? payload : state.recipes,
       };
 
+    case POST_RECIPE:
+      return {
+        ...state,
+      };
     // case FILTER_FOR_DIETS:
     //   const filterRecipes_For_Diets = [...state.allRecipes].filter((recipe) => {
     //     let dietsInfo = recipe.diets.map((diet) => diet.name);
@@ -54,7 +63,9 @@ function reducer(state = initial_State, { type, payload }) {
     //   };
 
     default:
-      return;
+      return {
+        ...state,
+      };
   }
 }
 

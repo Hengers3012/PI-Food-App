@@ -12,6 +12,9 @@ export default function NavBarTop() {
         <Link to="/created_recipe">
           <button>Create Recipe</button>
         </Link>
+        <Link to="/">
+          <button>BACK PAGE</button>
+        </Link>
       </div>
     </div>
   );

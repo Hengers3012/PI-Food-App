@@ -13,6 +13,7 @@ const data = require("../../data.json");
 const getRecipeInfo = async (req, res) => {
   try {
     const { name } = req.query;
+    console.log({ name });
 
     // El nombre solicitado puede ser: un nombre de receta o un tipo de dieta.
 

@@ -5,6 +5,7 @@ import styles from "./Card.module.css";
 
 export default function CardRecipe(props) {
   const { id, name, health_score, image, diets } = props;
+  console.log(name);
   return (
     <Link to={`/detail/${id}`}>
       <div className={styles.continer_Card}>

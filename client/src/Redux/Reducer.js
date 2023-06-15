@@ -8,6 +8,8 @@ const initial_State = {
 };
 
 const reducer = (state = initial_State, { type, payload }) => {
+  console.log({ state });
+  console.log({ payload });
   switch (type) {
     case GET_RECIPES:
       return {

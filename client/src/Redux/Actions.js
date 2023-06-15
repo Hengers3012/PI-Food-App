@@ -32,7 +32,7 @@ export const getDiets_Info = () => {
 export const search_Bar = (recipe_diets_name) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(`/recipe/?name=${recipe_diets_name}`);
+      const res = await axios.get(`/recipes/?name=${recipe_diets_name}`);
       console.log(res);
 
       return dispatch({

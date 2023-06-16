@@ -13,7 +13,7 @@ export default function HomePage() {
     <div className={styles.homeContainer}>
       <NavBarTop />
       <div className={styles.cardRecipeContainer}>
-        <h1>Hola</h1>
+        <h1>Contenedor de Cards</h1>
         {recipeName?.map((element) => {
           return (
             <div className={styles.containerCard_indiv}>

@@ -4,8 +4,6 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 
 export default function CreateRecipeApp() {
-  const allDiets = useSelector((state) => state.Diets);
-  console.log(allDiets);
   return (
     <div>
       <form>

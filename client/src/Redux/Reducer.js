@@ -38,7 +38,7 @@ function reducer(state = initialState, { type, payload }) {
 
     case POST_RECIPE:
       return {
-        ...state,
+        state,
       };
     // case FILTER_FOR_DIETS:
     //   const filterRecipes_For_Diets = [...state.allRecipes].filter((recipe) => {
@@ -63,9 +63,7 @@ function reducer(state = initialState, { type, payload }) {
     //   };
 
     default:
-      return {
-        ...state,
-      };
+      return state;
   }
 }
 

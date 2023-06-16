@@ -30,13 +30,13 @@
 
 .navBarContainer {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr;
 
   align-items: center;
 
   width: 100%;
-  height: 10%;
+  height: 15%;
 
   border: solid red;
   background-color: rgba(240, 248, 255, 0);
@@ -70,6 +70,14 @@
   transform: scale(1.1);
 }
 
+.navBarPart2 {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  padding: 10px;
+  border: solid green;
+}
+
 .route {
   display: flex;
   align-items: center;
@@ -77,12 +85,23 @@
 
   height: 40px;
   width: 100px;
-  margin-right: 10px;
-
+  margin-left: 15px;
+  margin-right: 15px;
   text-decoration: none;
 
   border: solid green;
   color: rgb(229, 229, 229);
+}
+
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 10px;
+}
+
+.searchBar {
 }
 
 .btnHome {

@@ -29,13 +29,16 @@ export default function SearchBar() {
       >
         <input
           type="search"
+          className={styles.searchBar}
           placeholder="Escribe el nombre de la receta o dieta deseada..."
           onChange={(event) => {
             handleInputChange(event);
           }}
           value={recipeName}
         />
-        <button type="submit">Search</button>
+        <button className={styles.searchButton} type="submit">
+          🔎
+        </button>
       </form>
     </div>
   );

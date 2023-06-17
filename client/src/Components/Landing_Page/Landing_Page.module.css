@@ -7,7 +7,6 @@
   height: 100%;
   width: 100%;
 
-  /* background-image: url("https://img.freepik.com/fotos-premium/mesa-madera-vacia-fondo-interior-borroso-cafeteria-o-restaurante-puede-utilizar-exhibicion-producto_7188-1500.jpg"); */
   background-color: #e5e5e5;
 
   overflow: hidden;
@@ -40,9 +39,6 @@
 
   border: solid red;
   background-color: rgba(240, 248, 255, 0);
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .logo {
@@ -53,12 +49,10 @@
   height: 80px;
   width: 80px;
   margin-left: 10px;
-
-  /* overflow: hidden; */
 }
 
 .logo img {
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 
   background-size: cover;
 
@@ -98,10 +92,8 @@
   align-items: center;
   justify-content: center;
 
-  margin: 10px;
-}
-
-.searchBar {
+  height: auto;
+  width: auto;
 }
 
 .btnHome {
@@ -109,7 +101,7 @@
   position: absolute;
   text-align: center;
   align-items: center;
-
+  -webkit-text-stroke: 2px rgb(255, 195, 0);
   font-size: xx-large;
   color: rgb(255, 195, 0);
 }

@@ -27,7 +27,7 @@ export default function LandingPageApp() {
             </Link>
           </div>
           <div className={styles.searchBarContainer}>
-            <SearchBar className={styles.searchBar} />
+            <SearchBar />
           </div>
         </div>
 

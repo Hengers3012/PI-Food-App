@@ -1,14 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import { search_Bar } from "../../Redux/Actions";
+import CardsRecipes from "../Cards/Cards";
 import CardRecipe from "../Card/Card";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
 
 import styles from "./Home_Page.module.css";
 
 export default function HomePage() {
-  const [recipeName, setRecipeName] = useState([]);
+  const dispatch = useDispatch();
+  const recipes = useSelector((state) => state.recipes);
+
+  // const [recipeName, setRecipeName] = useState([]);
+
+  useEffect(() => {
+    dispatch(search_Bar);
+  }, [dispatch]);
+
+  console.log(recipes);
 
   return (
     <div className={styles.homeContainer}>
@@ -22,8 +34,7 @@ export default function HomePage() {
       </div>
 
       <div className={styles.cardRecipeContainer}>
-        <h1>Contenedor de Cards</h1>
-        {recipeName?.map((element) => {
+        {recipes?.map((element) => {
           return (
             <div className={styles.containerCard_indiv}>
               <div>

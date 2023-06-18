@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useState } from "react";
 
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
 import styles from "./Created_Recipe.module.css";

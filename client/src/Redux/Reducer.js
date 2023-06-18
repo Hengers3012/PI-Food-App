@@ -13,7 +13,6 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
-  console.log({ state });
   console.log(action.payload);
   switch (action.type) {
     case GET_RECIPES:
@@ -64,7 +63,8 @@ function reducer(state = initialState, action) {
     //   };
 
     default:
-      return state;
+      console.log({ state });
+      return { ...state };
   }
 }
 

@@ -10,8 +10,8 @@ const allDataBDD = async function () {
         },
       },
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 };
 

@@ -86,3 +86,17 @@
   width: 100%;
   margin: 0px 15px 15px 0;
 }
+
+@media screen and (max-width: 1150px) {
+  .containerNavBarTop {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    height: auto;
+    width: 100%;
+
+    margin: 5px;
+    /* border: solid rgb(255, 255, 255); */
+  }
+}

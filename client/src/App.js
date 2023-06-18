@@ -17,6 +17,7 @@ function App() {
           <Route exact path="/" component={LandingPageApp} />
           <Route exact path="/home" component={HomePage} />
           <Route exact path="/created_recipe" component={CreatedRecipeApp} />
+          <Route exact path="/recipes/:id" />
         </Switch>
       </div>
     </BrowserRouter>

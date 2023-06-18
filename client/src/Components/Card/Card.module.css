@@ -2,6 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  background-color: black;
   border: solid yellow;
+}
+
+.healthScoreText {
+  color: rgb(7, 255, 94);
+  text-decoration: none;
 }

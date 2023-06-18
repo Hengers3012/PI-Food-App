@@ -3,52 +3,60 @@
   align-items: center;
   justify-content: center;
   background-size: cover;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 
   height: 100%;
   width: 100%;
 
-  background-color: #e5e5e5;
+  background-image: url(./food-backgrownd.jpg);
+  background-color: #ffffff;
 
   overflow: hidden;
 }
 
 .contLanding {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 5fr;
+
+  justify-content: center;
 
   height: 80%;
   width: 80%;
 
-  background-color: rgb(27, 51, 74);
+  background-color: #042b50;
 
+  box-shadow: 0 0 20px rgba(255, 196, 0, 0.76);
   border-radius: 50px;
   overflow: hidden;
 }
 
 .navBarContainer {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 0.5fr 2fr 1fr;
   grid-template-rows: 1fr;
 
   align-items: center;
 
   width: 100%;
-  height: 15%;
+  height: auto;
 
-  border: solid red;
   background-color: rgba(240, 248, 255, 0);
 }
 
+.navBarContPart1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .logo {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
 
   height: 80px;
   width: 80px;
-  margin-left: 10px;
 }
 
 .logo img {
@@ -61,15 +69,14 @@
 
 .logo img:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.25);
 }
 
 .navBarPart2 {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   margin: 10px;
   padding: 10px;
-  border: solid green;
 }
 
 .route {
@@ -83,25 +90,82 @@
   margin-right: 15px;
   text-decoration: none;
 
-  border: solid green;
   color: rgb(229, 229, 229);
 }
 
 .searchBarContainer {
   display: flex;
-  align-items: center;
   justify-content: center;
+}
 
-  height: auto;
-  width: auto;
+.containerBtnHome {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  height: 100%;
+  width: 100%;
+  padding-left: 150px;
+  padding-bottom: 100px;
 }
 
 .btnHome {
-  display: flex;
-  position: absolute;
-  text-align: center;
-  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  padding: 10px;
+
+  font-size: 50px;
   -webkit-text-stroke: 2px rgb(255, 195, 0);
-  font-size: xx-large;
+
+  border-radius: 20px;
+
   color: rgb(255, 195, 0);
+  background-color: black;
+}
+
+.btnHome:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 1150px) {
+  .contLanding {
+    min-width: 450px;
+    min-height: 800px;
+  }
+  .navBarContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .navBarContPart1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  .logo {
+    margin: 0;
+  }
+  .navBarPart2 {
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+  }
+  .searchBarContainer {
+    display: flex;
+    align-items: center;
+  }
+  .containerBtnHome {
+    align-items: flex-end;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .btnHome {
+    min-width: 300px;
+    margin-bottom: 75px;
+  }
 }

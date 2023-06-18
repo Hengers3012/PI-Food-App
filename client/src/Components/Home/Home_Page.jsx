@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import CardRecipe from "../Card/Card";
@@ -11,7 +12,15 @@ export default function HomePage() {
 
   return (
     <div className={styles.homeContainer}>
-      <NavBarTop />
+      <div className={styles.containerNavBarTop}>
+        <NavBarTop />
+        <div className={styles.containerBackBtn}>
+          <Link to="/" className={styles.backBtn}>
+            BACK
+          </Link>
+        </div>
+      </div>
+
       <div className={styles.cardRecipeContainer}>
         <h1>Contenedor de Cards</h1>
         {recipeName?.map((element) => {

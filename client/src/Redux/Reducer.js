@@ -12,28 +12,29 @@ const initialState = {
   detail: [],
 };
 
-function reducer(state = initialState, { type, payload }) {
+function reducer(state = initialState, action) {
   console.log({ state });
-  console.log({ payload });
-  switch (type) {
+  console.log(action.payload);
+  switch (action.type) {
     case GET_RECIPES:
       return {
         ...state,
-        recipes: payload,
-        allRecipes: payload,
+        recipes: action.payload,
+        allRecipes: action.payload,
       };
 
     case GET_DIETS:
       return {
         ...state,
-        diets: payload,
+        diets: action.payload,
       };
 
     case SEARCH_BAR:
-      let resultSearch = [...state.recipes];
+      //let resultSearch = [...state.recipes];
       return {
         ...state,
-        recipes: resultSearch.length > 0 ? payload : state.recipes,
+        //recipes: resultSearch.length > 0 ? action.payload : state.recipes,
+        recipes: action.payload,
       };
 
     case POST_RECIPE:

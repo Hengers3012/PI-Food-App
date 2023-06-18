@@ -3,9 +3,21 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
+import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
+import styles from "./Created_Recipe.module.css";
+
 export default function CreateRecipeApp() {
   return (
-    <div>
+    <div className={styles.containerPage}>
+      <div className={styles.containerNavBarTop}>
+        <NavBarTop />
+        <div className={styles.containerBackBtn}>
+          <Link to="/home" className={styles.backBtn}>
+            BACK
+          </Link>
+        </div>
+      </div>
+
       <form>
         <h1>CREA UNA NUEVA RECETA</h1>
 
@@ -54,9 +66,6 @@ export default function CreateRecipeApp() {
           </div>
         </div>
       </form>
-      <div>
-        <Link to="/home">BACK PAGE</Link>
-      </div>
     </div>
   );
 }

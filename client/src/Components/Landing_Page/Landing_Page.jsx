@@ -31,7 +31,7 @@ export default function LandingPageApp() {
           </div>
         </div>
 
-        <div>
+        <div className={styles.containerBtnHome}>
           <Link className={styles.btnHome} to="/home">
             HOME PAGE
           </Link>

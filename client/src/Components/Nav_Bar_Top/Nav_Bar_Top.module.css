@@ -1,17 +1,88 @@
 .containerNavBarTop {
+  display: grid;
+  grid-template-columns: 0.4fr 2.5fr 1fr;
+  grid-template-rows: 1fr;
+
+  height: auto;
+  width: 100%;
+
+  margin: 5px;
+  /* border: solid rgb(255, 255, 255); */
+}
+
+.navBarContPart1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: solid rgb(255, 255, 255);
-  margin: 5px;
+  height: 80px;
+  width: 80px;
+
+  /* border: solid blue; */
+}
+
+.logo img {
+  transition: all 0.3s ease;
+
+  background-size: cover;
+
+  overflow: hidden;
+}
+
+.logo img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .containerNavBarRoute {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+
+  /* border: solid rgb(136, 255, 0); */
+  margin: 5px;
+}
+.createBtn {
+  text-decoration: none;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: all 0.5s ease-in-out;
+
+  margin: 0px 10px;
+  padding: 5px 15px 5px 15px;
+
+  font-size: 20px;
+
+  border-radius: 10px;
+
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}
+
+.createBtn:hover {
+  transform: scale(1.05);
+
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}
+
+.containerSearchBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.containerBackBtn {
+  display: flex;
+  align-items: center;
   justify-content: center;
 
-  border: solid rgb(136, 255, 0);
-  margin: 5px;
+  height: 100%;
+  width: 100%;
+  margin: 0px 15px 15px 0;
 }

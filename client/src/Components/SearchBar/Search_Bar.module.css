@@ -1,17 +1,14 @@
-.containerSearchBar {
+.containerSearchBar form {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: solid green;
-
   padding: 5px;
   margin: 5px;
 }
+
 .searchBar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   font-family: cursive;
   font-size: medium;
 
@@ -25,10 +22,15 @@
 }
 
 .searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   transition: all 0.5s ease;
 
   height: 40px;
   width: 40px;
+  margin: 5px;
   font-size: 20px;
 
   border-radius: 50%;

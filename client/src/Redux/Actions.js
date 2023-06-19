@@ -5,6 +5,7 @@ import {
   GET_DIETS,
   SEARCH_BAR,
   FILTER_FOR_DIETS,
+  ORDEN_BY_SCORE,
 } from "./Action_Types";
 
 export function getRecipe_Info() {
@@ -58,5 +59,12 @@ export function filterRecipe_For_Diets(diets) {
   return {
     type: FILTER_FOR_DIETS,
     payload: diets,
+  };
+}
+
+export function order_Health_Score(health_score) {
+  return {
+    type: ORDEN_BY_SCORE,
+    payload: health_score,
   };
 }

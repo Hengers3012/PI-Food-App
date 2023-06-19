@@ -8,3 +8,5 @@ export const SEARCH_BAR = "SEARCH_BAR";
 export const FILTER_FOR_DIETS = "FILTER_FOR_DIETS";
 
 export const ORDER = "ORDER";
+
+export const ORDEN_BY_SCORE = "ORDEN_BY_SCORE";

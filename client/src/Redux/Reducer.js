@@ -3,6 +3,8 @@ import {
   GET_DIETS,
   POST_RECIPE,
   SEARCH_BAR,
+  FILTER_FOR_DIETS,
+  ORDEN_BY_SCORE,
 } from "./Action_Types";
 
 const initialState = {
@@ -40,27 +42,38 @@ function reducer(state = initialState, action) {
       return {
         state,
       };
-    // case FILTER_FOR_DIETS:
-    //   const filterRecipes_For_Diets = [...state.allRecipes].filter((recipe) => {
-    //     let dietsInfo = recipe.diets.map((diet) => diet.name);
+    case FILTER_FOR_DIETS:
+      const filterRecipes_For_Diets = [...state.allRecipes].filter((recipe) => {
+        let dietsInfo = recipe.diets.map((diet) => diet.name);
 
-    //     if (dietsInfo.includes(payload)) {
-    //       return recipe;
-    //     } else return undefined;
-    //   });
-    //   return {
-    //     ...state,
-    //     recipe: payload === "" ? state.allRecipes : filterRecipes_For_Diets,
-    //   };
+        if (dietsInfo.includes(action.payload)) {
+          return recipe;
+        } else return undefined;
+      });
+      return {
+        ...state,
+        recipe:
+          action.payload === "" ? state.allRecipes : filterRecipes_For_Diets,
+      };
 
-    // case ORDER:
-    //   const orderCards_For_HealthScore = [...state.allRecipes].filter(
-    //     (recipe) => recipe.health_score.toLowerCase() === payload.toLowerCase()
-    //   );
-    //   return {
-    //     ...state,
-    //     allRecipes: orderCards_For_HealthScore,
-    //   };
+    case ORDEN_BY_SCORE:
+      let orderedRecipes2 = [...state.recipes];
+      orderedRecipes2 =
+        action.payload === "asc"
+          ? orderedRecipes2.sort((a, b) => {
+              if (a.healthScore < b.healthScore) return 1;
+              if (a.healthScore > b.healthScore) return -1;
+              return 0;
+            })
+          : orderedRecipes2.sort((a, b) => {
+              if (a.healthScore < b.healthScore) return -1;
+              if (a.healthScore > b.healthScore) return 1;
+              return 0;
+            });
+      return {
+        ...state,
+        recipes: [...orderedRecipes2],
+      };
 
     default:
       return { ...state };

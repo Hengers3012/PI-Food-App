@@ -6,12 +6,16 @@
   align-items: center;
   justify-content: flex-start; */
 
-  height: 490px;
-  width: 290px;
+  height: 500px;
+  width: 300px;
   margin: 5px;
 
   background-color: #07070a;
   /*border: solid yellow;*/
+}
+
+.continer_Card .link:hover {
+  background-color: rgba(23, 23, 23);
 }
 
 .healthScoreText {
@@ -21,21 +25,32 @@
 
   margin: 5px 10px;
 
-  color: rgb(6, 255, 39);
+  color: rgb(220, 220, 220);
   -webkit-text-stroke: 0.5px rgb(6, 255, 39);
 }
+
+.healthScoreText:hover {
+}
+
 .contImageName h2 {
   font-size: 18px;
   margin: 5px 10px;
   color: #ffffff;
 }
+
+.contImageName h2:hover {
+  color: rgb(6, 255, 39);
+}
 .contImageName img {
   width: 90%;
   border-radius: 15px;
+  transition: all 0.3s ease;
 
   margin: auto;
 }
-
+.contImageName img:hover {
+  transform: scale(1.025);
+}
 .dietsName {
   display: flex;
   flex-direction: column;

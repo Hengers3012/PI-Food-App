@@ -44,8 +44,9 @@ export default function FilterRecipesCards() {
 
   console.log(diets);
   return (
-    <div>
+    <div className={styles.containerFilterBar}>
       <div className={styles.containerFilter}>
+        <div></div>
         <div className={styles.containerFilterDiets}>
           <select
             id="diet"
@@ -53,16 +54,16 @@ export default function FilterRecipesCards() {
             defaultValue="default"
           >
             <option value="default">All Diets</option>
-            {diets.map((el, index) => {
+            {diets.map((diet, index) => {
               return (
-                <option key={`Diet${index}`} value={el.name}>
-                  {el.name}
+                <option key={`Diet${index}`} value={diet.name}>
+                  {diet.name[0].toUpperCase() + diet.name.slice(1)}
+                  {/* {diet.name} */}
                 </option>
               );
             })}
           </select>
         </div>
-
         <div className={styles.containerFilter_Alfabeto}>
           <select
             id="alfabeto"
@@ -76,7 +77,6 @@ export default function FilterRecipesCards() {
             <option values="descendente">Descendent 🔻</option>
           </select>
         </div>
-
         <div className={styles.containerFilter_HealthScore}>
           <select
             id="health_score"
@@ -91,7 +91,6 @@ export default function FilterRecipesCards() {
           </select>
         </div>
       </div>
-      <div></div>
     </div>
   );
 }

@@ -31,7 +31,7 @@ export default function HomePage() {
           </Link>
         </div>
       </div>
-
+      <div></div>
       <div className={styles.cardRecipeContainer}>
         {recipes?.map((element, index) => {
           return (

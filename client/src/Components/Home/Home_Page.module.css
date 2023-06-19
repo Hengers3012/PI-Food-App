@@ -1,7 +1,7 @@
 .homeContainer {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 9fr;
+  grid-template-rows: 1fr 0.5fr 8.5fr;
 
   height: 100%;
   width: 100%;
@@ -59,12 +59,12 @@
 
 .cardRecipeContainer {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
 
   height: auto;
   width: 100%;
-
+  padding: 10px;
   border: solid red;
 }
 

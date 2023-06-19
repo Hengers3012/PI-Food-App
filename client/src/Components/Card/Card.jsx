@@ -4,15 +4,22 @@ import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
 export default function CardRecipe(props) {
-  const { id, name, health_score, image, diets } = props;
+  // const { id, name, health_score, image, diets } = props;
+  const { id, name, health_score, diets } = props;
   console.log(props);
+
   return (
     <div className={styles.continer_Card}>
-      <Link to={`/detail/${id}`}>
+      <Link
+        className={styles.link}
+        to={`/detail/${id}`}
+        style={{ textDecoration: "none" }}
+      >
         <div className={styles.healthScoreText}>
-          <p>Health Score: </p>
+          <p>HS:</p>
           {`${health_score}`}
         </div>
+
         <div className={styles.contImageName}>
           <img
             src="https://cdn.aarp.net/content/dam/aarp/health/caregiving/2018/03/1140-nutrients-food-loved-ones-caregiving-esp.jpg"
@@ -23,14 +30,16 @@ export default function CardRecipe(props) {
             {name[0].toUpperCase() + name.slice(1)}
           </h2>
         </div>
-        <div>
-          <h1>
+
+        <div className={styles.dietsName}>
+          <h1>Diets:</h1>
+          <h2>
             {diets.map((diet) => (
               <div className={styles.dietName} key={diet.name}>
-                {diet.name}
+                {diet.name[0].toUpperCase() + diet.name.slice(1)}
               </div>
             ))}
-          </h1>
+          </h2>
         </div>
       </Link>
     </div>

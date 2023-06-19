@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRecipe_Info } from "../../Redux/Actions";
 import CardRecipe from "../Card/Card";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
+import FilterRecipesCards from "../Filter_Recipes/Filter_Recipes";
 
 import styles from "./Home_Page.module.css";
 
@@ -31,7 +32,9 @@ export default function HomePage() {
           </Link>
         </div>
       </div>
-      <div></div>
+      <div className={styles.continerFilter}>
+        <FilterRecipesCards />
+      </div>
       <div className={styles.cardRecipeContainer}>
         {recipes?.map((element, index) => {
           return (

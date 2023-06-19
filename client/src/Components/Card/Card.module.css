@@ -11,7 +11,7 @@
   margin: 5px;
 
   background-color: #07070a;
-  border: solid yellow;
+  /*border: solid yellow;*/
 }
 
 .healthScoreText {
@@ -39,9 +39,9 @@
 .dietsName {
   display: flex;
   flex-direction: column;
-  color: #00509d;
+  color: #02729e;
 
-  margin: 10px;
+  margin: -10px 5px;
 }
 .dietsName h2 {
   display: flex;

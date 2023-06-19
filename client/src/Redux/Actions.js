@@ -5,7 +5,8 @@ import {
   GET_DIETS,
   SEARCH_BAR,
   FILTER_FOR_DIETS,
-  ORDEN_BY_SCORE,
+  ORDEN_BY_HEALTH_SCORE,
+  ORDEN_BY_NAME,
 } from "./Action_Types";
 
 export function getRecipe_Info() {
@@ -22,7 +23,7 @@ export function getRecipe_Info() {
 
 export function getDiets_Info() {
   return async function (dispatch) {
-    var response = await axios.get("/diets");
+    const response = await axios.get("/diets");
     console.log(response);
 
     return dispatch({
@@ -55,16 +56,23 @@ export function post_Recipe(created) {
   };
 }
 
-export function filterRecipe_For_Diets(diets) {
+export function filte_Recipe_For_Diets(diets) {
   return {
     type: FILTER_FOR_DIETS,
     payload: diets,
   };
 }
 
-export function order_Health_Score(health_score) {
+export function order_For_Health_Score(health_score) {
   return {
-    type: ORDEN_BY_SCORE,
+    type: ORDEN_BY_HEALTH_SCORE,
     payload: health_score,
+  };
+}
+
+export function orden_For_Name(name) {
+  return {
+    type: ORDEN_BY_NAME,
+    payload: name,
   };
 }

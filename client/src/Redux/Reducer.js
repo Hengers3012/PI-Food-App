@@ -4,7 +4,8 @@ import {
   POST_RECIPE,
   SEARCH_BAR,
   FILTER_FOR_DIETS,
-  ORDEN_BY_SCORE,
+  ORDEN_BY_HEALTH_SCORE,
+  ORDEN_BY_NAME,
 } from "./Action_Types";
 
 const initialState = {
@@ -31,48 +32,71 @@ function reducer(state = initialState, action) {
       };
 
     case SEARCH_BAR:
-      //let resultSearch = [...state.recipes];
+      let resultSearch = [...state.recipes];
       return {
         ...state,
-        //recipes: resultSearch.length > 0 ? action.payload : state.recipes,
-        recipes: action.payload,
+        recipes: resultSearch.length > 0 ? action.payload : state.recipes,
+        //recipes: action.payload,
       };
 
     case POST_RECIPE:
       return {
         state,
       };
-    case FILTER_FOR_DIETS:
-      const filterRecipes_For_Diets = [...state.allRecipes].filter((recipe) => {
-        let dietsInfo = recipe.diets.map((diet) => diet.name);
 
-        if (dietsInfo.includes(action.payload)) {
-          return recipe;
-        } else return undefined;
+    case FILTER_FOR_DIETS:
+      const recipes = state.allRecipes;
+      const recipesWithDiet = recipes.filter((r) => {
+        let names = r.diets.map((d) => d.name);
+        if (names.includes(action.payload)) {
+          let res = r;
+          return res;
+        } else {
+          return undefined;
+        }
       });
       return {
         ...state,
-        recipe:
-          action.payload === "" ? state.allRecipes : filterRecipes_For_Diets,
+        recipes:
+          action.payload === "default" ? state.allRecipes : recipesWithDiet,
       };
 
-    case ORDEN_BY_SCORE:
-      let orderedRecipes2 = [...state.recipes];
-      orderedRecipes2 =
-        action.payload === "asc"
-          ? orderedRecipes2.sort((a, b) => {
-              if (a.healthScore < b.healthScore) return 1;
-              if (a.healthScore > b.healthScore) return -1;
+    case ORDEN_BY_NAME:
+      let order_Recipe_Name = [...state.recipes];
+      order_Recipe_Name =
+        action.payload === "ascendente"
+          ? order_Recipe_Name.sort((a, b) => {
+              if (a.name < b.name) return -1;
+              if (a.name > b.name) return 1;
               return 0;
             })
-          : orderedRecipes2.sort((a, b) => {
-              if (a.healthScore < b.healthScore) return -1;
-              if (a.healthScore > b.healthScore) return 1;
+          : order_Recipe_Name.sort((a, b) => {
+              if (a.name < b.name) return 1;
+              if (a.name > b.name) return -1;
               return 0;
             });
       return {
         ...state,
-        recipes: [...orderedRecipes2],
+        recipes: [...order_Recipe_Name],
+      };
+
+    case ORDEN_BY_HEALTH_SCORE:
+      let order_Recipe_HealthScore = [...state.recipes];
+      order_Recipe_HealthScore =
+        action.payload === "ascendente"
+          ? order_Recipe_HealthScore.sort((a, b) => {
+              if (a.health_score < b.health_score) return 1;
+              if (a.health_score > b.health_score) return -1;
+              return 0;
+            })
+          : order_Recipe_HealthScore.sort((a, b) => {
+              if (a.health_score < b.health_score) return -1;
+              if (a.health_score > b.health_score) return 1;
+              return 0;
+            });
+      return {
+        ...state,
+        recipes: [...order_Recipe_HealthScore],
       };
 
     default:

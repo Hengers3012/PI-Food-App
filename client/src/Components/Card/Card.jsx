@@ -10,15 +10,15 @@ export default function CardRecipe(props) {
     <div className={styles.continer_Card}>
       <Link to={`/detail/${id}`}>
         <div className={styles.healthScoreText}>
-          <p>Health Score</p>
+          <p>Health Score: </p>
           {`${health_score}`}
         </div>
-        <div>
+        <div className={styles.contImageName}>
           <img
-            src={image}
-            alt={`Receta ${name}`}
-            className={styles.imageRecipe}
+            src="https://cdn.aarp.net/content/dam/aarp/health/caregiving/2018/03/1140-nutrients-food-loved-ones-caregiving-esp.jpg"
+            alt=""
           />
+          {/* <img src={image} alt={`${name}`} className={styles.imageRecipe} /> */}
           <h2 className={styles.cardName}>
             {name[0].toUpperCase() + name.slice(1)}
           </h2>

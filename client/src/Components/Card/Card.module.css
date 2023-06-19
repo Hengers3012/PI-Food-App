@@ -1,12 +1,29 @@
 .continer_Card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  margin: 5px;
+
+  white-space: break-word;
+  background-size: cover;
   background-color: black;
   border: solid yellow;
 }
 
 .healthScoreText {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px 10px;
   color: rgb(7, 255, 94);
   text-decoration: none;
+}
+.contImageName {
+  font-size: 12px;
+}
+.contImageName img {
+  width: 90%;
+  border-radius: 15px;
+  margin: auto;
 }

@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { search_Bar } from "../../Redux/Actions";
-import CardsRecipes from "../Cards/Cards";
+import { getRecipe_Info } from "../../Redux/Actions";
 import CardRecipe from "../Card/Card";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
 
@@ -17,7 +16,7 @@ export default function HomePage() {
   // const [recipeName, setRecipeName] = useState([]);
 
   useEffect(() => {
-    dispatch(search_Bar);
+    dispatch(getRecipe_Info());
   }, [dispatch]);
 
   console.log(recipes);
@@ -34,9 +33,9 @@ export default function HomePage() {
       </div>
 
       <div className={styles.cardRecipeContainer}>
-        {recipes?.map((element) => {
+        {recipes?.map((element, index) => {
           return (
-            <div className={styles.containerCard_indiv}>
+            <div key={`card${index}`} className={styles.containerCard_indiv}>
               <div>
                 <CardRecipe
                   id={element.id}

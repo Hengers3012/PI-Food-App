@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { getDiets_Info, post_Recipe } from "../../Redux/Actions";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
@@ -8,58 +8,84 @@ import styles from "./Created_Recipe.module.css";
 
 export default function CreateRecipeApp() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const diets = useSelector((state) => state.diets);
   const [recipeError, setRecipeErrors] = useState({});
-  const [infoRecipe, setInfoRecipe] = useState({
+  const [recipeData, setRecipeData] = useState({
     name: "",
     summary_of_the_dish: "",
-    health_score: 50,
+    health_score: 0,
     instructions: [""],
     image: "",
     diet: [],
   });
 
-  function validate(recipeInfo) {
+  function validate() {
     let recipeError = {};
 
-    if (infoRecipe.name.length !== "") {
+    if (recipeData.name.length !== "") {
       recipeError.name = "Se requiere un nombre";
-    } else if (infoRecipe.name.length > 100) {
+    } else if (recipeData.name.length > 100) {
       recipeError.name =
         "El nombre de la receta no debe sobrepasar los 100 caracteres.";
-    } else if (infoRecipe.summary_of_the_dish.length !== "") {
+    } else if (recipeData.summary_of_the_dish.length !== "") {
       recipeError.summary_of_the_dish =
         "Se requiere una descripcción para la Receta";
-    } else if (infoRecipe.summary_of_the_dish.length > 200) {
+    } else if (recipeData.summary_of_the_dish.length > 200) {
       recipeError.summary_of_the_dish =
         "La descripción de la receta no debe sobrepasar los 200 caracteres.";
-    } else if (infoRecipe.instructions.length !== "") {
+    } else if (recipeData.instructions.length !== "") {
       recipeError.instructions =
         "Se requieren las instruccíones para la receta.";
-    } else if (infoRecipe.instructions.length > 200) {
+    } else if (recipeData.instructions.length > 200) {
       recipeError.instructions =
         "Las instrucciones no deben sobrepasar los 200 caracetee";
-    } else if (infoRecipe.image.length !== "") {
+    } else if (recipeData.image.length !== "") {
       recipeError.image =
         "Es requerido introducir la URL de la imagen de la receta";
     }
     return recipeError;
   }
 
-  function handleChange(event) {
-    setInfoRecipe({
-      ...infoRecipe,
-      [event.target.name]: event.target.value,
+  const handleChange = (event) => {
+    const { data, value } = event.target;
+    setRecipeData({
+      ...recipeData,
+      [data]: value,
     });
 
     setRecipeErrors(
       validate({
-        ...infoRecipe,
-        [event.target.name]: event.target.value,
+        ...recipeData,
+        [data]: value,
       })
     );
-  }
+  };
+
+  const handleChange_For_Diets = (event) => {
+    const { data } = event.target.checked;
+    const { value } = event.target;
+
+    if (data) {
+      setRecipeData({
+        ...recipeData,
+        diet: [...recipeData.diet, value],
+      });
+
+      setRecipeErrors(
+        validate({
+          ...recipeData,
+          diet: [...recipeData.diet, value],
+        })
+      );
+    } else {
+      setRecipeData({
+        ...recipeData,
+        diet: recipeData.diet.filter((element) => element !== value),
+      });
+    }
+  };
 
   function handleSubmit(event) {}
 
@@ -95,7 +121,7 @@ export default function CreateRecipeApp() {
               <input
                 type="text"
                 name="name"
-                value={infoRecipe.name}
+                value={recipeData.name}
                 onChange={(event) => handleChange(event)}
               />
               <span>{recipeError.name}</span>
@@ -107,7 +133,7 @@ export default function CreateRecipeApp() {
                 type="text"
                 cols="100"
                 rows="10"
-                value={infoRecipe.summary_of_the_dish}
+                value={recipeData.summary_of_the_dish}
                 onChange={(event) => handleChange(event)}
               />
               <span>{recipeError.summary_of_the_dish}</span>
@@ -120,7 +146,7 @@ export default function CreateRecipeApp() {
                 type="text"
                 cols="100"
                 rows="10"
-                value={infoRecipe.instructions}
+                value={recipeData.instructions}
                 onChange={(event) => handleChange(event)}
               />
               <span>{recipeError.instructions}</span>
@@ -131,7 +157,7 @@ export default function CreateRecipeApp() {
               <input
                 type="text"
                 name="image"
-                value={infoRecipe.image}
+                value={recipeData.image}
                 onChange={(event) => handleChange(event)}
               />
               <span>{recipeError.image}</span>
@@ -149,6 +175,7 @@ export default function CreateRecipeApp() {
                       key={`Diet${index}`}
                       name={diet.name}
                       value={diet.name}
+                      onChange={(event) => handleChange_For_Diets(event)}
                     />
                     {diet.name[0].toUpperCase() + diet.name.slice(1)}
                   </label>
@@ -159,7 +186,14 @@ export default function CreateRecipeApp() {
 
             <div>
               <h3>Health Score</h3>
-              <input type="range" min="0" max="100" name="health_score" />
+              <input
+                name="health_score"
+                type="range"
+                min="0"
+                max="100"
+                value={recipeData.health_score}
+                onChange={(event) => handleChange(event)}
+              />
             </div>
           </div>
         </div>

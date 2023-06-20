@@ -49,9 +49,9 @@ export function search_Bar(recipe_diets_name) {
   };
 }
 
-export function post_Recipe(created) {
+export function post_Recipe(created_Recipe) {
   return async function (dispatch) {
-    const post_for_Axios = await axios.post("/recipes", created);
+    const post_for_Axios = await axios.post("/recipes", created_Recipe);
     return post_for_Axios;
   };
 }

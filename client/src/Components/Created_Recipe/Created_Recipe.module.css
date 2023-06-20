@@ -8,17 +8,12 @@
 
   /* border: solid white; */
   background-color: rgb(255, 255, 255);
-
-  overflow: hidden;
 }
 
 .containerNavBarTop {
   display: grid;
   grid-template-columns: 9fr 1fr;
   grid-template-rows: 1fr;
-
-  height: auto;
-  width: 100%;
 
   background-color: #b1cd2a;
 }
@@ -37,15 +32,16 @@
   text-decoration: none;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   transition: all 0.3s ease;
+  background-size: contain;
 
   height: 50px;
   width: 130px;
   font-size: 40px;
-  -webkit-text-stroke: 2px rgb(255, 195, 0);
+  -webkit-text-stroke: 2px #b1cd2a;
 
   border-radius: 20px;
 
-  color: rgb(255, 195, 0);
+  color: #b1cd2a;
   background-color: rgb(0, 0, 0);
 }
 
@@ -56,42 +52,68 @@
   -webkit-text-stroke: 2px rgb(255, 255, 255);
   background-color: rgb(0, 53, 102);
 }
-
-.containerForm {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  align-items: center;
-  justify-content: center;
-  background-size: contain;
-
-  border: solid red;
-}
-
 .labelPage {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  height: 75px;
+}
+.containerForm {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 9fr 1fr;
+  height: auto;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px;
+  position: relative;
+  border: solid red;
+}
+.containerInfoRecipe {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.containerGridLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 50px;
+}
+
+.containerGridRigth {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .containerCheckbox {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 9fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
-  background-size: cover;
-  height: 200px;
-  width: 400px;
-  margin: 5px;
+  height: 320px;
+  width: 225px;
   border: solid yellowgreen;
+}
+
+.containerCheckbox h3 {
+  margin: 10px 0;
 }
 
 .dietsLabel {
   display: flex;
-  margin-left: 15px;
+  align-items: center;
+
+  width: 200px;
+  margin: 2px 0;
+  margin-left: 5px;
 }
 .dietsLabel input {
   margin-right: 10px;
+  border-radius: 50%;
 }

@@ -23,6 +23,7 @@
   text-decoration: none;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   transition: all 0.3s ease;
+  cursor: pointer;
 
   height: 40px;
   width: 225px;
@@ -44,6 +45,7 @@
   text-decoration: none;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   transition: all 0.3s ease;
+  cursor: pointer;
 
   height: 40px;
   width: 250px;
@@ -65,6 +67,7 @@
   text-decoration: none;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   transition: all 0.3s ease;
+  cursor: pointer;
 
   height: 40px;
   width: 250px;

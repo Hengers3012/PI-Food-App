@@ -32,48 +32,54 @@ export default function CreateRecipeApp() {
       </div>
 
       <form className={styles.containerForm}>
-        <div className={styles.containerNameDiets}>
-          <h3>Nombre</h3>
-          <input type="text" name="name" />
-        </div>
-        <div>
-          <h3>Health Score</h3>
-          <input type="range" min="0" max="100" name="health_score" />
-        </div>
-        <div>
-          <h3>Descripción</h3>
-          <textarea
-            name="summary_of_the_dish"
-            key="summ"
-            type="text"
-            cols="30"
-            rows="10"
-          />
-        </div>
-        <div className={styles.containerCheckbox}>
-          <h3>Dietas</h3>
-          <br />
-          {diets.map((diet, index) => {
-            return (
-              <label className={styles.dietsLabel}>
-                <input
-                  type="checkbox"
-                  key={`Diet${index}`}
-                  name={diet.name}
-                  value={diet.name}
-                />
-                {diet.name[0].toUpperCase() + diet.name.slice(1)}
-              </label>
-            );
-          })}
-        </div>
-        <div>
-          <h3>Instrucciones</h3>
-          <textarea name="instructions" type="text" cols="30" rows="10" />
-        </div>
-        <div>
-          <h3>Image</h3>
-          <input type="text" name="image" />
+        <div className={styles.containerInfoRecipe}>
+          <div className={styles.containerGridLeft}>
+            <div className={styles.containerNameDiets}>
+              <h3>Nombre</h3>
+              <input type="text" name="name" />
+            </div>
+            <div>
+              <h3>Descripción</h3>
+              <textarea
+                name="summary_of_the_dish"
+                type="text"
+                cols="100"
+                rows="10"
+              />
+            </div>
+            <div>
+              <h3>Instrucciones</h3>
+              <textarea name="instructions" type="text" cols="100" rows="10" />
+            </div>
+            <div>
+              <h3>Image</h3>
+              <input type="text" name="image" />
+            </div>
+          </div>
+
+          <div className={styles.containerGridRigth}>
+            <div className={styles.containerCheckbox}>
+              <h3>Dietas</h3>
+              {diets.map((diet, index) => {
+                return (
+                  <label className={styles.dietsLabel}>
+                    <input
+                      type="checkbox"
+                      key={`Diet${index}`}
+                      name={diet.name}
+                      value={diet.name}
+                    />
+                    {diet.name[0].toUpperCase() + diet.name.slice(1)}
+                  </label>
+                );
+              })}
+            </div>
+
+            <div>
+              <h3>Health Score</h3>
+              <input type="range" min="0" max="100" name="health_score" />
+            </div>
+          </div>
         </div>
         <div>
           <button type="submit">CREATE RECIPE</button>

@@ -195,11 +195,13 @@ export default function CreateRecipeApp() {
           <div className={styles.containerGridRigth}>
             <div className={styles.containerCheckbox}>
               <h3>Dietas</h3>
-              {diets.map((diet) => {
+              {diets.map((diet, index) => {
                 return (
                   <label className={styles.dietsLabel}>
                     <input
                       type="checkbox"
+                      id={"diet-" + index}
+                      key={index}
                       name={diet.name}
                       value={diet.name}
                       onChange={(event) => handleChange_For_Diets(event)}
@@ -222,6 +224,7 @@ export default function CreateRecipeApp() {
                 max="100"
                 value={recipeData.health_score}
                 onChange={(event) => handleChange(event)}
+                className={styles.healthScore}
               />
             </div>
           </div>

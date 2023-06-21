@@ -117,3 +117,9 @@
   margin-right: 10px;
   border-radius: 50%;
 }
+
+.healthScore {
+  appearance: slider-vertical;
+  width: 20px;
+  height: 200px;
+}

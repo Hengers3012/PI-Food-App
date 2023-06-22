@@ -82,7 +82,7 @@ export default function CreateRecipeApp() {
     if (event.target.checked) {
       setRecipeData({
         ...recipeData,
-        diet: event.target.value,
+        diet: [event.target.value],
       });
 
       // setRecipeErrors(
@@ -130,8 +130,6 @@ export default function CreateRecipeApp() {
   }, [dispatch]);
 
   //console.log(diets);
-
-  const selecDiet = recipeData.diet.join();
 
   return (
     <div className={styles.containerPage}>
@@ -216,14 +214,12 @@ export default function CreateRecipeApp() {
                 return (
                   <label className={styles.dietsLabel}>
                     <input
-                      key={diet.name}
                       type="checkbox"
                       name={diet.name}
                       value={diet.name}
                       onChange={(event) => handleChange_For_Diets(event)}
                       // onPaste={(event) => handleChange_For_Diets(event)}
                     />
-
                     {diet.name[0].toUpperCase() + diet.name.slice(1)}
                   </label>
                 );

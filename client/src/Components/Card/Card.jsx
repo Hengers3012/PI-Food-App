@@ -25,7 +25,11 @@ export default function CardRecipe(props) {
             src="https://cdn.aarp.net/content/dam/aarp/health/caregiving/2018/03/1140-nutrients-food-loved-ones-caregiving-esp.jpg"
             alt=""
           /> */}
-          <img src={image} alt="" className={styles.imageRecipe} />
+          <img
+            src={image}
+            alt={`receta ${name}`}
+            className={styles.imageRecipe}
+          />
           <h2 className={styles.cardName}>
             {name[0].toUpperCase() + name.slice(1)}
           </h2>

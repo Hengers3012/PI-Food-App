@@ -43,7 +43,7 @@ export default function HomePage() {
                 <CardRecipe
                   id={element.id}
                   health_score={element.health_score}
-                  img={element.image}
+                  image={element.image}
                   name={element.name}
                   diets={element.diets}
                   createdInDb={element.createdInDb}

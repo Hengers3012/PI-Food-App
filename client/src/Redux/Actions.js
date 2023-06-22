@@ -7,6 +7,7 @@ import {
   FILTER_FOR_DIETS,
   ORDEN_BY_HEALTH_SCORE,
   ORDEN_BY_NAME,
+  POST_RECIPE,
 } from "./Action_Types";
 
 export function getRecipe_Info() {
@@ -51,8 +52,16 @@ export function search_Bar(recipe_diets_name) {
 
 export function post_Recipe(created_Recipe) {
   return async function (dispatch) {
-    const post_for_Axios = await axios.post("/recipes", created_Recipe);
-    return post_for_Axios;
+    try {
+      const post_for_Axios = await axios.post(`/recipes`, created_Recipe);
+      JSON.stringify(post_for_Axios, post_Recipe);
+      return dispatch({
+        type: POST_RECIPE,
+        payload: post_for_Axios.data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 }
 

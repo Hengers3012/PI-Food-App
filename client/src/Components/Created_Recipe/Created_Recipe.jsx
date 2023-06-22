@@ -20,7 +20,7 @@ export default function CreateRecipeApp() {
   const [recipeData, setRecipeData] = useState({
     name: "",
     summary_of_the_dish: "",
-    health_score: 50,
+    health_score: 0,
     instructions: [""],
     image: "",
     diet: [],
@@ -100,18 +100,18 @@ export default function CreateRecipeApp() {
     setRecipeData({
       name: "",
       summary_of_the_dish: "",
-      health_score: 50,
+      health_score: 0,
       instructions: [""],
       image: "",
       diet: [],
     });
 
-    history.push("/home");
+    //history.push("/home");
   }
 
   useEffect(() => {
     dispatch(getDiets_Info());
-  }, [dispatch]);
+  }, []);
 
   console.log(diets);
 

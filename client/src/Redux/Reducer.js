@@ -13,6 +13,7 @@ const initialState = {
   allRecipes: [],
   diets: [],
   detail: [],
+  newRecipe: [],
 };
 
 function reducer(state = initialState, action) {

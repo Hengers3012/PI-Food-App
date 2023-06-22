@@ -7,10 +7,14 @@ module.exports = (sequelize) => {
     "recipe",
     {
       id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        allowNull: false,
+        // type: DataTypes.UUID,
+        // defaultValue: DataTypes.UUIDV4,
+        // allowNull: false,
+        // primaryKey: true,
+        type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
       },
       name: {
         type: DataTypes.STRING,
@@ -29,11 +33,11 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       health_score: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.INTEGER,
         validate: { min: 0, max: 100 },
       },
       instructions: {
-        type: DataTypes.ARRAY(DataTypes.TEXT),
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
       createdInDb: {

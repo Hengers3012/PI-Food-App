@@ -13,7 +13,6 @@ const initialState = {
   allRecipes: [],
   diets: [],
   detail: [],
-  newRecipe: [],
 };
 
 function reducer(state = initialState, action) {
@@ -42,7 +41,7 @@ function reducer(state = initialState, action) {
 
     case POST_RECIPE:
       return {
-        state,
+        ...state,
       };
 
     case FILTER_FOR_DIETS:

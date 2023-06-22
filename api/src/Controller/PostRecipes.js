@@ -11,12 +11,13 @@ const { Recipe, Diet } = require("../db");
 const createRecipe = async (req, res) => {
   try {
     // Extraigo la información recibida por body.
-    const {
+    let {
       name,
       summary_of_the_dish,
       health_score,
       image,
       instructions,
+      createdInDb,
       diet,
     } = req.body;
 
@@ -27,18 +28,19 @@ const createRecipe = async (req, res) => {
       image,
       health_score,
       instructions,
+      createdInDb,
     });
 
     // Relaciono la receta con los tipos de dietas indicados.
-    diet.map(async (diets) => {
-      const dietDBB = await Diet.findOrCreate({
-        where: {
-          name: diets,
-        },
-      });
 
-      newRecipe.addDiet(dietDBB[0]);
+    const dietDBB = await Diet.findOrCreate({
+      where: {
+        name: diet,
+      },
     });
+
+    newRecipe.addDiet(dietDBB[0]);
+
     //Si la receta se agrego correctamente a la BDD, respondo con el siguiente mensaje.
     res.send("¡Receta creada con éxito!");
     //

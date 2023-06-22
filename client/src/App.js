@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import LandingPageApp from "./Components/Landing_Page/Landing_Page";
 import HomePage from "./Components/Home/Home_Page";
+import DetailsPage from "./Components/Detail_Page/Detail_Page";
 import CreatedRecipeApp from "./Components/Created_Recipe/Created_Recipe";
 
 import styles from "./App.module.css";
@@ -17,7 +18,7 @@ function App() {
           <Route exact path="/" component={LandingPageApp} />
           <Route exact path="/home" component={HomePage} />
           <Route exact path="/created_recipe" component={CreatedRecipeApp} />
-          <Route exact path="/recipes/:id" />
+          <Route exact path="/detail/:id" component={DetailsPage} />
         </Switch>
       </div>
     </BrowserRouter>

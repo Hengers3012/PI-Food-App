@@ -11,36 +11,65 @@ export default function NavBarTop() {
   // let amount = details.length - 1;
   // let randomNumber = Math.floor(Math.random() * (amount - 0 + 1) + 0);
   // let randomId = details[randomNumber].id;
+  if (Link.to === "/home") {
+    return (
+      <div className={styles.containerNavBarTop}>
+        <div className={styles.navBarContPart1}>
+          <Link to="/" className={styles.logo}>
+            <img src={"./assets/Image/Food_Logo.png"} alt="" />
+          </Link>
+        </div>
 
-  return (
-    <div className={styles.containerNavBarTop}>
-      <div className={styles.navBarContPart1}>
-        <Link to="/" className={styles.logo}>
-          <img src={"./assets/Image/Food_Logo.png"} alt="" />
-        </Link>
+        <div className={styles.containerNavBarRoute}>
+          <Link to="/created_recipe" className={styles.createBtn}>
+            Create Recipe
+          </Link>
+          {/* <Link to={`/recipes/${randomId}`}>
+            <button className={styles.randomRecipe}>Random Recipe</button>
+          </Link> */}
+          <Link to="/created_recipe" className={styles.createBtn}>
+            Create Recipe
+          </Link>
+        </div>
+
+        {/* <div className={styles.containerBackBtn}>
+          <Link to="/" className={styles.backBtn}>
+            BACK
+          </Link>
+        </div> */}
       </div>
+    );
+  } else {
+    return (
+      <div className={styles.containerNavBarTop}>
+        <div className={styles.navBarContPart1}>
+          <Link to="/" className={styles.logo}>
+            <img src={"./assets/Image/Food_Logo.png"} alt="" />
+          </Link>
+        </div>
 
-      <div className={styles.containerNavBarRoute}>
-        <Link to="/created_recipe" className={styles.createBtn}>
-          Create Recipe
-        </Link>
-        {/* <Link to={`/recipes/${randomId}`}>
+        <div className={styles.containerNavBarRoute}>
+          <Link to="/created_recipe" className={styles.createBtn}>
+            Create Recipe
+          </Link>
+          {/* <Link to={`/recipes/${randomId}`}>
           <button className={styles.randomRecipe}>Random Recipe</button>
         </Link> */}
-        <Link to="/created_recipe" className={styles.createBtn}>
-          Create Recipe
-        </Link>
-      </div>
+          <Link to="/created_recipe" className={styles.createBtn}>
+            Create Recipe
+          </Link>
+        </div>
 
-      <div className={styles.containerSearchBar}>
-        <SearchBar />
-      </div>
+        <div className={styles.containerSearchBar}>
+          <SearchBar />
+        </div>
 
-      {/* <div className={styles.containerBackBtn}>
+        {/* <div className={styles.containerBackBtn}>
         <Link to="/" className={styles.backBtn}>
           BACK
         </Link>
       </div> */}
-    </div>
-  );
+      </div>
+    );
+  }
 }

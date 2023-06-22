@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
 export default function CardRecipe(props) {
-  // const { id, name, health_score, image, diets } = props;
-  const { id, name, health_score, diets } = props;
+  const { id, name, health_score, image, diets } = props;
+  //const { id, name, health_score, diets } = props;
   console.log(props);
 
   return (
@@ -21,11 +21,11 @@ export default function CardRecipe(props) {
         </div>
 
         <div className={styles.contImageName}>
-          <img
+          {/* <img
             src="https://cdn.aarp.net/content/dam/aarp/health/caregiving/2018/03/1140-nutrients-food-loved-ones-caregiving-esp.jpg"
             alt=""
-          />
-          {/* <img src={image} alt={`${name}`} className={styles.imageRecipe} /> */}
+          /> */}
+          <img src={image} alt="" className={styles.imageRecipe} />
           <h2 className={styles.cardName}>
             {name[0].toUpperCase() + name.slice(1)}
           </h2>

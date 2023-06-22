@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRecipe_Info } from "../../Redux/Actions";
 import CardRecipe from "../Card/Card";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
+import SearchBar from "../SearchBar/Search_Bar";
 import FilterRecipesCards from "../Filter_Recipes/Filter_Recipes";
 
 import styles from "./Home_Page.module.css";
@@ -25,7 +26,14 @@ export default function HomePage() {
   return (
     <div className={styles.homeContainer}>
       <div className={styles.containerNavBarTop}>
-        <NavBarTop />
+        <div>
+          <NavBarTop />
+        </div>
+
+        <div>
+          <SearchBar />
+        </div>
+
         <div className={styles.containerBackBtn}>
           <Link to="/" className={styles.backBtn}>
             BACK

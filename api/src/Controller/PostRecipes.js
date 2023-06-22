@@ -11,7 +11,7 @@ const { Recipe, Diet } = require("../db");
 const createRecipe = async (req, res) => {
   try {
     // Extraigo la información recibida por body.
-    let {
+    const {
       name,
       summary_of_the_dish,
       health_score,
@@ -32,7 +32,6 @@ const createRecipe = async (req, res) => {
     });
 
     // Relaciono la receta con los tipos de dietas indicados.
-
     const dietDBB = await Diet.findOrCreate({
       where: {
         name: diet,
@@ -40,6 +39,14 @@ const createRecipe = async (req, res) => {
     });
 
     newRecipe.addDiet(dietDBB[0]);
+
+    // const dietDBB = await Diet.findOrCreate({
+    //   where: {
+    //     name: diet,
+    //   },
+    // });
+
+    // newRecipe.addDiet(dietDBB[0]);
 
     //Si la receta se agrego correctamente a la BDD, respondo con el siguiente mensaje.
     res.send("¡Receta creada con éxito!");

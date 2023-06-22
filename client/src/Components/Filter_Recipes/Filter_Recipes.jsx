@@ -73,8 +73,8 @@ export default function FilterRecipesCards() {
             <option value="default" disabled>
               In Alphabetical Order
             </option>
-            <option value="ascendente">Ascendent 🔺</option>
-            <option values="descendente">Descendent 🔻</option>
+            <option value="ascendente">🔺 Ascendent</option>
+            <option values="descendente">🔻 Descendent</option>
           </select>
         </div>
         <div className={styles.containerFilter_HealthScore}>
@@ -86,8 +86,8 @@ export default function FilterRecipesCards() {
             <option value="default" disabled>
               Sort by Health Score
             </option>
-            <option value="ascendente">Ascendent 🔺</option>
-            <option value="descendente">Descendent 🔻</option>
+            <option value="ascendente">🔺 Ascendent</option>
+            <option value="descendente">🔻 Descendent</option>
           </select>
         </div>
       </div>

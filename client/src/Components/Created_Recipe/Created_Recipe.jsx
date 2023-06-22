@@ -71,7 +71,7 @@ export default function CreateRecipeApp() {
   function handleChangeIntrucctions(event) {
     setRecipeData({
       ...recipeData,
-      [event.target.name]: [event.target.value],
+      diet: event.target.value,
     });
   }
 
@@ -92,6 +92,12 @@ export default function CreateRecipeApp() {
       //   })
       // );
     }
+    // if (event.target.checked === false) {
+    //   setRecipeData({
+    //     ...recipeData,
+    //     diet: recipeData.diet.filter((el) => el === event.target.value),
+    //   });
+    // }
     console.log(recipeData);
     // else {
     //   setRecipeData({
@@ -124,6 +130,8 @@ export default function CreateRecipeApp() {
   }, [dispatch]);
 
   //console.log(diets);
+
+  const selecDiet = recipeData.diet.join();
 
   return (
     <div className={styles.containerPage}>
@@ -204,16 +212,18 @@ export default function CreateRecipeApp() {
           <div className={styles.containerGridRigth}>
             <div className={styles.containerCheckbox}>
               <h3>Dietas</h3>
-              {diets?.map((diet) => {
+              {diets.map((diet) => {
                 return (
                   <label className={styles.dietsLabel}>
                     <input
+                      key={diet.name}
                       type="checkbox"
                       name={diet.name}
                       value={diet.name}
                       onChange={(event) => handleChange_For_Diets(event)}
                       // onPaste={(event) => handleChange_For_Diets(event)}
                     />
+
                     {diet.name[0].toUpperCase() + diet.name.slice(1)}
                   </label>
                 );

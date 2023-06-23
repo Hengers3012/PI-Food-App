@@ -30,13 +30,13 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   transition: all 0.3s ease;
   background-size: contain;
 
   height: 50px;
   width: 130px;
-  font-size: 40px;
+  font-size: 50px;
   -webkit-text-stroke: 2px #b1cd2a;
 
   border-radius: 20px;
@@ -85,8 +85,8 @@
 
 .containerGridRigth {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   justify-content: flex-start;
 }
 
@@ -122,4 +122,8 @@
   appearance: slider-vertical;
   width: 20px;
   height: 200px;
+}
+
+.instrucction {
+  display: flex;
 }

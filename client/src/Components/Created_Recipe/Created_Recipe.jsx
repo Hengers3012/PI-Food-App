@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -9,14 +10,14 @@ import styles from "./Created_Recipe.module.css";
 
 export default function CreateRecipeApp() {
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const history = useHistory();
 
   const diets = useSelector((state) => state.diets);
-  // const allRecipes = useSelector((state) => state.allRecipes);
+  const allRecipes = useSelector((state) => state.allRecipes);
 
-  // let recipesNames = allRecipes.map((el) => el.name);
+  let recipesNames = allRecipes.map((el) => el.name);
 
-  // const [recipeError, setRecipeErrors] = useState({});
+  const [recipeError, setRecipeErrors] = useState({});
   const [recipeData, setRecipeData] = useState({
     name: "",
     summary_of_the_dish: "",
@@ -24,35 +25,39 @@ export default function CreateRecipeApp() {
     instructions: [""],
     image: "",
     diet: [],
-    uno: [],
   });
 
-  // function validate(newRecipe) {
-  //   let recipeError = {};
+  function validate(newRecipe) {
+    let recipeError = {};
 
-  //   if (recipeData.name.length !== "") {
-  //     recipeError.name = "Se requiere un nombre";
-  //   } else if (recipeData.name.length > 255) {
-  //     recipeError.name =
-  //       "El nombre de la receta no debe sobrepasar los 100 caracteres.";
-  //   } else if (recipeData.summary_of_the_dish.length !== "") {
-  //     recipeError.summary_of_the_dish =
-  //       "Se requiere una descripcción para la Receta";
-  //   } else if (recipeData.summary_of_the_dish.length > 255) {
-  //     recipeError.summary_of_the_dish =
-  //       "La descripción de la receta no debe sobrepasar los 200 caracteres.";
-  //   } else if (recipeData.instructions.length !== "") {
-  //     recipeError.instructions =
-  //       "Se requieren las instruccíones para la receta.";
-  //   } else if (recipeData.instructions.length > 255) {
-  //     recipeError.instructions =
-  //       "Las instrucciones no deben sobrepasar los 200 caracetee";
-  //   } else if (recipeData.image.length !== "") {
-  //     recipeError.image =
-  //       "Es requerido introducir la URL de la imagen de la receta";
-  //   }
-  //   return recipeError;
-  // }
+    if (!recipeData.name.length) {
+      recipeError.name = "Se requiere un nombre";
+    }
+    if (!recipeData.summary_of_the_dish.length) {
+      recipeError.summary_of_the_dish =
+        "Se requiere una descripcción para la receta";
+    }
+    // if (!recipeData.instructions === [""]) {
+    //   recipeError.instructions =
+    //     "Se requieren las instrucciones para la receta";
+    // }
+    if (!recipeData.diet.length) {
+      recipeError.diet = "Seleccione almenos una dieta.";
+    }
+    if (recipeData.name.length > 100) {
+      recipeError.name = `100 characters or less(Characters:${recipeData.name.length})`;
+    }
+    if (recipeData.summary_of_the_dish.length > 200) {
+      recipeError.summary_of_the_dish = `200 characters or less(Characters:${recipeData.summary_of_the_dish.length})`;
+    }
+    if (recipeData.instructions.length > 200) {
+      recipeError.instructions = `200 characters or less(Characters:${recipeData.instructions.length})`;
+    }
+    if (recipeData.image.length > 255) {
+      recipeError.image = `255 characters or less(Characters:${recipeData.image.length})`;
+    }
+    return recipeError;
+  }
 
   function handleChange(event) {
     //const { data, value } = event.target;
@@ -60,20 +65,31 @@ export default function CreateRecipeApp() {
       ...recipeData,
       [event.target.name]: event.target.value,
     });
+
     console.log(recipeData);
-    // setRecipeErrors(
-    //   validate({
-    //     ...recipeData,
-    //     [event.target.name]: event.target.value,
-    //   })
-    // );
+
+    setRecipeErrors(
+      validate({
+        ...recipeData,
+        [event.target.name]: event.target.value,
+      })
+    );
   }
 
   function handleChangeIntrucctions(event) {
     setRecipeData({
       ...recipeData,
-      instructions: event.target.value,
+      [event.target.name]: event.target.value,
     });
+
+    console.log(recipeData);
+
+    setRecipeErrors(
+      validate({
+        ...recipeData,
+        [event.target.name]: event.target.value,
+      })
+    );
   }
 
   function handleChange_For_Diets(event) {
@@ -92,12 +108,12 @@ export default function CreateRecipeApp() {
       diet: dt,
     });
 
-    // setRecipeErrors(
-    //   validate({
-    //     ...recipeData,
-    //     diet: [...recipeData.diet, event.target],
-    //   })
-    // );
+    setRecipeErrors(
+      validate({
+        ...recipeData,
+        diet: [...recipeData.diet, event.target],
+      })
+    );
     // if (event.target.checked === false) {
     //   setRecipeData({
     //     ...recipeData,
@@ -121,6 +137,27 @@ export default function CreateRecipeApp() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(recipeData);
+
+    if (!recipeData.name) {
+      return alert("El nombre de la receta es requerido.");
+    } else if (recipeData.name.length > 100) {
+      return alert("El nombre introducido es muy largo.");
+    } else if (recipesNames.includes(recipeData.name)) {
+      return alert("Este nombre ya existe.");
+    } else {
+      const name = recipeData.name;
+      recipeData.name = recipeData.name[0].toUpperCase() + name.substring(1);
+    }
+
+    if (!recipeData.summary_of_the_dish) {
+      return alert("La receta debe incluir una descripción.");
+    }
+    if (!recipeData.instructions) {
+      return alert("La receta debe incluir las instrucciones de preparación.");
+    }
+    if (!recipeData.diet.length) {
+      return alert("La receta debe incluir almenos una dieta.");
+    }
     dispatch(post_Recipe(recipeData));
 
     alert("Recipe Created Successfully");
@@ -132,7 +169,7 @@ export default function CreateRecipeApp() {
       image: "",
       diet: [],
     });
-    // //history.push("/home");
+    history.push("/home");
   }
 
   useEffect(() => {
@@ -165,30 +202,30 @@ export default function CreateRecipeApp() {
             <div className={styles.containerNameDiets}>
               <h3>Nombre</h3>
               <input
+                autoComplete="off"
                 type="text"
                 name="name"
                 value={recipeData.name}
                 onChange={(event) => handleChange(event)}
-                // onPaste={(event) => handleChange(event)}
+                onPaste={(event) => handleChange(event)}
               />
-              {/* {recipeError.name && <p>{recipeError.name}</p>} */}
+              {recipeError.name && <p>{recipeError.name}</p>}
             </div>
 
             <div>
               <h3>Descripción</h3>
               <textarea
-                autoComplete="off"
                 name="summary_of_the_dish"
                 type="text"
                 cols="100"
                 rows="10"
                 value={recipeData.summary_of_the_dish}
                 onChange={(event) => handleChange(event)}
-                // onPaste={(event) => handleChange(event)}
+                onPaste={(event) => handleChange(event)}
               />
-              {/* {recipeError.summary_of_the_dish && (
+              {recipeError.summary_of_the_dish && (
                 <p>{recipeError.summary_of_the_dish}</p>
-              )} */}
+              )}
             </div>
 
             <div>
@@ -200,9 +237,9 @@ export default function CreateRecipeApp() {
                 rows="10"
                 value={recipeData.instructions}
                 onChange={(event) => handleChangeIntrucctions(event)}
-                // onPaste={(event) => handleChange(event)}
+                onPaste={(event) => handleChangeIntrucctions(event)}
               />
-              {/* <span>{recipeError.instructions}</span> */}
+              {recipeError.instructions && <p>{recipeError.instructions}</p>}
             </div>
 
             <div>
@@ -213,28 +250,28 @@ export default function CreateRecipeApp() {
                 value={recipeData.image}
                 onChange={(event) => handleChange(event)}
               />
-              {/* <span>{recipeError.image}</span> */}
+              <p>{recipeError.image}</p>
             </div>
           </div>
 
           <div className={styles.containerGridRigth}>
             <div className={styles.containerCheckbox}>
               <h3>Dietas</h3>
-              {diets.map((diet) => {
+              {diets.map((diet, index) => {
                 return (
                   <label className={styles.dietsLabel}>
                     <input
+                      key={`diet${index}`}
                       type="checkbox"
                       name={diet.name}
                       value={diet.name}
                       onChange={(event) => handleChange_For_Diets(event)}
-                      // onPaste={(event) => handleChange_For_Diets(event)}
                     />
                     {diet.name[0].toUpperCase() + diet.name.slice(1)}
                   </label>
                 );
               })}
-              {/* {recipeError.diet && <p>{recipeError.diet}</p>} */}
+              {recipeError.diet && <p>{recipeError.diet}</p>}
             </div>
 
             <div>
@@ -245,9 +282,9 @@ export default function CreateRecipeApp() {
                 type="range"
                 min="0"
                 max="100"
+                className={styles.healthScore}
                 value={recipeData.health_score}
                 onChange={(event) => handleChange(event)}
-                className={styles.healthScore}
               />
             </div>
           </div>

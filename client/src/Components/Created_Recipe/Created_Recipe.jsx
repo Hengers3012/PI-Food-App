@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getDiets_Info, post_Recipe } from "../../Redux/Actions";
@@ -24,6 +24,7 @@ export default function CreateRecipeApp() {
     instructions: [""],
     image: "",
     diet: [],
+    uno: [],
   });
 
   // function validate(newRecipe) {
@@ -71,7 +72,7 @@ export default function CreateRecipeApp() {
   function handleChangeIntrucctions(event) {
     setRecipeData({
       ...recipeData,
-      diet: event.target.value,
+      instructions: event.target.value,
     });
   }
 
@@ -79,33 +80,43 @@ export default function CreateRecipeApp() {
     // const { data } = event.target.checked;
     // const { value } = event.target;
 
+    let dt = recipeData.diet;
     if (event.target.checked) {
-      setRecipeData({
-        ...recipeData,
-        diet: [event.target.value],
-      });
-
-      // setRecipeErrors(
-      //   validate({
-      //     ...recipeData,
-      //     diet: [...recipeData.diet, event.target],
-      //   })
-      // );
+      if (!dt.includes(event.target.value)) dt.push(event.target.value);
+    } else {
+      dt = dt.filter((d) => d !== event.target.value);
     }
+
+    setRecipeData({
+      ...recipeData,
+      diet: dt,
+    });
+
+    // setRecipeErrors(
+    //   validate({
+    //     ...recipeData,
+    //     diet: [...recipeData.diet, event.target],
+    //   })
+    // );
     // if (event.target.checked === false) {
     //   setRecipeData({
     //     ...recipeData,
     //     diet: recipeData.diet.filter((el) => el === event.target.value),
     //   });
     // }
-    console.log(recipeData);
     // else {
     //   setRecipeData({
     //     ...recipeData,
     //     diet: recipeData.diet.filter((element) => element !== event.target),
     //   });
     // }
+
+    //console.log(recipeData);
   }
+
+  useEffect(() => {
+    console.log(recipeData);
+  }, [recipeData]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -121,7 +132,6 @@ export default function CreateRecipeApp() {
       image: "",
       diet: [],
     });
-
     // //history.push("/home");
   }
 

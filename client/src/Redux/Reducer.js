@@ -85,13 +85,13 @@ function reducer(state = initialState, action) {
       order_Recipe_HealthScore =
         action.payload === "ascendente"
           ? order_Recipe_HealthScore.sort((a, b) => {
-              if (a.health_score < b.health_score) return 1;
-              if (a.health_score > b.health_score) return -1;
+              if (a.health_score < b.health_score) return -1;
+              if (a.health_score > b.health_score) return 1;
               return 0;
             })
           : order_Recipe_HealthScore.sort((a, b) => {
-              if (a.health_score < b.health_score) return -1;
-              if (a.health_score > b.health_score) return 1;
+              if (a.health_score < b.health_score) return 1;
+              if (a.health_score > b.health_score) return -1;
               return 0;
             });
       return {

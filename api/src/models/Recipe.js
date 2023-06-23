@@ -37,7 +37,7 @@ module.exports = (sequelize) => {
         validate: { min: 0, max: 100 },
       },
       instructions: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false,
       },
       createdInDb: {

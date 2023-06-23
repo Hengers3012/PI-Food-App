@@ -25,8 +25,20 @@
 
   margin: 5px 10px;
 
-  color: rgb(220, 220, 220);
-  -webkit-text-stroke: 0.5px rgb(6, 255, 39);
+  /*color: rgb(220, 220, 220);*/
+  /*-webkit-text-stroke: 0.5px rgb(6, 255, 39);*/
+}
+
+.redColor {
+  color: rgb(250, 40, 40);
+}
+
+.orangeColor {
+  color: rgb(255, 128, 0);
+}
+
+.greenColor {
+  color: rgb(6, 223, 6);
 }
 
 .contImageName h2 {

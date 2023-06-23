@@ -32,21 +32,15 @@ const createRecipe = async (req, res) => {
     });
 
     // Relaciono la receta con los tipos de dietas indicados.
-    const dietDBB = await Diet.findOrCreate({
-      where: {
-        name: diet,
-      },
+    diet.forEach(async (element) => {
+      const dietDBB = await Diet.findOrCreate({
+        where: {
+          name: element,
+        },
+      });
+
+      newRecipe.addDiet(dietDBB[0]);
     });
-
-    newRecipe.addDiet(dietDBB[0]);
-
-    // const dietDBB = await Diet.findOrCreate({
-    //   where: {
-    //     name: diet,
-    //   },
-    // });
-
-    // newRecipe.addDiet(dietDBB[0]);
 
     //Si la receta se agrego correctamente a la BDD, respondo con el siguiente mensaje.
     res.send("¡Receta creada con éxito!");

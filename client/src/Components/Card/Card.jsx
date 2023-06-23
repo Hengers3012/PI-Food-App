@@ -16,8 +16,15 @@ export default function CardRecipe(props) {
         style={{ textDecoration: "none" }}
       >
         <div className={styles.healthScoreText}>
-          <p>HS:</p>
-          {`${health_score}`}
+          <p
+            className={
+              health_score < 40
+                ? styles.redColor
+                : health_score < 75
+                ? styles.orangeColor
+                : styles.greenColor
+            }
+          >{`HS:${health_score}`}</p>
         </div>
 
         <div className={styles.contImageName}>

@@ -11,9 +11,16 @@ export default function DetailsPage() {
   const recipe_Details = useSelector((state) => state.detail);
 
   return (
-    <div>
-      <div className={styles.containeNav}>
-        <NavBarTop />
+    <div className={styles.detailContainer}>
+      <div className={styles.containerNavBarTop}>
+        <div className={styles.containeNav}>
+          <NavBarTop />
+        </div>
+        <div className={styles.containerBackBtn}>
+          <Link to="/home" className={styles.backBtn}>
+            BACK
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -2,9 +2,7 @@ import React from "react";
 //import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import SearchBar from "../SearchBar/Search_Bar";
 import styles from "./Nav_Bar_Top.module.css";
-import { Route } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function NavBarTop() {
   // let details = useSelector((state) => state.allRecipes);

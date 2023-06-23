@@ -56,18 +56,14 @@ export function post_Recipe(createdRecipe) {
     const respose = await axios.post("/recipes", createdRecipe);
     console.log(respose);
     return respose;
-    // try {
-    //   const post_for_Axios = await axios.post(`/recipes`, created_Recipe);
-    //   JSON.stringify(post_for_Axios, post_Recipe);
-    //   return dispatch({
-    //     type: POST_RECIPE,
-    //     payload: post_for_Axios.data,
-    //   });
-    // } catch (error) {
-    //   console.log(error.message);
-    // }
   };
 }
+
+export function detail_Recipe(detail) {
+  return async function (dispatch) {};
+}
+
+//FILTROS
 
 export function filte_Recipe_For_Diets(diets) {
   return {

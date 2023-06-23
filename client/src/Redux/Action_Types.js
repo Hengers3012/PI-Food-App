@@ -1,5 +1,6 @@
 export const GET_RECIPES = "GET_RECIPES";
 export const GET_DIETS = "GET_DIETS";
+export const DETAIL_RECIPE = "DETAIL_RECIPE";
 
 export const POST_RECIPE = "POST_RECIPE";
 

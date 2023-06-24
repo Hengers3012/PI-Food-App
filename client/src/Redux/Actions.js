@@ -7,6 +7,7 @@ import {
   FILTER_FOR_DIETS,
   ORDEN_BY_HEALTH_SCORE,
   ORDEN_BY_NAME,
+  DETAIL_RECIPE,
 } from "./Action_Types";
 
 export function getRecipe_Info() {
@@ -60,7 +61,14 @@ export function post_Recipe(createdRecipe) {
 }
 
 export function detail_Recipe(detail) {
-  return async function (dispatch) {};
+  return async function (dispatch) {
+    const json = await axios.get(`/recipes/${detail}`);
+    console.log(json);
+    return dispatch({
+      type: DETAIL_RECIPE,
+      payload: json.data,
+    });
+  };
 }
 
 //FILTROS

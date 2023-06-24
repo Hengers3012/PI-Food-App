@@ -158,6 +158,7 @@ export default function CreateRecipeApp() {
     if (!recipeData.diet.length) {
       return alert("La receta debe incluir almenos una dieta.");
     }
+
     dispatch(post_Recipe(recipeData));
 
     alert("Recipe Created Successfully");

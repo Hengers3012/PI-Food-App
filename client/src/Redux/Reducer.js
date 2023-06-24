@@ -6,6 +6,7 @@ import {
   FILTER_FOR_DIETS,
   ORDEN_BY_HEALTH_SCORE,
   ORDEN_BY_NAME,
+  DETAIL_RECIPE,
 } from "./Action_Types";
 
 const initialState = {
@@ -39,6 +40,12 @@ function reducer(state = initialState, action) {
         //recipes: action.payload,
       };
 
+    case DETAIL_RECIPE:
+      return {
+        ...state,
+        detail: action.payload,
+      };
+
     case POST_RECIPE:
       return {
         ...state,
@@ -47,7 +54,7 @@ function reducer(state = initialState, action) {
     case FILTER_FOR_DIETS:
       const recipes = state.allRecipes;
       const recipesWithDiet = recipes.filter((r) => {
-        let names = r.diets.map((d) => d.name);
+        let names = r.diets.map((diet) => diet.name);
         if (names.includes(action.payload)) {
           let res = r;
           return res;

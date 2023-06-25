@@ -1,12 +1,35 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
-import styles from "./Paginate.module.css";
+export default function Paginated({
+  recipesPerPage,
+  allRecipes,
+  pagination,
+  currentPage,
+}) {
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(allRecipes / recipesPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
-export default function paginate() {
   return (
-    <div>
-      <div></div>
-    </div>
+    <nav>
+      <ul>
+        <li>
+          {pageNumbers?.map((number, index) => (
+            <button
+              key={`pagina${index}`}
+              className={
+                currentPage === number
+                  ? "styles.selectedPage"
+                  : "styles.linkPaginated"
+              }
+              onClick={() => pagination(number)}
+            >
+              {number}
+            </button>
+          ))}
+        </li>
+      </ul>
+    </nav>
   );
 }

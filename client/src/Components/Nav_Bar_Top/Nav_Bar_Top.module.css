@@ -1,12 +1,12 @@
 .containerNavBarTop {
   display: grid;
-  grid-template-columns: 0.4fr 2.5fr 1fr;
+  grid-template-columns: 200px 8fr;
   grid-template-rows: 1fr;
 
   height: auto;
   width: 100%;
 
-  margin: 5px;
+  margin: auto;
   /* border: solid rgb(255, 255, 255); */
 }
 
@@ -20,17 +20,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-
   height: 80px;
   width: 80px;
-
-  border: solid blue;
+  margin: auto;
+  border: solid rgb(255, 255, 255);
 }
 
 .logo img {
   transition: all 0.3s ease;
 
+  margin: auto;
   background-size: cover;
 
   overflow: hidden;
@@ -45,15 +44,20 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
+  height: auto;
+  width: 100%;
+  margin: 0%;
   /* border: solid rgb(136, 255, 0); */
-  margin: 5px;
 }
-.createBtn {
+.allRouteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   transition: all 0.5s ease-in-out;
 
+  width: auto;
   margin: 0px 10px;
   padding: 5px 15px 5px 15px;
 
@@ -65,7 +69,7 @@
   background-color: rgb(255, 255, 255);
 }
 
-.createBtn:hover {
+.allRouteBtn:hover {
   transform: scale(1.05);
 
   color: rgb(255, 255, 255);
@@ -88,16 +92,22 @@
   margin: 0px 15px 15px 0;
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1225px) {
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+    margin-top: 10px;
+    border: solid rgb(255, 255, 255);
+  }
   .containerNavBarTop {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 
-    height: auto;
-    width: 100%;
-
-    margin: 5px;
-    /* border: solid rgb(255, 255, 255); */
+    align-items: center;
+    justify-content: center;
   }
 }

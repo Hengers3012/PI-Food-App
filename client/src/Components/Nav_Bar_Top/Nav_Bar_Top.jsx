@@ -1,15 +1,10 @@
 import React from "react";
-//import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 import styles from "./Nav_Bar_Top.module.css";
 
 export default function NavBarTop() {
-  // let details = useSelector((state) => state.allRecipes);
-
-  // let amount = details.length - 1;
-  // let randomNumber = Math.floor(Math.random() * (amount - 0 + 1) + 0);
-  // let randomId = details[randomNumber].id;
+  const detail = useSelector((state) => state.allRecipes);
 
   return (
     <div className={styles.containerNavBarTop}>
@@ -20,14 +15,14 @@ export default function NavBarTop() {
       </div>
 
       <div className={styles.containerNavBarRoute}>
-        <Link to="/created_recipe" className={styles.createBtn}>
-          Create Recipe
+        <Link to="/about" className={styles.allRouteBtn}>
+          ABOUT
         </Link>
-        {/* <Link to={`/recipes/${randomId}`}>
-          <button className={styles.randomRecipe}>Random Recipe</button>
-        </Link> */}
-        <Link to="/created_recipe" className={styles.createBtn}>
-          Create Recipe
+        <Link to="/favorites" className={styles.allRouteBtn}>
+          FAVORITES
+        </Link>
+        <Link to="/created_recipe" className={styles.allRouteBtn}>
+          CREATE NEW RECIPE
         </Link>
       </div>
 

@@ -1,0 +1,57 @@
+.containerPaginate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5px;
+}
+
+.conatinerForPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.containerPageSelec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+
+  height: 40px;
+  width: 30px;
+  margin: 0px 10px;
+  padding: 8px;
+
+  border-radius: 10px;
+  font-size: 20px;
+
+  color: rgb(255, 195, 0);
+  -webkit-text-stroke: 0.75px rgb(255, 195, 0);
+  background-color: #07070a;
+}
+
+.containerPages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+
+  height: 40px;
+  width: 30px;
+  margin: 0px 10px;
+  padding: 8px;
+
+  border-radius: 10px;
+  font-size: 20px;
+
+  color: rgb(255, 255, 255);
+  background-color: #07070a;
+}
+
+.containerPages:hover {
+  background-color: #07070a;
+  color: rgb(255, 195, 0);
+  -webkit-text-stroke: 0.75px rgb(255, 195, 0);
+  cursor: pointer;
+}

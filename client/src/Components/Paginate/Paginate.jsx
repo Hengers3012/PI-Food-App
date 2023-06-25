@@ -1,35 +1,37 @@
 import React from "react";
+import styles from "./Paginate.module.css";
 
-export default function Paginated({
-  recipesPerPage,
+export default function Paginate({
+  recipe_for_page,
   allRecipes,
   pagination,
-  currentPage,
+  pagePresent,
 }) {
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(allRecipes / recipesPerPage); i++) {
-    pageNumbers.push(i);
+  const pages = [];
+
+  for (let i = 1; i <= Math.ceil(allRecipes / recipe_for_page); i++) {
+    pages.push(i);
   }
 
   return (
-    <nav>
-      <ul>
-        <li>
-          {pageNumbers?.map((number, index) => (
+    <div>
+      <ul className={styles.containerPaginate}>
+        <li className={styles.conatinerForPage}>
+          {pages?.map((num, index) => (
             <button
               key={`pagina${index}`}
               className={
-                currentPage === number
-                  ? "styles.selectedPage"
-                  : "styles.linkPaginated"
+                pagePresent === num
+                  ? styles.containerPageSelec
+                  : styles.containerPages
               }
-              onClick={() => pagination(number)}
+              onClick={() => pagination(num)}
             >
-              {number}
+              {num}
             </button>
           ))}
         </li>
       </ul>
-    </nav>
+    </div>
   );
 }

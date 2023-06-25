@@ -7,7 +7,7 @@ import CardRecipe from "../Card/Card";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
 import SearchBar from "../SearchBar/Search_Bar";
 import FilterRecipesCards from "../Filter_Recipes/Filter_Recipes";
-import Paginated from "../Paginate/Paginate";
+import Paginate from "../Paginate/Paginate";
 
 import { getRecipe_Info } from "../../Redux/Actions";
 
@@ -15,11 +15,11 @@ import styles from "./Home_Page.module.css";
 
 export default function HomePage() {
   const dispatch = useDispatch();
+  const [recipe_for_page] = useState(9);
+  // const [recipeName, setRecipeName] = useState([]);
+  const [pagePresent, setPagePresent] = useState(1);
   const allRecipes = useSelector((state) => state.recipes);
 
-  // const [recipeName, setRecipeName] = useState([]);
-  const [pagePresent, setpagePresent] = useState(1);
-  const [recipe_for_page] = useState(9);
   const ult_Recipe_Index = pagePresent * recipe_for_page;
   const prim_Recipe_Index = ult_Recipe_Index - recipe_for_page;
 
@@ -28,8 +28,8 @@ export default function HomePage() {
   console.log(recipes);
   console.log(allRecipes);
 
-  const pagination = (pageNumber) => {
-    setpagePresent(pageNumber);
+  const paginado = (pages) => {
+    setPagePresent(pages);
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function HomePage() {
           <NavBarTop />
         </div>
 
-        <div>
+        <div className={styles.searchBar}>
           <SearchBar />
         </div>
 
@@ -55,9 +55,11 @@ export default function HomePage() {
           </Link>
         </div>
       </div>
+
       <div className={styles.continerFilter}>
         <FilterRecipesCards />
       </div>
+
       <div className={styles.cardRecipeContainer}>
         {recipes?.map((element, index) => {
           return (
@@ -76,13 +78,14 @@ export default function HomePage() {
           );
         })}
       </div>
-      <div>
-        <Paginated
-          recipe_for_page={recipe_for_page}
-          allRecipes={allRecipes.length}
-          pagination={pagination}
+
+      <div className={styles.containerPaginate}>
+        <Paginate
+          pagination={paginado}
           recipes={recipes}
+          allRecipes={allRecipes.length}
           pagePresent={pagePresent}
+          recipe_for_page={recipe_for_page}
         />
       </div>
     </div>

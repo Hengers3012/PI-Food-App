@@ -76,21 +76,41 @@ export default function CreateRecipeApp() {
     );
   }
 
-  function handleChangeIntrucctions(event) {
+  function handleChangeIntructions(event) {
+    // get parent LI element to update the correct index on state instructions array
+    const parent = event.target.parentElement.parentElement; // parent UL/OL element
+    let i;
+
+    for (i = 0; i < parent.childNodes.length; i++) {
+      if (event.target.parentElement === parent.childNodes[i]) break;
+    }
+
+    let newInstructions = recipeData.instructions;
+    newInstructions[i] = event.target.value;
+
     setRecipeData({
       ...recipeData,
-      [event.target.name]: event.target.value,
+      instructions: newInstructions,
     });
-
-    console.log(recipeData);
 
     setRecipeErrors(
       validate({
         ...recipeData,
-        [event.target.name]: event.target.value,
+        instructions: newInstructions,
       })
     );
   }
+
+  function handleChangeImage(event) {
+    //const { data, value } = event.target;
+    setRecipeData({
+      ...recipeData,
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  const imageReg = recipeData.image;
+  console.log(imageReg);
 
   function handleChange_For_Diets(event) {
     // const { data } = event.target.checked;
@@ -114,6 +134,7 @@ export default function CreateRecipeApp() {
         diet: [...recipeData.diet, event.target],
       })
     );
+
     // if (event.target.checked === false) {
     //   setRecipeData({
     //     ...recipeData,
@@ -177,6 +198,33 @@ export default function CreateRecipeApp() {
     dispatch(getDiets_Info());
   }, [dispatch]);
 
+  // INSTRUCCIONES
+  const instLista = document.getElementById("instLista");
+
+  function addInstruction(e) {
+    const newInstruction = document.createElement("li");
+
+    const instText = document.createElement("input");
+    instText.setAttribute("type", "text");
+    instText.addEventListener("input", handleChangeIntructions);
+
+    const delInst = document.createElement("input");
+    delInst.setAttribute("type", "button");
+    delInst.setAttribute("value", " X ");
+    delInst.addEventListener("click", removeInstruction);
+
+    newInstruction.appendChild(instText);
+    newInstruction.appendChild(delInst);
+
+    instLista.appendChild(newInstruction);
+  }
+
+  function removeInstruction(e) {
+    const instruction = e.target.parentElement;
+    const list = instruction.parentElement;
+    if (list.childNodes.length > 1) list.removeChild(instruction);
+  }
+
   //console.log(diets);
 
   return (
@@ -200,7 +248,7 @@ export default function CreateRecipeApp() {
       >
         <div className={styles.containerInfoRecipe}>
           <div className={styles.containerGridLeft}>
-            <div className={styles.containerNameDiets}>
+            <div className={styles.containerNameRecipe}>
               <h3>Nombre</h3>
               <input
                 autoComplete="off"
@@ -231,7 +279,22 @@ export default function CreateRecipeApp() {
 
             <div>
               <h3>Instrucciones</h3>
-              <textarea
+              <ol id="instLista">
+                <li>
+                  <input type="text" onChange={handleChangeIntructions}></input>
+                  <input
+                    type="button"
+                    value=" X "
+                    onClick={removeInstruction}
+                  />
+                </li>
+              </ol>
+              <input
+                type="button"
+                value=" Add Instruction "
+                onClick={addInstruction}
+              />
+              {/* <textarea
                 name="instructions"
                 type="text"
                 cols="100"
@@ -239,57 +302,64 @@ export default function CreateRecipeApp() {
                 value={recipeData.instructions}
                 onChange={(event) => handleChangeIntrucctions(event)}
                 onPaste={(event) => handleChangeIntrucctions(event)}
-              />
+              /> */}
               {recipeError.instructions && <p>{recipeError.instructions}</p>}
-            </div>
-
-            <div>
-              <h3>Image</h3>
-              <input
-                type="text"
-                name="image"
-                value={recipeData.image}
-                onChange={(event) => handleChange(event)}
-              />
-              <p>{recipeError.image}</p>
             </div>
           </div>
 
           <div className={styles.containerGridRigth}>
-            <div className={styles.containerCheckbox}>
-              <h3>Dietas</h3>
-              {diets.map((diet, index) => {
-                return (
-                  <label className={styles.dietsLabel}>
-                    <input
-                      key={`diet${index}`}
-                      type="checkbox"
-                      name={diet.name}
-                      value={diet.name}
-                      onChange={(event) => handleChange_For_Diets(event)}
-                    />
-                    {diet.name[0].toUpperCase() + diet.name.slice(1)}
-                  </label>
-                );
-              })}
-              {recipeError.diet && <p>{recipeError.diet}</p>}
+            <div className={styles.containerImage}>
+              <h3>Image</h3>
+              <div className={styles.imageReg}>
+                <img src={imageReg} alt="" />
+              </div>
+
+              <input
+                type="text"
+                name="image"
+                value={recipeData.image}
+                onChange={(event) => handleChangeImage(event)}
+              />
+              <p>{recipeError.image}</p>
             </div>
 
-            <div>
-              <h3>Health Score</h3>
-              <input
-                autoComplete="off"
-                name="health_score"
-                type="range"
-                min="0"
-                max="100"
-                className={styles.healthScore}
-                value={recipeData.health_score}
-                onChange={(event) => handleChange(event)}
-              />
+            <div className={styles.containerGridRigth_Diet_HS}>
+              <div className={styles.containerCheckbox}>
+                <h3>Dietas</h3>
+                {diets.map((diet, index) => {
+                  return (
+                    <label className={styles.dietsLabel}>
+                      <input
+                        key={`diet${index}`}
+                        type="checkbox"
+                        name={diet.name}
+                        value={diet.name}
+                        onChange={(event) => handleChange_For_Diets(event)}
+                      />
+                      {diet.name[0].toUpperCase() + diet.name.slice(1)}
+                    </label>
+                  );
+                })}
+                {recipeError.diet && <p>{recipeError.diet}</p>}
+              </div>
+
+              <div className={styles.containerHealthScore}>
+                <h3>Health Score</h3>
+                <input
+                  autoComplete="off"
+                  name="health_score"
+                  type="range"
+                  min="0"
+                  max="100"
+                  className={styles.healthScore}
+                  value={recipeData.health_score}
+                  onChange={(event) => handleChange(event)}
+                />
+              </div>
             </div>
           </div>
         </div>
+
         <div>
           <button type="submit">CREATE RECIPE</button>
         </div>

@@ -2,10 +2,10 @@
 .containerPage {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1.04fr 0.2fr 8.6fr;
+  grid-template-rows: 1fr 0.2fr 8.8fr;
 
   height: 100%;
-  width: 100vw;
+  width: 100%;
 
   /* border: solid white; */
   background-color: rgb(255, 255, 255);
@@ -20,6 +20,7 @@
   width: 100%;
 
   background-color: #b1cd2a;
+  border-bottom: ridge #b1cd2a;
 }
 
 .containerBackBtn {
@@ -67,12 +68,12 @@
 .containerForm {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 9.9fr 0.1fr;
+  grid-template-rows: 9.8fr 0.2fr;
   align-items: center;
   height: auto;
   width: 100%;
-  padding: 20px;
-  border: solid red;
+  padding: 10px;
+  border-top: ridge grey;
 }
 
 .containerInfoRecipe {
@@ -83,7 +84,6 @@
   justify-content: center;
   height: auto;
   width: 100%;
-  border: solid rebeccapurple;
 }
 
 .containerGridLeft {
@@ -93,10 +93,9 @@
   justify-content: flex-start;
 
   height: 100%;
-  width: 99%;
-  padding: 20px;
+  width: 100%;
+  padding: 10px 20px;
   margin: 0;
-  border: solid black;
 }
 
 .containerGridRigth {
@@ -105,19 +104,26 @@
   grid-template-rows: 1fr 1fr;
   height: 100%;
   width: 100%;
-  padding: 20px;
+  padding: 10px 20px;
   margin: 0;
-  border: solid black;
 }
 
 .containerGridRigth_Diet_HS {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 10px;
 }
 
 .containerNameRecipe {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 10px 0 10px 0px;
+}
+
+.containerNameRecipe h3 {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -133,6 +139,53 @@
   border: ridge grey;
 }
 
+.containerSummaryRecipe {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 0;
+}
+
+.containerSummaryRecipe h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 10px 0;
+}
+
+.containerSummaryRecipe textarea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 890px;
+  min-width: 890px;
+  max-height: 200px;
+  min-height: 200px;
+  padding-left: 5px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: ridge grey;
+}
+
+.containerInstructionRecipe {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.containerInstructionRecipe h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 10px 0;
+}
+
+.containerInstructionRecipe ol li {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
 .containerImage {
   display: flex;
   flex-direction: column;
@@ -146,9 +199,27 @@
   margin: 10px 0;
 }
 
+.imageReg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 350px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: ridge gray;
+  background-color: rgba(0, 0, 0, 0.349);
+  overflow: hidden;
+}
+
 .containerImage img {
-  height: 90%;
-  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: royalblue;
+  height: 100%;
+  width: 100%;
   background-size: cover;
   overflow: hidden;
 }
@@ -163,27 +234,22 @@
   border: ridge grey;
 }
 
-.imageReg {
-  height: 100%;
-  width: 50%;
-  border: ridge gray;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
 .containerCheckbox {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: f;
 
   height: 335px;
   width: 225px;
+
   border: ridge gray;
   border-radius: 10px;
 }
 
 .containerCheckbox h3 {
+  display: flex;
+  align-items: center;
   margin: 0px 0px 10px 0px;
   font-size: 20px;
 }

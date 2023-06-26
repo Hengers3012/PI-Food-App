@@ -45,13 +45,13 @@ export default function CreateRecipeApp() {
       recipeError.diet = "Seleccione almenos una dieta.";
     }
     if (recipeData.name.length > 100) {
-      recipeError.name = `100 characters or less(Characters:${recipeData.name.length})`;
+      recipeError.name = `El nombre no puede contener mas de 100 Caracteres: ${recipeData.name.length} Caracteres)`;
     }
-    if (recipeData.summary_of_the_dish.length > 200) {
-      recipeError.summary_of_the_dish = `200 characters or less(Characters:${recipeData.summary_of_the_dish.length})`;
+    if (recipeData.summary_of_the_dish.length > 1000) {
+      recipeError.summary_of_the_dish = `La descripción no puede contener mas de 1000 Caracteres: ${recipeData.summary_of_the_dish.length} Caracteres)`;
     }
-    if (recipeData.instructions.length > 200) {
-      recipeError.instructions = `200 characters or less(Characters:${recipeData.instructions.length})`;
+    if (recipeData.instructions.length > 12) {
+      recipeError.instructions = `La receta no debe incluir mas de 12 pasos: ${recipeData.instructions.length} pasos)`;
     }
     if (recipeData.image.length > 255) {
       recipeError.image = `255 characters or less(Characters:${recipeData.image.length})`;
@@ -160,29 +160,29 @@ export default function CreateRecipeApp() {
     console.log(recipeData);
 
     if (!recipeData.name) {
-      return alert("El nombre de la receta es requerido.");
+      return alert("El nombre de la receta es requerido");
     } else if (recipeData.name.length > 100) {
-      return alert("El nombre introducido es muy largo.");
+      return alert("El nombre introducido es muy largo");
     } else if (recipesNames.includes(recipeData.name)) {
-      return alert("Este nombre ya existe.");
+      return alert("Este nombre ya existe");
     } else {
       const name = recipeData.name;
       recipeData.name = recipeData.name[0].toUpperCase() + name.substring(1);
     }
 
     if (!recipeData.summary_of_the_dish) {
-      return alert("La receta debe incluir una descripción.");
+      return alert("La receta debe incluir una descripción");
     }
     if (!recipeData.instructions) {
-      return alert("La receta debe incluir las instrucciones de preparación.");
+      return alert("La receta debe incluir las instrucciones de preparación");
     }
     if (!recipeData.diet.length) {
-      return alert("La receta debe incluir almenos una dieta.");
+      return alert("La receta debe incluir almenos una dieta");
     }
 
     dispatch(post_Recipe(recipeData));
 
-    alert("Recipe Created Successfully");
+    alert("⭐La receta fue creada exitosamente!!!⭐");
     setRecipeData({
       name: "",
       summary_of_the_dish: "",
@@ -254,34 +254,39 @@ export default function CreateRecipeApp() {
                 autoComplete="off"
                 type="text"
                 name="name"
+                placeholder="Introduce un nombre..."
                 value={recipeData.name}
                 onChange={(event) => handleChange(event)}
                 onPaste={(event) => handleChange(event)}
               />
-              {recipeError.name && <p>{recipeError.name}</p>}
+              {recipeError.name && (
+                <p style={{ color: "red" }}>{recipeError.name}</p>
+              )}
             </div>
 
-            <div>
+            <div className={styles.containerSummaryRecipe}>
               <h3>Descripción</h3>
               <textarea
                 name="summary_of_the_dish"
                 type="text"
-                cols="100"
-                rows="10"
+                cols="105"
+                rows="5"
                 value={recipeData.summary_of_the_dish}
                 onChange={(event) => handleChange(event)}
                 onPaste={(event) => handleChange(event)}
               />
               {recipeError.summary_of_the_dish && (
-                <p>{recipeError.summary_of_the_dish}</p>
+                <p style={{ color: "red" }}>
+                  {recipeError.summary_of_the_dish}
+                </p>
               )}
             </div>
 
-            <div className={styles.Instruction}>
+            <div className={styles.containerInstructionRecipe}>
               <h3>Instrucciones</h3>
               <ol id="instLista">
                 <li>
-                  <input type="text" onChange={handleChangeIntructions}></input>
+                  <input type="text" onChange={handleChangeIntructions} />
                   <input
                     type="button"
                     value=" ❌ "
@@ -289,7 +294,9 @@ export default function CreateRecipeApp() {
                   />
                 </li>
               </ol>
+              {recipeError.instructions}
               <input
+                className={styles.buttonAddInstruction}
                 type="button"
                 value=" Add Instruction "
                 onClick={addInstruction}
@@ -303,7 +310,6 @@ export default function CreateRecipeApp() {
                 onChange={(event) => handleChangeIntrucctions(event)}
                 onPaste={(event) => handleChangeIntrucctions(event)}
               /> */}
-              {recipeError.instructions && <p>{recipeError.instructions}</p>}
             </div>
           </div>
 
@@ -311,16 +317,17 @@ export default function CreateRecipeApp() {
             <div className={styles.containerImage}>
               <h3>Image</h3>
               <div className={styles.imageReg}>
-                <img src={imageReg} alt="" />
+                <img src={imageReg} alt="Imagen" />
               </div>
 
               <input
                 type="text"
                 name="image"
+                placeholder="Introduce la url de la imagen deseada..."
                 value={recipeData.image}
                 onChange={(event) => handleChangeImage(event)}
               />
-              <p>{recipeError.image}</p>
+              <p style={{ color: "red" }}>{recipeError.image}</p>
             </div>
 
             <div className={styles.containerGridRigth_Diet_HS}>
@@ -340,7 +347,9 @@ export default function CreateRecipeApp() {
                     </label>
                   );
                 })}
-                {recipeError.diet && <p>{recipeError.diet}</p>}
+                {recipeError.diet && (
+                  <p style={{ color: "red" }}>{recipeError.diet}</p>
+                )}
               </div>
 
               <div className={styles.containerHealthScore}>
@@ -356,12 +365,11 @@ export default function CreateRecipeApp() {
                   onChange={(event) => handleChange(event)}
                 />
               </div>
+              <div className={styles.containerButtonCreate}>
+                <button type="submit">CREATE RECIPE</button>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className={styles.containerButtonCreate}>
-          <button type="submit">CREATE RECIPE</button>
         </div>
       </form>
     </div>

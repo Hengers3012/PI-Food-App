@@ -6,7 +6,7 @@ export default function NavBarTop() {
   return (
     <div className={styles.containerNavBarTop}>
       <div className={styles.navBarContPart1}>
-        <Link to="/" className={styles.logo}>
+        <Link className={styles.logo}>
           <img src={"./assets/Image/Food_Logo.png"} alt="" />
         </Link>
       </div>

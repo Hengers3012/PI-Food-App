@@ -210,7 +210,7 @@ export default function CreateRecipeApp() {
 
     const delInst = document.createElement("input");
     delInst.setAttribute("type", "button");
-    delInst.setAttribute("value", " X ");
+    delInst.setAttribute("value", " ❌ ");
     delInst.addEventListener("click", removeInstruction);
 
     newInstruction.appendChild(instText);
@@ -284,7 +284,7 @@ export default function CreateRecipeApp() {
                   <input type="text" onChange={handleChangeIntructions}></input>
                   <input
                     type="button"
-                    value=" X "
+                    value=" ❌ "
                     onClick={removeInstruction}
                   />
                 </li>
@@ -360,7 +360,7 @@ export default function CreateRecipeApp() {
           </div>
         </div>
 
-        <div>
+        <div className={styles.containerButtonCreate}>
           <button type="submit">CREATE RECIPE</button>
         </div>
       </form>

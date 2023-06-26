@@ -277,7 +277,7 @@ export default function CreateRecipeApp() {
               )}
             </div>
 
-            <div>
+            <div className={styles.Instruction}>
               <h3>Instrucciones</h3>
               <ol id="instLista">
                 <li>

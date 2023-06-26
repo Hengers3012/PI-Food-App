@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -24,7 +24,7 @@ export default function DetailsPage() {
   // };
 
   const allInstrucctions = !recipe_Details.instructions
-    ? ["La receta o tiene pasos"]
+    ? ["La receta no tiene pasos"]
     : recipe_Details.instructions;
 
   useEffect(() => {
@@ -66,9 +66,12 @@ export default function DetailsPage() {
         <div className={styles}>
           <h2>Instrucciones</h2>
           {allInstrucctions.map((element) => {
-            return <p>{element}</p>;
+            return (
+              <div>
+                <p>{element}</p>
+              </div>
+            );
           })}
-          ;
         </div>
       </div>
       <div></div>

@@ -77,8 +77,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
+  padding: 0;
+  margin: 0;
   border: solid rebeccapurple;
 }
 
@@ -89,9 +93,9 @@
   justify-content: flex-start;
 
   height: 90%;
-  width: 95%;
-  margin: 50px;
-  padding: 25px;
+  width: 100%;
+  padding: 20px;
+  margin: 0;
   border: solid black;
 }
 
@@ -100,9 +104,9 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   height: 90%;
-  width: 90%;
-  margin: 50px;
-  padding: 25px;
+  width: 100%;
+  padding: 20px;
+  margin: 0;
   border: solid black;
 }
 
@@ -196,6 +200,7 @@
   margin-right: 10px;
   border-radius: 50%;
 }
+
 .containerHealthScore {
   display: flex;
   flex-direction: column;

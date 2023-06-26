@@ -1,11 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import styles from "./Nav_Bar_Top.module.css";
 
 export default function NavBarTop() {
-  const detail = useSelector((state) => state.allRecipes);
-
   return (
     <div className={styles.containerNavBarTop}>
       <div className={styles.navBarContPart1}>

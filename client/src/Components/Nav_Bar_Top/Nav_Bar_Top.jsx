@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from "./Image/Food_Logo.png";
 import styles from "./Nav_Bar_Top.module.css";
 
 export default function NavBarTop() {
@@ -7,7 +8,7 @@ export default function NavBarTop() {
     <div className={styles.containerNavBarTop}>
       <div className={styles.navBarContPart1}>
         <Link className={styles.logo}>
-          <img src={"./assets/Image/Food_Logo.png"} alt="" />
+          <img src={Logo} alt="" />
         </Link>
       </div>
 

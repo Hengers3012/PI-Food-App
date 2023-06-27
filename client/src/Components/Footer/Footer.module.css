@@ -1,0 +1,108 @@
+.navBottonContainer {
+  height: auto;
+  width: 100%;
+  background-color: rgba(22, 22, 22, 0.737);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+.navBottonElements {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 5vh;
+  width: auto;
+  font-size: xx-large;
+  text-decoration: none;
+  margin-top: -5px;
+  margin-right: 20px;
+}
+.navBottonElements ul {
+  margin: 5px;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+}
+ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+ul li a {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 29px;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 25%;
+  font-size: 20px;
+  color: #ffffff;
+  transition: 0.7s;
+}
+
+ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgb(255, 195, 0);
+  transition: 0.5s;
+  transform: scale(0.9);
+  z-index: -1;
+}
+
+ul li a:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgb(255, 195, 0);
+}
+
+ul li a:hover {
+  color: rgb(255, 255, 0);
+  box-shadow: 0 0 5px rgb(255, 255, 0);
+  text-shadow: 0 0 5px rgb(255, 255, 0);
+}
+/* .navBottonElements a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 5vh;
+    width: auto;
+    font-size: xx-large;
+    color: aliceblue;
+    text-decoration: none;
+    margin-top: -5px;
+    margin-right: 20px;
+  }
+  i {
+    margin: 0 5px 0 5px;
+  } */
+.navBottonLogo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: -7px;
+}
+
+.navBottonLogo h2 {
+  height: 5vh;
+  width: auto;
+  color: rgb(255, 195, 0);
+  font-size: medium;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navBottonLogo img {
+  height: 5vh;
+  width: auto;
+  display: flex;
+  align-items: center;
+}

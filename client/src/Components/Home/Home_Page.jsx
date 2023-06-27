@@ -8,6 +8,7 @@ import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
 import SearchBar from "../SearchBar/Search_Bar";
 import FilterRecipesCards from "../Filter_Recipes/Filter_Recipes";
 import Paginate from "../Paginate/Paginate";
+import Footer from "../Footer/Footer";
 
 import { getRecipe_Info } from "../../Redux/Actions";
 
@@ -87,6 +88,10 @@ export default function HomePage() {
           pagePresent={pagePresent}
           recipe_for_page={recipe_for_page}
         />
+      </div>
+
+      <div className={styles.containerFooter}>
+        <Footer />
       </div>
     </div>
   );

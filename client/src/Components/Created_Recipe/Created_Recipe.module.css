@@ -2,10 +2,11 @@
 .containerPage {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.2fr 8.8fr;
+  grid-template-rows: 1fr 0.5fr 8.3fr 0.2fr;
+  background-size: contain;
 
   height: 100%;
-  width: 100vw;
+  width: 100%;
 
   /* border: solid white; */
   background-color: rgb(255, 255, 255);
@@ -27,8 +28,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 5px;
   position: absolute;
+
+  margin: 5px;
   right: -5px;
   top: 20px;
 
@@ -73,14 +75,12 @@
 }
 
 .containerForm {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 9.8fr 0.2fr;
-  align-items: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   height: auto;
   width: 100%;
-  padding: 10px;
-  border-top: ridge grey;
+  padding: 0 30px;
 }
 
 .containerInfoRecipe {
@@ -134,16 +134,24 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .containerNameRecipe input {
-  height: 30px;
-  width: 300px;
+  font-family: cursive;
+  font-size: large;
+
+  height: 35px;
+  width: 100%;
   padding-left: 5px;
-  font-size: 20px;
+
   border-radius: 5px;
   border: ridge grey;
+}
+
+.containerNameRecipe p {
+  position: absolute;
+  margin-top: 67px;
 }
 
 .containerSummaryRecipe {
@@ -151,52 +159,145 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin: 0;
+  margin-bottom: 15px;
 }
 
 .containerSummaryRecipe h3 {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .containerSummaryRecipe textarea {
-  width: 100%;
+  font-family: cursive;
+  font-size: large;
+
+  max-width: 100px;
   min-width: 100%;
+  min-height: 200px;
+  max-height: 200px;
   padding-left: 5px;
-  font-size: 15px;
+
   border-radius: 5px;
   border: ridge grey;
 }
+.containerSummaryRecipe p {
+  position: absolute;
+  margin-top: 232px;
+}
 
 .containerInstructionRecipe {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 9fr 1fr;
+  height: 350px;
+  width: 100%;
+}
+
+.containerInstructionInputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+.containerInstructionRecipe ol {
   display: flex;
   flex-direction: column;
   align-items: start;
+  margin-top: 10px;
   height: auto;
   width: 100%;
-  margin-top: 10px;
+  border-radius: 5px;
+  border: ridge grey;
+  overflow: auto;
 }
-
 .containerInstructionRecipe ol li {
   display: flex;
   flex-direction: row;
   align-items: start;
-  margin-top: 10px;
   height: auto;
   width: 100%;
-  padding-left: 5px;
-  font-size: 20px;
-  border-radius: 5px;
+  background-color: black;
 }
 
 .containerInstructionRecipe textarea[type="text"] {
-  width: auto;
+  font-family: cursive;
+  font-size: large;
+
+  height: 25px;
+  min-height: 25px;
+  width: 100%;
   padding-left: 5px;
-  font-size: 15px;
+  margin: 0px;
+
   border-radius: 5px;
-  border: ridge grey;
+  border: 0.5px ridge rgb(0, 0, 0);
 }
+
 .containerInstructionRecipe input[type="button"] {
-  border: solid green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgb(185, 25, 1);
+  font-size: 15px;
+  -webkit-text-stroke: 2px rgb(185, 25, 1);
+
+  height: 25px;
+  width: 20px;
+
+  border-radius: 5px;
+  border: 0.5px ridge rgb(0, 0, 0);
+  transition: all 0.1s ease;
+}
+
+.containerInstructionRecipe input[type="button"]:hover {
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  -webkit-text-stroke: 2px rgb(255, 255, 255);
+
+  background-color: rgb(185, 25, 1);
+  transform: scale(0.98);
+  cursor: pointer;
+}
+
+.buttonAddInstruction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+}
+
+.buttonAddInstruction input[type="button"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: all 0.3s ease;
+  background-size: contain;
+
+  height: 35px;
+  width: 150px;
+  padding: 5px;
+  font-size: 20px;
+  -webkit-text-stroke: 0.5px #b1cd2a;
+
+  border-radius: 10px;
+
+  color: #b1cd2a;
+  background-color: rgb(0, 0, 0);
+  white-space: nowrap;
+}
+.buttonAddInstruction input[type="button"]:hover {
+  transform: scale(1.025);
+
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 2px rgb(255, 255, 255);
+  background-color: rgb(0, 53, 102);
 }
 
 .containerImage {
@@ -318,13 +419,13 @@
   transition: all 0.3s ease;
   background-size: contain;
 
-  height: 30px;
-  width: auto;
-  padding: 15px;
+  height: 35px;
+  width: 150px;
+  padding: 5px;
   font-size: 20px;
   -webkit-text-stroke: 0.5px #b1cd2a;
 
-  border-radius: 20px;
+  border-radius: 10px;
 
   color: #b1cd2a;
   background-color: rgb(0, 0, 0);
@@ -336,4 +437,10 @@
   color: rgb(255, 255, 255);
   -webkit-text-stroke: 2px rgb(255, 255, 255);
   background-color: rgb(0, 53, 102);
+}
+
+.containerFooter {
+  display: flex;
+  height: 40px;
+  background-color: rgba(23, 23, 23);
 }

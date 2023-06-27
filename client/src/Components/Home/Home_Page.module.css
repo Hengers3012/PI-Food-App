@@ -1,12 +1,14 @@
 .homeContainer {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.5fr 8.1fr 0.4fr;
+  grid-template-rows: 1fr 0.5fr 8.1fr 0.2fr 0.2fr;
+  background-size: contain;
 
   height: 100%;
   width: 100%;
 
   /* border: solid white; */
+  background-image: url(./Backgrownd_Recipe.jpg);
   background-color: rgb(255, 255, 255);
 }
 
@@ -27,11 +29,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   margin: 5px;
-  position: absolute;
   right: -5px;
   top: 20px;
 
+  position: absolute;
   overflow: hidden;
 }
 
@@ -67,8 +70,14 @@
 .continerFilter {
   display: flex;
   align-items: flex-end;
-  height: auto;
+  justify-content: center;
+  height: 50px;
   width: auto;
+  background-color: rgba(7, 7, 10, 0.9);
+}
+
+.continerFilter:hover {
+  background-color: rgba(23, 23, 23);
 }
 
 .cardRecipeContainer {
@@ -81,6 +90,7 @@
   padding: 10px;
 
   /* border: solid red; */
+  background-color: rgba(129, 127, 127, 0.5);
   overflow: auto;
 }
 
@@ -90,7 +100,7 @@
   align-items: center;
   justify-content: center;
 
-  height: 500px;
+  height: 535px;
   width: 300px;
   margin: 5px;
 
@@ -103,7 +113,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+
+  height: 40px;
+  background-color: rgba(7, 7, 10, 0.9);
+}
+.containerPaginate:hover {
+  background-color: rgba(23, 23, 23);
+}
+
+.containerFooter {
+  display: flex;
+  height: 40px;
+  background-color: rgba(23, 23, 23);
 }
 
 @media screen and (max-width: 1225px) {

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { getDiets_Info, post_Recipe } from "../../Redux/Actions";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
+import Footer from "../Footer/Footer";
 
 import styles from "./Created_Recipe.module.css";
 
@@ -280,19 +281,20 @@ export default function CreateRecipeApp() {
             </div>
 
             <div className={styles.containerInstructionRecipe}>
-              <h3>Instrucciones</h3>
-              <ol id="instLista">
-                <li>
-                  <textarea type="text" onChange={handleChangeIntructions} />
-                  <input
-                    type="button"
-                    value=" ❌ "
-                    onClick={removeInstruction}
-                  />
-                </li>
-              </ol>
-              {recipeError.instructions}
-
+              <div className={styles.containerInstructionInputs}>
+                <h3>Instrucciones</h3>
+                <ol id="instLista" start="1">
+                  <li>
+                    <textarea type="text" onChange={handleChangeIntructions} />
+                    <input
+                      type="button"
+                      value=" X "
+                      onClick={removeInstruction}
+                    />
+                  </li>
+                </ol>
+                {recipeError.instructions}
+              </div>
               {/* <textarea
                 name="instructions"
                 type="text"
@@ -302,13 +304,14 @@ export default function CreateRecipeApp() {
                 onChange={(event) => handleChangeIntrucctions(event)}
                 onPaste={(event) => handleChangeIntrucctions(event)}
               /> */}
+              <div className={styles.buttonAddInstruction}>
+                <input
+                  type="button"
+                  value=" Add Instruction "
+                  onClick={addInstruction}
+                />
+              </div>
             </div>
-            <input
-              className={styles.buttonAddInstruction}
-              type="button"
-              value=" Add Instruction "
-              onClick={addInstruction}
-            />
           </div>
 
           <div className={styles.containerGridRigth}>
@@ -370,6 +373,9 @@ export default function CreateRecipeApp() {
           </div>
         </div>
       </form>
+      <div className={styles.containerFooter}>
+        <Footer />
+      </div>
     </div>
   );
 }

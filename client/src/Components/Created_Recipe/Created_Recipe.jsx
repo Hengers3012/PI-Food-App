@@ -210,8 +210,9 @@ export default function CreateRecipeApp() {
     instText.addEventListener("input", handleChangeIntructions);
 
     const delInst = document.createElement("input");
+    delInst.setAttribute("class", styles.deleteInstruction);
     delInst.setAttribute("type", "button");
-    delInst.setAttribute("value", " ❌ ");
+    delInst.setAttribute("value", " X ");
 
     delInst.addEventListener("click", removeInstruction);
 
@@ -227,6 +228,9 @@ export default function CreateRecipeApp() {
     if (list.childNodes.length > 1) list.removeChild(instruction);
   }
 
+  function healthScore_Slider(value) {
+    document.getElementById("rangeValue").innerHTML = value;
+  }
   //console.log(diets);
 
   return (
@@ -287,6 +291,7 @@ export default function CreateRecipeApp() {
                   <li>
                     <textarea type="text" onChange={handleChangeIntructions} />
                     <input
+                      className={styles.deleteInstruction}
                       type="button"
                       value=" X "
                       onClick={removeInstruction}
@@ -307,8 +312,9 @@ export default function CreateRecipeApp() {
               <div className={styles.buttonAddInstruction}>
                 <input
                   type="button"
-                  value=" Add Instruction "
+                  value=" ADD INSTRCTION "
                   onClick={addInstruction}
+                  className={styles.addButton}
                 />
               </div>
             </div>
@@ -355,16 +361,22 @@ export default function CreateRecipeApp() {
 
               <div className={styles.containerHealthScore}>
                 <h3>Health Score</h3>
-                <input
-                  autoComplete="off"
-                  name="health_score"
-                  type="range"
-                  min="0"
-                  max="100"
-                  className={styles.healthScore}
-                  value={recipeData.health_score}
-                  onChange={(event) => handleChange(event)}
-                />
+                <div className={styles.healthScore}>
+                  <div className={styles.sliderValue}>
+                    <span id="rangeValue">0</span>
+                  </div>
+                  <input
+                    name="health_score"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={recipeData.health_score}
+                    onChange={(event) => handleChange(event)}
+                    onMouseMove={(event) =>
+                      healthScore_Slider(event.target.value)
+                    }
+                  />
+                </div>
               </div>
               <div className={styles.containerButtonCreate}>
                 <button type="submit">CREATE RECIPE</button>

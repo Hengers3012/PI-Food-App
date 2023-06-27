@@ -9,7 +9,7 @@
   width: 100%;
 
   /* border: solid white; */
-  background-color: rgb(255, 255, 255);
+  background-color: #edf1f4;
 }
 /* Nav Bar */
 .containerNavBarTop {
@@ -71,7 +71,12 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  height: 50px;
+
+  text-shadow: 7px 4px 5px rgba(90, 90, 99, 0.685);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: xx-large;
+  height: 75px;
+  color: rgb(24, 24, 24);
 }
 
 .containerForm {
@@ -116,10 +121,10 @@
 }
 
 .containerGridRigth_Diet_HS {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+
   margin-top: 10px;
 }
 
@@ -229,14 +234,14 @@
   height: 25px;
   min-height: 25px;
   width: 100%;
-  padding-left: 5px;
+  padding: 5px;
   margin: 0px;
 
   border-radius: 5px;
   border: 0.5px ridge rgb(0, 0, 0);
 }
 
-.containerInstructionRecipe input[type="button"] {
+.deleteInstruction {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -253,7 +258,7 @@
   transition: all 0.1s ease;
 }
 
-.containerInstructionRecipe input[type="button"]:hover {
+.deleteInstruction:hover {
   color: rgb(255, 255, 255);
   font-size: 14px;
   -webkit-text-stroke: 2px rgb(255, 255, 255);
@@ -265,13 +270,14 @@
 
 .buttonAddInstruction {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  height: 50px;
-  width: 100%;
+  height: 100%;
+  width: auto;
+  margin: 2.5px;
 }
 
-.buttonAddInstruction input[type="button"] {
+.addButton {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -280,8 +286,8 @@
   transition: all 0.3s ease;
   background-size: contain;
 
-  height: 35px;
-  width: 150px;
+  height: auto;
+  width: auto;
   padding: 5px;
   font-size: 20px;
   -webkit-text-stroke: 0.5px #b1cd2a;
@@ -292,11 +298,12 @@
   background-color: rgb(0, 0, 0);
   white-space: nowrap;
 }
-.buttonAddInstruction input[type="button"]:hover {
+
+.addButton:hover {
   transform: scale(1.025);
 
   color: rgb(255, 255, 255);
-  -webkit-text-stroke: 2px rgb(255, 255, 255);
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
   background-color: rgb(0, 53, 102);
 }
 
@@ -385,28 +392,77 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
   height: 335px;
   width: 225px;
-  margin-left: 50px;
+  padding-bottom: 10px;
+  margin-left: 10px;
   border: ridge gray;
   border-radius: 10px;
+  overflow: hidden;
+}
+
+.containerHealthScore h3 {
+  margin-top: -120px;
+  margin-bottom: 125px;
 }
 
 .healthScore {
-  appearance: slider-vertical;
-  width: 20px;
-  height: 300px;
-  margin: 10px;
-  border: ridge gray;
-  border-radius: 10px;
-}
-.containerButtonCreate {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  position: relative;
+  rotate: -90deg;
+  padding: 15px;
+  height: 15%;
+  width: 130%;
+  border-radius: 40px;
+  box-shadow: -15px 15px 20px rgba(0, 0, 0, 0.1), 5px 5px 20px #ffffff;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), #edf1f4);
+}
+
+.healthScore input {
+  appearance: none;
+  outline: none;
+  border-radius: 40px;
+  height: 100%;
+  width: 100%;
+  background: #edf1f4;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.1), 5px 5px 10px #ffffff,
+    inset 5px 5px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.healthScore input::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 2px solid #0073ff;
+  box-shadow: -470px 0 0 460px #0073ff;
+  cursor: pointer;
+}
+
+.sliderValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  width: 20px;
+  height: auto;
+
+  margin-left: -10px;
+  rotate: 90deg;
+}
+
+.containerButtonCreate {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: 100%;
   width: auto;
 }
 
@@ -419,10 +475,11 @@
   transition: all 0.3s ease;
   background-size: contain;
 
-  height: 35px;
-  width: 150px;
+  height: auto;
+  width: auto;
   padding: 5px;
-  font-size: 20px;
+  margin: 10px;
+  font-size: 30px;
   -webkit-text-stroke: 0.5px #b1cd2a;
 
   border-radius: 10px;

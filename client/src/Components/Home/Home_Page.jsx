@@ -51,7 +51,7 @@ export default function HomePage() {
 
         <div className={styles.containerBackBtn}>
           <Link to="/" className={styles.backBtn}>
-            BACK
+            ⮐
           </Link>
         </div>
       </div>

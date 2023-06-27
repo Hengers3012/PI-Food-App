@@ -1,6 +1,6 @@
 .containerNavBarTop {
   display: grid;
-  grid-template-columns: 200px 8fr;
+  grid-template-columns: 1fr 9fr;
   grid-template-rows: 1fr;
 
   height: auto;
@@ -13,7 +13,8 @@
 .navBarContPart1 {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 20px;
 }
 
 .logo {
@@ -22,7 +23,6 @@
   justify-content: center;
   height: 80px;
   width: 80px;
-  margin: auto;
 }
 
 .logo img {
@@ -45,13 +45,9 @@
   justify-content: flex-end;
   height: auto;
   width: 100%;
-  margin: 0%;
   /* border: solid rgb(136, 255, 0); */
 }
 .allRouteBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-decoration: none;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   transition: all 0.5s ease-in-out;
@@ -91,7 +87,7 @@
   margin: 0px 15px 15px 0;
 }
 
-@media screen and (max-width: 1225px) {
+/* @media screen and (max-width: 1225px) {
   .logo {
     display: flex;
     align-items: center;
@@ -109,4 +105,4 @@
     align-items: center;
     justify-content: center;
   }
-}
+} */

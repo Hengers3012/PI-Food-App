@@ -204,13 +204,14 @@ export default function CreateRecipeApp() {
   function addInstruction(e) {
     const newInstruction = document.createElement("li");
 
-    const instText = document.createElement("input");
+    const instText = document.createElement("textarea");
     instText.setAttribute("type", "text");
     instText.addEventListener("input", handleChangeIntructions);
 
     const delInst = document.createElement("input");
     delInst.setAttribute("type", "button");
     delInst.setAttribute("value", " ❌ ");
+
     delInst.addEventListener("click", removeInstruction);
 
     newInstruction.appendChild(instText);
@@ -233,7 +234,7 @@ export default function CreateRecipeApp() {
         <NavBarTop />
         <div className={styles.containerBackBtn}>
           <Link to="/home" className={styles.backBtn}>
-            BACK
+            ⮐
           </Link>
         </div>
       </div>
@@ -263,14 +264,10 @@ export default function CreateRecipeApp() {
                 <p style={{ color: "red" }}>{recipeError.name}</p>
               )}
             </div>
-
             <div className={styles.containerSummaryRecipe}>
               <h3>Descripción</h3>
               <textarea
                 name="summary_of_the_dish"
-                type="text"
-                cols="105"
-                rows="5"
                 value={recipeData.summary_of_the_dish}
                 onChange={(event) => handleChange(event)}
                 onPaste={(event) => handleChange(event)}
@@ -286,7 +283,7 @@ export default function CreateRecipeApp() {
               <h3>Instrucciones</h3>
               <ol id="instLista">
                 <li>
-                  <input type="text" onChange={handleChangeIntructions} />
+                  <textarea type="text" onChange={handleChangeIntructions} />
                   <input
                     type="button"
                     value=" ❌ "
@@ -295,12 +292,7 @@ export default function CreateRecipeApp() {
                 </li>
               </ol>
               {recipeError.instructions}
-              <input
-                className={styles.buttonAddInstruction}
-                type="button"
-                value=" Add Instruction "
-                onClick={addInstruction}
-              />
+
               {/* <textarea
                 name="instructions"
                 type="text"
@@ -311,6 +303,12 @@ export default function CreateRecipeApp() {
                 onPaste={(event) => handleChangeIntrucctions(event)}
               /> */}
             </div>
+            <input
+              className={styles.buttonAddInstruction}
+              type="button"
+              value=" Add Instruction "
+              onClick={addInstruction}
+            />
           </div>
 
           <div className={styles.containerGridRigth}>

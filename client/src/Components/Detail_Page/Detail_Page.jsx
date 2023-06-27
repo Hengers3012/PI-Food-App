@@ -39,7 +39,7 @@ export default function DetailsPage() {
         </div>
         <div className={styles.containerBackBtn}>
           <Link to="/home" className={styles.backBtn}>
-            BACK
+            ⮐
           </Link>
         </div>
       </div>

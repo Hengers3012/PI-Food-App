@@ -368,6 +368,7 @@
   width: 225px;
 
   border-radius: 10px;
+  border: ridge grey;
 }
 
 .containerCheckbox h3 {

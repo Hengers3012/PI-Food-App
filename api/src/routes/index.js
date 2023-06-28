@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const getRecipeInfo = require("../Controller/GetRecipes");
+const getRecipesBDD = require("../Controller/GetRecipesBDD");
 const getRecipeByID = require("../Controller/GetRecipes_ID");
 const createRecipe = require("../Controller/PostRecipes");
 const getDiets = require("../Controller/GetDiets");
@@ -13,6 +14,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get("/recipes/:id", getRecipeByID);
+
 router.get(`/recipes`, getRecipeInfo);
 
 router.get("/diets", getDiets);

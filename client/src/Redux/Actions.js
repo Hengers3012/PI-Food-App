@@ -1,13 +1,16 @@
 import axios from "axios";
 
 import {
+  DETAIL_RECIPE,
   GET_RECIPES,
   GET_DIETS,
   SEARCH_BAR,
   FILTER_FOR_DIETS,
+  FILTER_ORIGEN,
   ORDEN_BY_HEALTH_SCORE,
   ORDEN_BY_NAME,
-  DETAIL_RECIPE,
+  ADD_FAVORITES,
+  DELETE_FAVORITES,
 } from "./Action_Types";
 
 export function getRecipe_Info() {
@@ -71,7 +74,14 @@ export function detail_Recipe(detail) {
   };
 }
 
-//FILTROS
+//Filtrados y Ordenamientos
+export function filter_For_Origen(payload) {
+  console.log(payload);
+  return {
+    type: FILTER_ORIGEN,
+    payload: payload,
+  };
+}
 
 export function filte_Recipe_For_Diets(diets) {
   return {
@@ -93,3 +103,17 @@ export function orden_For_Name(name) {
     payload: name,
   };
 }
+//Agregar y Eliminar de mis Favoritos
+export const addMyFavorite = (payload) => {
+  console.log(payload);
+  return {
+    type: ADD_FAVORITES,
+    payload: payload,
+  };
+};
+export const deleteMyFavorite = (id) => {
+  return {
+    type: DELETE_FAVORITES,
+    payload: id,
+  };
+};

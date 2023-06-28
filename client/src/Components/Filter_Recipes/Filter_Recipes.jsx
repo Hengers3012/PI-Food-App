@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
+  getRecipe_Info,
   getDiets_Info,
   filte_Recipe_For_Diets,
+  filter_For_Origen,
   order_For_Health_Score,
   orden_For_Name,
 } from "../../Redux/Actions";
@@ -13,9 +15,23 @@ import styles from "./Filter_Recipes.module.css";
 export default function FilterRecipesCards() {
   const dispatch = useDispatch();
   const diets = useSelector((state) => state.diets);
+  const recipes = useSelector((state) => state.allRecipes);
 
   function handle_Filter_for_Diet(event) {
     dispatch(filte_Recipe_For_Diets(event.target.value));
+
+    const filter_by_Alfabeto = document.getElementById("alfabeto");
+    filter_by_Alfabeto.selectedIndex = 0;
+
+    const filter_by_HealthScore = document.getElementById("health_score");
+    filter_by_HealthScore.selectedIndex = 0;
+  }
+
+  function handle_Filter_for_Origen(event) {
+    if (event.target.value === "allRecipes") {
+      dispatch(getRecipe_Info(event.target.value));
+    } else dispatch(filter_For_Origen(event.target.value));
+    console.log(event.target.value);
 
     const filter_by_Alfabeto = document.getElementById("alfabeto");
     filter_by_Alfabeto.selectedIndex = 0;
@@ -42,11 +58,28 @@ export default function FilterRecipesCards() {
     dispatch(getDiets_Info());
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(getRecipe_Info());
+  }, [dispatch]);
+
   console.log(diets);
+  console.log(recipes);
+
   return (
     <div className={styles.containerFilterBar}>
       <div className={styles.containerFilter}>
-        <div></div>
+        <div className={styles.containerFilterOrigen}>
+          <select
+            defaultValue="Filter by Source"
+            onChange={(event) => handle_Filter_for_Origen(event)}
+          >
+            <option disabled>Filter For Origen</option>
+            <option value="allRecipes">All Recipes</option>
+            <option value="string">BDD</option>
+            <option value="api">API</option>
+          </select>
+        </div>
+
         <div className={styles.containerFilterDiets}>
           <select
             id="diet"
@@ -64,6 +97,7 @@ export default function FilterRecipesCards() {
             })}
           </select>
         </div>
+
         <div className={styles.containerFilter_Alfabeto}>
           <select
             id="alfabeto"
@@ -77,6 +111,7 @@ export default function FilterRecipesCards() {
             <option values="descendente">🔻 Descendent</option>
           </select>
         </div>
+
         <div className={styles.containerFilter_HealthScore}>
           <select
             id="health_score"

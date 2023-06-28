@@ -1,9 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { detail_Recipe } from "../../Redux/Actions";
+import {
+  detail_Recipe,
+  addMyFavorite,
+  deleteMyFavorite,
+} from "../../Redux/Actions";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
 import Footer from "../Footer/Footer";
 
@@ -11,10 +15,39 @@ import styles from "./Detail_Page.module.css";
 
 export default function DetailsPage() {
   const dispatch = useDispatch();
+
   const { id } = useParams();
+
   const recipe_Details = useSelector((state) => state.detail);
+  const favorites = useSelector((state) => state.recipesFavorites);
+
+  const [isFavorite, setIsFavorite] = useState(false);
 
   console.log(recipe_Details);
+
+  function handlerFavorite() {
+    if (isFavorite) {
+      setIsFavorite(false);
+      dispatch(
+        deleteMyFavorite(
+          favorites.filter((recipe) => recipe.id === recipe_Details.id)
+        )
+      );
+    } else {
+      setIsFavorite(true);
+      dispatch(addMyFavorite(recipe_Details));
+    }
+    console.log(isFavorite);
+  }
+
+  useEffect(() => {
+    let favoriteRecipeID = favorites.map((element) => {
+      return element.id;
+    });
+    if (favoriteRecipeID.includes(recipe_Details.id)) {
+      setIsFavorite(true);
+    } else setIsFavorite(false);
+  }, [favorites, recipe_Details.id]);
 
   // const allInstrucctions = () => {
   //   if (!recipe_Details.instructions) {
@@ -51,6 +84,11 @@ export default function DetailsPage() {
       </div>
 
       <div className={styles.dataVarTop}>
+        {isFavorite ? (
+          <button onClick={handlerFavorite}>💖</button>
+        ) : (
+          <button onClick={handlerFavorite}>🤍</button>
+        )}
         <span>ID: {recipe_Details.id}</span>
         <span
           className={

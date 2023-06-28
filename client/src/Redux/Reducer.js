@@ -1,12 +1,15 @@
 import {
+  DETAIL_RECIPE,
   GET_RECIPES,
   GET_DIETS,
   POST_RECIPE,
   SEARCH_BAR,
   FILTER_FOR_DIETS,
+  FILTER_ORIGEN,
   ORDEN_BY_HEALTH_SCORE,
   ORDEN_BY_NAME,
-  DETAIL_RECIPE,
+  ADD_FAVORITES,
+  DELETE_FAVORITES,
 } from "./Action_Types";
 
 const initialState = {
@@ -14,6 +17,7 @@ const initialState = {
   allRecipes: [],
   diets: [],
   detail: [],
+  recipesFavorites: [],
 };
 
 function reducer(state = initialState, action) {
@@ -50,7 +54,9 @@ function reducer(state = initialState, action) {
       return {
         ...state,
       };
-
+    //-------------------------------------------------------------------------------------//
+    //                              Filtros y Ordenamientos                                //
+    //-------------------------------------------------------------------------------------//
     case FILTER_FOR_DIETS:
       const recipes = state.allRecipes;
       const recipesWithDiet = recipes.filter((recip) => {
@@ -67,6 +73,22 @@ function reducer(state = initialState, action) {
         recipes:
           action.payload === "default" ? state.allRecipes : recipesWithDiet,
       };
+
+    case FILTER_ORIGEN:
+      const allRecipes1 = state.allRecipes;
+
+      const statusFiltered2 = action.payload
+        ? allRecipes1.filter((el) => typeof el.id === "string")
+        : allRecipes1.filter((el) => typeof el.id !== "number");
+      console.log(statusFiltered2);
+      return {
+        ...state,
+        recipes:
+          action.payload === "api"
+            ? allRecipes1.filter((el) => typeof el.id === "number")
+            : statusFiltered2,
+      };
+    // action.payload === "allRecipes" ? allRecipes1 : action.payload !== "string" ? allRecipes1.filter((el) => typeof el.id !== "number" : action.payload !== "number" : allRecipes1.filter((el) => typeof el.id === "string"),};
 
     case ORDEN_BY_NAME:
       let order_Recipe_Name = [...state.recipes];
@@ -106,8 +128,28 @@ function reducer(state = initialState, action) {
         recipes: [...order_Recipe_HealthScore],
       };
 
+    //-------------------------------------------------------------------------------------//
+    //                            Agregar y Eliminar de Favoritos                          //
+    //-------------------------------------------------------------------------------------//
+
+    case ADD_FAVORITES:
+      return {
+        ...state,
+        recipesFavorites: [state.recipesFavorites, action.payload],
+      };
+
+    case DELETE_FAVORITES:
+      const favoritesFilter = state.recipesFavorites.filter(
+        (word) => word.id !== action.payload[0].id
+      );
+      return {
+        ...state,
+        favorites: favoritesFilter,
+      };
     default:
-      return { ...state };
+      return {
+        ...state,
+      };
   }
 }
 

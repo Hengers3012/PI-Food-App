@@ -7,6 +7,10 @@ export const POST_RECIPE = "POST_RECIPE";
 export const SEARCH_BAR = "SEARCH_BAR";
 
 export const FILTER_FOR_DIETS = "FILTER_FOR_DIETS";
+export const FILTER_ORIGEN = "FILTER_ORIGEN";
 
 export const ORDEN_BY_HEALTH_SCORE = "ORDEN_BY_HEALTH_SCORE";
 export const ORDEN_BY_NAME = "ORDEN_BY_NAME";
+
+export const ADD_FAVORITES = "ADD_FAVORITES";
+export const DELETE_FAVORITES = "DELETE_FAVORITES";

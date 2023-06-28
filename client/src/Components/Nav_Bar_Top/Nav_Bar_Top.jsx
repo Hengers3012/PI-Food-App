@@ -13,12 +13,12 @@ export default function NavBarTop() {
       </div>
 
       <div className={styles.containerNavBarRoute}>
-        <Link to="/about" className={styles.allRouteBtn}>
+        {/* <Link to="/about" className={styles.allRouteBtn}>
           ABOUT
         </Link>
         <Link to="/favorites" className={styles.allRouteBtn}>
           FAVORITES
-        </Link>
+        </Link> */}
         <Link to="/created_recipe" className={styles.allRouteBtn}>
           CREATE NEW RECIPE
         </Link>

@@ -19,7 +19,7 @@ const getRecipeByID = async (req, res) => {
       const recipeID = await recipeData.filter((element) => element.id == id);
 
       recipeID.length
-        ? res.send(recipeID[0])
+        ? res.status(200).send(recipeID[0])
         : res.status(404).send("No existe receta con el id establecido.");
     } else {
       //Si no se ingresa un ID, respondo con el siguiente mensaje, para que ingrecen un ID.

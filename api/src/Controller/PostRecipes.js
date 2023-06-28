@@ -43,7 +43,7 @@ const createRecipe = async (req, res) => {
     });
 
     //Si la receta se agrego correctamente a la BDD, respondo con el siguiente mensaje.
-    res.send("¡Receta creada con éxito!");
+    res.status(200).send("¡Receta creada con éxito!");
     //
   } catch (error) {
     console.log(error);

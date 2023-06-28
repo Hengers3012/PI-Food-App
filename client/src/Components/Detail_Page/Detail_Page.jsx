@@ -44,11 +44,22 @@ export default function DetailsPage() {
           </Link>
         </div>
       </div>
-      {/*--------------------------------------------- */}
-      <div style={styles.dataVarTop}>
-        <span>{recipe_Details.health_score}</span>
+
+      <div className={styles.dataVarTop}>
+        <span>ID: {recipe_Details.id}</span>
+        <span
+          className={
+            recipe_Details.health_score < 40
+              ? styles.redColor
+              : recipe_Details.health_score < 75
+              ? styles.orangeColor
+              : styles.greenColor
+          }
+        >
+          HS: {recipe_Details.health_score}
+        </span>
       </div>
-      {/*--------------------------------------------- */}
+
       <div className={styles.containerDetail}>
         <div className={styles.containerName}>
           <h1>{recipe_Details.name}</h1>

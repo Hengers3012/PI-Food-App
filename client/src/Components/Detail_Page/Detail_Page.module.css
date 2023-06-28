@@ -1,7 +1,7 @@
 .detailContainer {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.2fr 8.5fr 0.2fr;
+  grid-template-rows: 1fr 0.3fr 8.5fr 0.2fr;
 
   height: 100%;
   width: 100%;
@@ -60,4 +60,32 @@
   color: rgb(255, 255, 255);
   -webkit-text-stroke: 2px rgb(255, 255, 255);
   background-color: rgb(185, 25, 1);
+}
+.dataVarTop {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: aliceblue;
+  background-color: rgba(23, 23, 23);
+}
+.dataVarTop span {
+  margin: 10px;
+}
+
+.redColor {
+  color: rgb(250, 40, 40);
+  -webkit-text-stroke: 0.5px rgb(250, 40, 40);
+}
+
+.orangeColor {
+  color: rgb(255, 128, 0);
+  -webkit-text-stroke: 0.5px rgb(255, 128, 0);
+}
+
+.greenColor {
+  color: rgb(6, 223, 6);
+  -webkit-text-stroke: 0.5px rgb(6, 223, 6);
+}
+
+.containerDetail {
 }

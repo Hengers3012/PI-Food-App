@@ -72,12 +72,22 @@
   justify-content: flex-end;
 
   color: aliceblue;
-  background-color: rgba(23, 23, 23);
+  background-color: rgb(23, 23, 23);
 }
 .dataVarTop span {
   font-family: cursive;
   -webkit-text-stroke: 0.5px;
   margin: 10px;
+}
+
+.dataVarTop button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  width: auto;
+  font-size: 25px;
+  background-color: rgb(23, 23, 23);
 }
 
 .redColor {

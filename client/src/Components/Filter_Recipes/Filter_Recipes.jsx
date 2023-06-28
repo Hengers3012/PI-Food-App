@@ -15,7 +15,7 @@ import styles from "./Filter_Recipes.module.css";
 export default function FilterRecipesCards() {
   const dispatch = useDispatch();
   const diets = useSelector((state) => state.diets);
-  const recipes = useSelector((state) => state.allRecipes);
+  // const recipes = useSelector((state) => state.allRecipes);
 
   function handle_Filter_for_Diet(event) {
     dispatch(filte_Recipe_For_Diets(event.target.value));
@@ -62,8 +62,8 @@ export default function FilterRecipesCards() {
     dispatch(getRecipe_Info());
   }, [dispatch]);
 
-  console.log(diets);
-  console.log(recipes);
+  // console.log(diets);
+  // console.log(recipes);
 
   return (
     <div className={styles.containerFilterBar}>
@@ -77,8 +77,8 @@ export default function FilterRecipesCards() {
               Filter For Origen
             </option>
             <option value="allRecipes">All Recipes</option>
-            <option value="string">BDD</option>
-            <option value="api">API</option>
+            <option value="string">🖥️ BDD</option>
+            <option value="api">🌐API</option>
           </select>
         </div>
 

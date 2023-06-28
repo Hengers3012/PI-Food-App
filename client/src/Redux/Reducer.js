@@ -23,6 +23,7 @@ const initialState = {
 function reducer(state = initialState, action) {
   console.log(action.payload);
   switch (action.type) {
+    //-------------------------------------------------------------------------------------//
     case GET_RECIPES:
       return {
         ...state,
@@ -59,7 +60,7 @@ function reducer(state = initialState, action) {
     //-------------------------------------------------------------------------------------//
     case FILTER_FOR_DIETS:
       const recipes = state.allRecipes;
-      const recipesWithDiet = recipes.filter((recip) => {
+      const recipesDiet = recipes.filter((recip) => {
         let names = recip.diets.map((diet) => diet.name);
         if (names.includes(action.payload)) {
           let res = recip;
@@ -70,26 +71,27 @@ function reducer(state = initialState, action) {
       });
       return {
         ...state,
-        recipes:
-          action.payload === "default" ? state.allRecipes : recipesWithDiet,
+        recipes: action.payload === "default" ? state.allRecipes : recipesDiet,
       };
 
     case FILTER_ORIGEN:
-      const allRecipes1 = state.allRecipes;
-      console.log(allRecipes1);
+      const allRecipes_API_BDD = state.allRecipes;
+      console.log(allRecipes_API_BDD);
 
-      const statusFiltered2 = action.payload
-        ? allRecipes1.filter((el) => typeof el.id === "string")
-        : allRecipes1.filter((el) => typeof el.id !== "number");
-      console.log(statusFiltered2);
+      const filterStatusOption = action.payload
+        ? allRecipes_API_BDD.filter((recipe) => typeof recipe.id === "string")
+        : allRecipes_API_BDD.filter((recipe) => typeof recipe.id !== "number");
+      console.log(filterStatusOption);
       return {
         ...state,
         recipes:
           action.payload === "api"
-            ? allRecipes1.filter((el) => typeof el.id === "number")
-            : statusFiltered2,
+            ? allRecipes_API_BDD.filter(
+                (recipe) => typeof recipe.id === "number"
+              )
+            : filterStatusOption,
       };
-    // action.payload === "allRecipes" ? allRecipes1 : action.payload !== "string" ? allRecipes1.filter((el) => typeof el.id !== "number" : action.payload !== "number" : allRecipes1.filter((el) => typeof el.id === "string"),};
+    // action.payload === "allRecipes" ? allRecipes_API_BDD : action.payload !== "string" ? allRecipes_API_BDD.filter((el) => typeof el.id !== "number" : action.payload !== "number" : allRecipes_API_BDD.filter((el) => typeof el.id === "string"),};
 
     case ORDEN_BY_NAME:
       let order_Recipe_Name = [...state.recipes];

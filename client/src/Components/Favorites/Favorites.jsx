@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import CardRecipe from "../Card/Card";
@@ -11,9 +11,12 @@ import Paginate from "../Paginate/Paginate";
 import Footer from "../Footer/Footer";
 import CargandoPage from "../Cargando/Cargando";
 
+import { getRecipe_Info } from "../../Redux/Actions";
+
 import styles from "./Favorites.module.css";
 
 export default function Favorites() {
+  const dispatch = useDispatch();
   const favorites = useSelector((state) => state.recipesFavorites);
 
   const [recipe_for_page] = useState(9);
@@ -30,6 +33,10 @@ export default function Favorites() {
   const paginado = (pages) => {
     setPagePresent(pages);
   };
+
+  useEffect(() => {
+    dispatch(getRecipe_Info());
+  }, [dispatch]);
 
   return (
     <div>

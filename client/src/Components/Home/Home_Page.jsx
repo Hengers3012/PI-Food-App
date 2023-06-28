@@ -9,6 +9,7 @@ import SearchBar from "../SearchBar/Search_Bar";
 import FilterRecipesCards from "../Filter_Recipes/Filter_Recipes";
 import Paginate from "../Paginate/Paginate";
 import Footer from "../Footer/Footer";
+import CargandoPage from "../Cargando/Cargando";
 
 import { getRecipe_Info } from "../../Redux/Actions";
 
@@ -40,59 +41,68 @@ export default function HomePage() {
   console.log(allRecipes);
 
   return (
-    <div className={styles.homeContainer}>
-      <div className={styles.containerNavBarTop}>
-        <div>
-          <NavBarTop />
-        </div>
-
-        <div className={styles.searchBar}>
-          <SearchBar />
-        </div>
-
-        <div className={styles.containerBackBtn}>
-          <Link to="/" className={styles.backBtn}>
-            ⮐
-          </Link>
-        </div>
-      </div>
-
-      <div className={styles.continerFilter}>
-        <FilterRecipesCards />
-      </div>
-
-      <div className={styles.cardRecipeContainer}>
-        {recipes?.map((element, index) => {
-          return (
-            <div key={`card${index}`} className={styles.containerCard_indiv}>
-              <div>
-                <CardRecipe
-                  id={element.id}
-                  health_score={element.health_score}
-                  image={element.image}
-                  name={element.name}
-                  diets={element.diets}
-                  createdInDb={element.createdInDb}
-                />
-              </div>
+    <div>
+      {allRecipes.length > 0 ? (
+        <div className={styles.homeContainer}>
+          <div className={styles.containerNavBarTop}>
+            <div>
+              <NavBarTop />
             </div>
-          );
-        })}
-      </div>
 
-      <div className={styles.containerPaginate}>
-        <Paginate
-          pagination={paginado}
-          recipes={recipes}
-          allRecipes={allRecipes.length}
-          pagePresent={pagePresent}
-          recipe_for_page={recipe_for_page}
-        />
-      </div>
+            <div className={styles.searchBar}>
+              <SearchBar />
+            </div>
 
-      <div className={styles.containerFooter}>
-        <Footer />
-      </div>
+            <div className={styles.containerBackBtn}>
+              <Link to="/" className={styles.backBtn}>
+                ⮐
+              </Link>
+            </div>
+          </div>
+
+          <div className={styles.continerFilter}>
+            <FilterRecipesCards />
+          </div>
+
+          <div className={styles.cardRecipeContainer}>
+            {recipes?.map((element, index) => {
+              return (
+                <div
+                  key={`card${index}`}
+                  className={styles.containerCard_indiv}
+                >
+                  <div>
+                    <CardRecipe
+                      id={element.id}
+                      health_score={element.health_score}
+                      image={element.image}
+                      name={element.name}
+                      diets={element.diets}
+                      createdInDb={element.createdInDb}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className={styles.containerPaginate}>
+            <Paginate
+              pagination={paginado}
+              recipes={recipes}
+              allRecipes={allRecipes.length}
+              pagePresent={pagePresent}
+              recipe_for_page={recipe_for_page}
+            />
+          </div>
+
+          <div className={styles.containerFooter}>
+            <Footer />
+          </div>
+        </div>
+      ) : (
+        <CargandoPage />
+      )}
     </div>
   );
 }

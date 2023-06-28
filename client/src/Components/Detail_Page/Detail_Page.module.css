@@ -1,15 +1,17 @@
 .detailContainer {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.3fr 8.5fr 0.2fr;
+  grid-template-rows: 0.8fr 0.4fr 8.6fr 0.2fr;
 
   height: 100%;
   width: 100%;
+  min-width: 550px;
   padding: 0%;
   margin: 0%;
 
   /* border: solid white;
   background-color: rgb(255, 255, 255); */
+  background-color: #edf1f4;
   overflow: hidden;
 }
 
@@ -99,11 +101,13 @@
   grid-template-rows: 1fr 1fr;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
 
-  border: solid rgb(65, 35, 129);
-  overflow: hidden;
+  height: auto;
+  width: 100%;
+  margin-bottom: 10px;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: auto;
 }
 
 .containerDetailPart1 {
@@ -112,21 +116,23 @@
   grid-template-rows: 1fr;
   height: 100%;
   width: 100%;
-  border: solid #46200a;
 }
 .containerImage {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
   min-width: 600px;
+  padding: 20px;
 }
 .recipeImage {
-  background-size: cover;
   height: auto;
   width: 100%;
-  border: solid #460a0a;
+  background-size: contain;
+  border-radius: 15px;
+  border: 4px ridge grey;
+  overflow: hidden;
 }
 .containerInfoRecipePart1 {
   /* display: flex;
@@ -138,15 +144,15 @@
   grid-template-rows: 0.5fr 1.5fr 0.5fr;
   height: 100%;
   width: 100%;
-  border: solid green;
 }
 .containerName {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  white-space: nowrap;
+  font-size: 18px;
   height: 100%;
   width: 100%;
-  border: solid red;
 }
 .containerSummary {
   display: flex;
@@ -156,30 +162,62 @@
   height: auto;
   width: 100%;
   padding-right: 30px;
-  padding-left: 30px;
-  border: solid red;
+  padding-left: 20px;
 }
 .containerDiets {
   display: grid;
-  grid-template-columns: 0.5fr 4.5fr;
-  grid-template-rows: 1fr;
-  white-space: nowrap;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr;
 
   height: 100%;
   width: 100%;
-  padding-right: 15px;
+  padding-right: 35px;
   padding-left: 10px;
+}
+.containerDiets h2 {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 
 .allDiets {
   display: flex;
   align-items: center;
   justify-content: space-around;
+
   height: 100%;
   width: 100%;
+  margin: 0px 10px;
+  border-radius: 10px;
+  border: ridge grey;
 }
 
 .diets {
-  white-space: nowrap;
   margin: 7.5px;
+}
+
+.containerDetailPart2 {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr;
+  height: 100%;
+  width: 100%;
+}
+.containerDetailPart2 h2 {
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.allInstrucctions {
+  display: flex;
+  align-items: center;
+  text-align: justify;
+
+  height: auto;
+  width: 100%;
+
+  padding-right: 35px;
+  padding-left: 40px;
+  padding-bottom: 7.5px;
 }

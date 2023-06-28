@@ -94,6 +94,7 @@ ul li a:hover {
   height: 5vh;
   width: auto;
   color: rgb(255, 255, 59);
+  white-space: nowrap;
   font-size: medium;
   margin: 0;
   display: flex;

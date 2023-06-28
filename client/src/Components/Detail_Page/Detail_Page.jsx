@@ -25,7 +25,11 @@ export default function DetailsPage() {
 
   console.log(recipe_Details);
 
-  function handlerFavorite() {
+  useEffect(() => {
+    dispatch(detail_Recipe(id));
+  }, [dispatch, id]);
+
+  const handlerFavorite = () => {
     if (isFavorite) {
       setIsFavorite(false);
       dispatch(
@@ -38,7 +42,7 @@ export default function DetailsPage() {
       dispatch(addMyFavorite(recipe_Details));
     }
     console.log(isFavorite);
-  }
+  };
 
   useEffect(() => {
     let favoriteRecipeID = favorites.map((element) => {
@@ -65,10 +69,6 @@ export default function DetailsPage() {
     ? ["La receta no tiene pasos"]
     : recipe_Details.instructions;
   console.log(allInstrucctions);
-
-  useEffect(() => {
-    dispatch(detail_Recipe(id));
-  }, [dispatch, id]);
 
   return (
     <div className={styles.detailContainer}>

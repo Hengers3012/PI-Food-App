@@ -8,15 +8,36 @@
 }
 
 .containerFilter {
-  display: grid;
-  grid-template-columns: 7fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 
   height: 100%;
   width: 100%;
+}
+
+.containerFilterOrigen select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+
+  height: 35px;
+  width: 150px;
+  margin: 0 10px;
+  padding-left: 5px;
+
+  font-size: 19px;
+  text-decoration: none;
+  -webkit-text-stroke: 0.2px #edf1f4;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  border-radius: 10px;
+
+  color: #edf1f4;
+  background-color: rgba(23, 23, 23);
+  border: 3px ridge grey;
 }
 
 .containerFilterDiets select {
@@ -27,7 +48,7 @@
   transition: all 0.3s ease;
 
   height: 35px;
-  width: 225px;
+  width: 210px;
   margin: 0 10px;
   padding-left: 5px;
 

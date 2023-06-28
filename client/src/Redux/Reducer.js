@@ -65,7 +65,7 @@ function reducer(state = initialState, action) {
           let res = recip;
           return res;
         } else {
-          return undefined;
+          return console.error(undefined);
         }
       });
       return {
@@ -76,6 +76,7 @@ function reducer(state = initialState, action) {
 
     case FILTER_ORIGEN:
       const allRecipes1 = state.allRecipes;
+      console.log(allRecipes1);
 
       const statusFiltered2 = action.payload
         ? allRecipes1.filter((el) => typeof el.id === "string")
@@ -133,9 +134,11 @@ function reducer(state = initialState, action) {
     //-------------------------------------------------------------------------------------//
 
     case ADD_FAVORITES:
+      console.log(action.payload);
+      //const favorites = action.payload;
       return {
         ...state,
-        recipesFavorites: [state.recipesFavorites, action.payload],
+        recipesFavorites: [...state.recipesFavorites, action.payload],
       };
 
     case DELETE_FAVORITES:

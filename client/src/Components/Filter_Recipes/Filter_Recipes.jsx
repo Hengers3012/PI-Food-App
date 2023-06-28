@@ -73,7 +73,9 @@ export default function FilterRecipesCards() {
             defaultValue="Filter by Source"
             onChange={(event) => handle_Filter_for_Origen(event)}
           >
-            <option disabled>Filter For Origen</option>
+            <option value="default" disabled>
+              Filter For Origen
+            </option>
             <option value="allRecipes">All Recipes</option>
             <option value="string">BDD</option>
             <option value="api">API</option>

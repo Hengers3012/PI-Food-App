@@ -1,0 +1,147 @@
+.favoriteContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.8fr 0.2fr 8.4fr 0.2fr 0.2fr;
+  background-size: contain;
+
+  height: 100%;
+  width: 100%;
+
+  /* border: solid white; */
+  /* background-image: url(./Backgrownd_Recipe.jpg); */
+  background-color: rgb(255, 255, 255);
+}
+
+.containerNavBarTop {
+  display: grid;
+  grid-template-columns: 7.5fr 2fr 0.5fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+
+  background-color: rgb(255, 197, 0);
+
+  overflow: hidden;
+}
+
+.containerBackBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 5px;
+  right: -5px;
+  top: 20px;
+
+  position: absolute;
+  overflow: hidden;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: all 0.3s ease;
+
+  height: 50px;
+  width: 20px;
+  padding-left: 10px;
+  font-size: 40px;
+  -webkit-text-stroke: 2px rgb(255, 195, 0);
+
+  border-radius: 35px 0 0 35px;
+
+  color: rgb(255, 195, 0);
+  background-color: #07070a;
+}
+
+.backBtn:hover {
+  width: 75px;
+  transform: scale(1.025);
+
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 2px rgb(255, 255, 255);
+  background-color: rgb(185, 25, 1);
+}
+
+.continerFilter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 50px;
+  width: auto;
+  background-color: rgba(7, 7, 10, 0.9);
+}
+
+.continerFilter:hover {
+  background-color: rgba(23, 23, 23);
+}
+
+.cardRecipeContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+  padding: 10px;
+
+  /* border: solid red; */
+
+  background-color: rgba(129, 127, 127, 0.5);
+  overflow: auto;
+}
+
+.containerCard_indiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 535px;
+  width: 300px;
+  margin: 5px;
+
+  /* border: solid rgb(0, 255, 89); */
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.containerPaginate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  background-color: rgba(7, 7, 10, 0.9);
+}
+.containerPaginate:hover {
+  background-color: rgba(23, 23, 23);
+}
+
+.containerFooter {
+  display: flex;
+  height: 40px;
+  background-color: rgba(23, 23, 23);
+}
+
+@media screen and (max-width: 1225px) {
+  .homeContainer {
+    min-width: 500px;
+    min-height: 800px;
+  }
+  .containerNavBarTop {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+  }
+  .continerFilter {
+    display: flex;
+  }
+  .containerBackBtn {
+    margin-bottom: 15px;
+  }
+}

@@ -13,7 +13,7 @@ const allDataAPI = async function () {
       return {
         id: element.id,
         name: element.title,
-        summary_of_the_dish: element.summary.replace(/<[^>]+>/g, ""),
+        summary_of_the_dish: element.summary.replace(/<[^>]+>/g, ""), // /<[^>]+>/g => expresión regular para
         diets: element.diets.map((diet) => {
           return { name: diet };
         }),

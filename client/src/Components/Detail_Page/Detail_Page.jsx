@@ -65,39 +65,43 @@ export default function DetailsPage() {
           HS: {recipe_Details.health_score}
         </span>
       </div>
-
       <div className={styles.containerDetail}>
-        <div className={styles.containerName}>
-          <h1>{recipe_Details.name}</h1>
-        </div>
-        <div className={styles.containerImageDiets}>
-          <div>
+        <div className={styles.containerDetailPart1}>
+          <div className={styles.containerImage}>
             <img
               src={recipe_Details.image}
               alt={`img ${recipe_Details.name}`}
               className={styles.recipeImage}
             />
           </div>
-          <div>
-            <h2>Dietas</h2>
-            <p>
-              {allDiets?.map((element) => {
-                return (
-                  <div>
-                    <p>
-                      {element.name[0].toUpperCase() + element.name.slice(1)}
-                    </p>
-                  </div>
-                );
-              })}
-            </p>
+
+          <div className={styles.containerInfoRecipePart1}>
+            <div className={styles.containerName}>
+              <h1>{recipe_Details.name}</h1>
+            </div>
+
+            <div className={styles.containerSummary}>
+              <p>{recipe_Details.summary_of_the_dish}</p>
+            </div>
+
+            <div className={styles.containerDiets}>
+              <h2>Dietas</h2>
+              <div className={styles.allDiets}>
+                {allDiets?.map((element) => {
+                  return (
+                    <div className={styles.diets}>
+                      <p>
+                        {element.name[0].toUpperCase() + element.name.slice(1)}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
-        <div className={styles.containerSummary}>
-          <h2>Descripción</h2>
-          <p>{recipe_Details.summary_of_the_dish}</p>
-        </div>
-        <div className={styles}>
+
+        <div className={styles.containerDetailPart2}>
           <h2>Instrucciones</h2>
           {allInstrucctions.map((element) => {
             return (
@@ -108,6 +112,7 @@ export default function DetailsPage() {
           })}
         </div>
       </div>
+
       <div className={styles.containerFooter}>
         <Footer />
       </div>

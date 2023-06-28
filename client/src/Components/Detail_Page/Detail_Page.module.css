@@ -5,9 +5,12 @@
 
   height: 100%;
   width: 100%;
+  padding: 0%;
+  margin: 0%;
 
   /* border: solid white;
   background-color: rgb(255, 255, 255); */
+  overflow: hidden;
 }
 
 .containerNavBarTop {
@@ -93,27 +96,90 @@
 .containerDetail {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.2fr 3.8fr 3fr 3fr;
-  height: 100%;
-  width: 100%;
+  grid-template-rows: 1fr 1fr;
   align-items: center;
   justify-content: center;
-  border: solid 10px rgb(65, 35, 129);
+  height: 100%;
+  width: 100%;
+
+  border: solid rgb(65, 35, 129);
+  overflow: hidden;
 }
-.containerImageDiets {
+
+.containerDetailPart1 {
   display: grid;
-  grid-template-columns: 7fr 3fr;
+  grid-template-columns: 4fr 6fr;
   grid-template-rows: 1fr;
   height: 100%;
   width: 100%;
   border: solid #46200a;
 }
-.containerImageDiets img {
+.containerImage {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   height: 100%;
-  width: auto;
-  margin-left: 20px;
+  width: 100%;
+  min-width: 600px;
+}
+.recipeImage {
+  background-size: cover;
+  height: auto;
+  width: 100%;
   border: solid #460a0a;
+}
+.containerInfoRecipePart1 {
+  /* display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column; */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 1.5fr 0.5fr;
+  height: 100%;
+  width: 100%;
+  border: solid green;
+}
+.containerName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border: solid red;
+}
+.containerSummary {
+  display: flex;
+  align-items: center;
+  text-align: justify;
+
+  height: auto;
+  width: 100%;
+  padding-right: 30px;
+  padding-left: 30px;
+  border: solid red;
+}
+.containerDiets {
+  display: grid;
+  grid-template-columns: 0.5fr 4.5fr;
+  grid-template-rows: 1fr;
+  white-space: nowrap;
+
+  height: 100%;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 10px;
+}
+
+.allDiets {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.diets {
+  white-space: nowrap;
+  margin: 7.5px;
 }

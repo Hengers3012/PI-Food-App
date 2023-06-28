@@ -1,13 +1,13 @@
-.navBottonContainer {
+.footerContainer {
   height: auto;
   width: 100%;
-  background-color: rgba(22, 22, 22, 0.737);
+  background-color: rgba(23, 23, 23);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   overflow: hidden;
 }
-.navBottonElements {
+.footerElements {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -18,7 +18,7 @@
   margin-top: -5px;
   margin-right: 20px;
 }
-.navBottonElements ul {
+.footerElements ul {
   margin: 5px;
   padding: 0;
   display: flex;
@@ -83,14 +83,14 @@ ul li a:hover {
   i {
     margin: 0 5px 0 5px;
   } */
-.navBottonLogo {
+.footerLogo {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-top: -7px;
 }
 
-.navBottonLogo h2 {
+.footerLogo h2 {
   height: 5vh;
   width: auto;
   color: rgb(255, 255, 59);
@@ -100,7 +100,7 @@ ul li a:hover {
   align-items: center;
 }
 
-.navBottonLogo img {
+.footerLogo img {
   height: 5vh;
   width: auto;
   display: flex;

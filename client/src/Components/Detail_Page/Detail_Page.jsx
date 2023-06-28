@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import { detail_Recipe } from "../../Redux/Actions";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
+import Footer from "../Footer/Footer";
 
 import styles from "./Detail_Page.module.css";
-import { detail_Recipe } from "../../Redux/Actions";
 
 export default function DetailsPage() {
   const dispatch = useDispatch();
@@ -74,8 +75,9 @@ export default function DetailsPage() {
           })}
         </div>
       </div>
-      <div></div>
-      <div></div>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }

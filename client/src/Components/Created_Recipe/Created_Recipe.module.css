@@ -128,7 +128,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-
+  height: 100%;
+  width: 100%;
   margin-top: 10px;
 }
 
@@ -362,9 +363,23 @@
 .containerCheckbox {
   display: flex;
   flex-direction: column;
+
   align-items: center;
 
   height: 335px;
+  width: 225px;
+
+  border-radius: 10px;
+  border: ridge grey;
+}
+.containerCheckbox_cargando {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+
+  height: 330px;
   width: 225px;
 
   border-radius: 10px;

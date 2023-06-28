@@ -21,14 +21,34 @@
 
   justify-content: center;
 
-  height: 80%;
-  width: 80%;
+  height: 85%;
+  width: 85%;
 
-  background-color: rgba(4, 43, 80, 0.987);
+  background-color: rgba(3, 52, 98, 0.95);
 
   box-shadow: 0 0 20px rgba(255, 196, 0, 0.76);
   border-radius: 50px;
   overflow: hidden;
+}
+
+.contLanding h1 {
+  position: absolute;
+  top: 100px;
+  right: 500px;
+  height: 50px;
+  width: auto;
+  font-size: 75px;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-text-stroke: 2px rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  transition: all 0.5s ease;
+}
+
+.contLanding h1:hover {
+  -webkit-text-stroke: 2px rgba(255, 195, 0);
+  color: rgba(255, 195, 0);
+  cursor: default;
 }
 
 .navBarContainer {
@@ -49,14 +69,17 @@
   align-items: center;
   justify-content: center;
 }
+
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.5s ease;
 
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
+  margin-top: 50px;
+  margin-left: 60px;
 }
 
 .logo img {
@@ -72,30 +95,25 @@
   transform: scale(1.25);
 }
 
-.navBarPart2 {
-  display: flex;
-  justify-content: flex-end;
-  margin: 10px;
-  padding: 10px;
-}
-
-.route {
+.containerImageLand {
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  height: 40px;
-  width: 100px;
-  margin-left: 15px;
-  margin-right: 15px;
-  text-decoration: none;
-
-  color: rgb(229, 229, 229);
+  justify-content: flex-end;
+  background-size: cover;
+  padding-right: 150px;
+  height: 100%;
+  width: 100%;
 }
+.containerImageLand img {
+  transition: all 0.3s ease;
 
-.searchBarContainer {
-  display: flex;
-  justify-content: center;
+  background-size: cover;
+
+  overflow: hidden;
+}
+.containerImageLand img:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .containerBtnHome {

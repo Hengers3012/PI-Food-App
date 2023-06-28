@@ -33,28 +33,27 @@ export default function Favorites() {
 
   return (
     <div>
-      {favorites.length > 0 ? (
-        <div className={styles.favoriteContainer}>
-          <div className={styles.containerNavBarTop}>
-            <div>
-              <NavBarTop />
-            </div>
-
-            <div className={styles.searchBar}>
-              <SearchBar />
-            </div>
-
-            <div className={styles.containerBackBtn}>
-              <Link to="/" className={styles.backBtn}>
-                ⮐
-              </Link>
-            </div>
+      <div className={styles.favoriteContainer}>
+        <div className={styles.containerNavBarTop}>
+          <div>
+            <NavBarTop />
           </div>
 
-          <div className={styles.continerFilter}>
-            <FilterRecipesCards />
+          <div className={styles.searchBar}>
+            <SearchBar />
           </div>
 
+          <div className={styles.containerBackBtn}>
+            <Link to="/home" className={styles.backBtn}>
+              ⮐
+            </Link>
+          </div>
+        </div>
+
+        <div className={styles.continerFilter}>
+          <FilterRecipesCards />
+        </div>
+        {favorites.length > 0 ? (
           <div className={styles.cardRecipeContainer}>
             {recipes?.map((element, index) => {
               return (
@@ -76,22 +75,22 @@ export default function Favorites() {
               );
             })}
           </div>
-          <div className={styles.containerPaginate}>
-            <Paginate
-              pagination={paginado}
-              recipes={recipes}
-              allRecipes={favorites.length}
-              pagePresent={pagePresent}
-              recipe_for_page={recipe_for_page}
-            />
-          </div>
-          <div className={styles.containerFooter}>
-            <Footer />
-          </div>
+        ) : (
+          <CargandoPage />
+        )}
+        <div className={styles.containerPaginate}>
+          <Paginate
+            pagination={paginado}
+            recipes={recipes}
+            allRecipes={favorites.length}
+            pagePresent={pagePresent}
+            recipe_for_page={recipe_for_page}
+          />
         </div>
-      ) : (
-        <CargandoPage />
-      )}
+        <div className={styles.containerFooter}>
+          <Footer />
+        </div>
+      </div>
     </div>
   );
 }

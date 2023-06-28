@@ -374,28 +374,34 @@ export default function CreateRecipeApp() {
               />
               <p style={{ color: "red" }}>{recipeError.image}</p>
             </div>
-
             <div className={styles.containerGridRigth_Diet_HS}>
-              <div className={styles.containerCheckbox}>
-                <h3>Dietas</h3>
-                {diets.map((diet, index) => {
-                  return (
-                    <label className={styles.dietsLabel}>
-                      <input
-                        key={`diet${index}`}
-                        type="checkbox"
-                        name={diet.name}
-                        value={diet.name}
-                        onChange={(event) => handleChange_For_Diets(event)}
-                      />
-                      {diet.name[0].toUpperCase() + diet.name.slice(1)}
-                    </label>
-                  );
-                })}
-                {recipeError.diet && (
-                  <p style={{ color: "red" }}>{recipeError.diet}</p>
-                )}
-              </div>
+              {diets.length ? (
+                <div className={styles.containerCheckbox}>
+                  <h3>Dietas</h3>
+                  {diets.map((diet, index) => {
+                    return (
+                      <label className={styles.dietsLabel}>
+                        <input
+                          key={`diet${index}`}
+                          type="checkbox"
+                          name={diet.name}
+                          value={diet.name}
+                          onChange={(event) => handleChange_For_Diets(event)}
+                        />
+                        {diet.name[0].toUpperCase() + diet.name.slice(1)}
+                      </label>
+                    );
+                  })}
+
+                  {recipeError.diet && (
+                    <p style={{ color: "red" }}>{recipeError.diet}</p>
+                  )}
+                </div>
+              ) : (
+                <div className={styles.containerCheckbox_cargando}>
+                  <h4>Cargando Dietas...</h4>
+                </div>
+              )}
 
               <div className={styles.containerHealthScore}>
                 <h3>Health Score</h3>

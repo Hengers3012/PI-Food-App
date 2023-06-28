@@ -1,7 +1,7 @@
 .detailContainer {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.5fr 8.5fr;
+  grid-template-rows: 1fr 0.2fr 8.5fr 0.2fr;
 
   height: 100%;
   width: 100%;

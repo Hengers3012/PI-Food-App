@@ -75,7 +75,7 @@ export default function DetailsPage() {
           })}
         </div>
       </div>
-      <div>
+      <div className={styles.containerFooter}>
         <Footer />
       </div>
     </div>

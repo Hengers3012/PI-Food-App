@@ -181,6 +181,13 @@ export default function CreateRecipeApp() {
       return alert("La receta debe incluir almenos una dieta");
     }
 
+    let instruct = recipeData.instructions.filter((inst) => inst !== "");
+
+    setRecipeData({
+      ...recipeData,
+      instructions: instruct,
+    });
+
     dispatch(post_Recipe(recipeData));
 
     alert("⭐La receta fue creada exitosamente!!!⭐");
@@ -223,6 +230,37 @@ export default function CreateRecipeApp() {
   }
 
   function removeInstruction(e) {
+    // Obtengo el elemento padre de Li y lo actualizo con el indice correcto del arreglo de dicha instrucción almacenada en el estado.
+    const parent = e.target.parentElement.parentElement; // parent UL/OL element
+    let i;
+
+    for (i = 0; i < parent.childNodes.length; i++) {
+      if (e.target.parentElement === parent.childNodes[i]) break;
+    }
+
+    // e.target.parentElement.childNodes[0].value = "";
+
+    // let newInstructions = recipeData.instructions.filter(
+    //   (element, index) => index !== i
+    // );
+
+    let newInstructions = recipeData.instructions;
+    newInstructions[i] = "";
+
+    setRecipeData({
+      ...recipeData,
+      instructions: newInstructions,
+    });
+
+    setRecipeErrors(
+      validate({
+        ...recipeData,
+        instructions: newInstructions,
+      })
+    );
+
+    /*****************************************************************************/
+
     const instruction = e.target.parentElement;
     const list = instruction.parentElement;
     if (list.childNodes.length > 1) list.removeChild(instruction);

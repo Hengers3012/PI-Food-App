@@ -53,10 +53,10 @@ function reducer(state = initialState, action) {
 
     case FILTER_FOR_DIETS:
       const recipes = state.allRecipes;
-      const recipesWithDiet = recipes.filter((r) => {
-        let names = r.diets.map((diet) => diet.name);
+      const recipesWithDiet = recipes.filter((recip) => {
+        let names = recip.diets.map((diet) => diet.name);
         if (names.includes(action.payload)) {
-          let res = r;
+          let res = recip;
           return res;
         } else {
           return undefined;

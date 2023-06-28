@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { detail_Recipe } from "../../Redux/Actions";
+import { detail_Recipe, getDiets_Info } from "../../Redux/Actions";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
 import Footer from "../Footer/Footer";
 
 import styles from "./Detail_Page.module.css";
+import { all } from "axios";
 
 export default function DetailsPage() {
   const dispatch = useDispatch();
@@ -23,10 +24,15 @@ export default function DetailsPage() {
   //     return recipe_Details.instructions;
   //   }
   // };
+  const allDiets = !recipe_Details.diets
+    ? alert["La receta no tiene dietas"]
+    : recipe_Details.diets;
+  console.log(allDiets);
 
   const allInstrucctions = !recipe_Details.instructions
     ? ["La receta no tiene pasos"]
     : recipe_Details.instructions;
+  console.log(allInstrucctions);
 
   useEffect(() => {
     dispatch(detail_Recipe(id));
@@ -64,12 +70,28 @@ export default function DetailsPage() {
         <div className={styles.containerName}>
           <h1>{recipe_Details.name}</h1>
         </div>
-        <div className={styles.containerImage}>
-          <img
-            src={recipe_Details.image}
-            alt={`img ${recipe_Details.name}`}
-            className={styles.recipeImage}
-          />
+        <div className={styles.containerImageDiets}>
+          <div>
+            <img
+              src={recipe_Details.image}
+              alt={`img ${recipe_Details.name}`}
+              className={styles.recipeImage}
+            />
+          </div>
+          <div>
+            <h2>Dietas</h2>
+            <p>
+              {allDiets?.map((element) => {
+                return (
+                  <div>
+                    <p>
+                      {element.name[0].toUpperCase() + element.name.slice(1)}
+                    </p>
+                  </div>
+                );
+              })}
+            </p>
+          </div>
         </div>
         <div className={styles.containerSummary}>
           <h2>Descripción</h2>

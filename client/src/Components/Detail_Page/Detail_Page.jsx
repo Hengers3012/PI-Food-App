@@ -104,7 +104,7 @@ export default function DetailsPage() {
         </span>
       </div>
 
-      {recipe_Details.length > 0 ? (
+      {recipe_Details > 0 ? (
         <div className={styles.containerDetail}>
           <div className={styles.containerDetailPart1}>
             <div className={styles.containerImage}>

@@ -19,12 +19,23 @@ export default function CardRecipe(props) {
           <p
             className={
               health_score < 40
+                ? styles.redColorText
+                : health_score < 75
+                ? styles.orangeColorText
+                : styles.greenColorText
+            }
+          >
+            Health Score
+          </p>
+          <p
+            className={
+              health_score < 40
                 ? styles.redColor
                 : health_score < 75
                 ? styles.orangeColor
                 : styles.greenColor
             }
-          >{`HS:${health_score}`}</p>
+          >{`${health_score}`}</p>
         </div>
 
         <div className={styles.contImageName}>

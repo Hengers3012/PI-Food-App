@@ -17,17 +17,7 @@ export default function CardRecipe(props) {
       >
         <div className={styles.healthScoreText}>
           <p
-            className={
-              health_score < 40
-                ? styles.redColorText
-                : health_score < 75
-                ? styles.orangeColorText
-                : styles.greenColorText
-            }
-          >
-            Health Score
-          </p>
-          <p
+            onMouseMove={"hola"}
             className={
               health_score < 40
                 ? styles.redColor
@@ -35,7 +25,21 @@ export default function CardRecipe(props) {
                 ? styles.orangeColor
                 : styles.greenColor
             }
-          >{`${health_score}`}</p>
+          >
+            <span
+              className={
+                health_score < 40
+                  ? styles.redColorText
+                  : health_score < 75
+                  ? styles.orangeColorText
+                  : styles.greenColorText
+              }
+            >
+              Health Score:
+            </span>
+
+            {` ${health_score}%`}
+          </p>
         </div>
 
         <div className={styles.contImageName}>

@@ -71,6 +71,9 @@ export default function DetailsPage() {
     : recipe_Details.instructions;
   console.log(allInstrucctions);
 
+  // console.log(id); -----> String
+  // console.log(recipe_Details.id);  -----> Number
+
   return (
     <div className={styles.detailContainer}>
       <div className={styles.containerNavBarTop}>
@@ -90,7 +93,6 @@ export default function DetailsPage() {
         ) : (
           <button onClick={handlerFavorite}>🤍</button>
         )}
-        <span>ID: {recipe_Details.id}</span>
         <span
           className={
             recipe_Details.health_score < 40
@@ -100,8 +102,9 @@ export default function DetailsPage() {
               : styles.greenColor
           }
         >
-          HS: {recipe_Details.health_score}
+          Heath Score: {recipe_Details.health_score}%
         </span>
+        <span>ID: {recipe_Details.id} </span>
       </div>
 
       {String(recipe_Details.id) === id ? (
@@ -142,16 +145,32 @@ export default function DetailsPage() {
             </div>
           </div>
 
-          <div className={styles.containerDetailPart2}>
-            <h2>Instrucciones</h2>
-            {allInstrucctions.map((element) => {
-              return (
-                <div className={styles.allInstrucctions}>
-                  <p>{element}</p>
-                </div>
-              );
-            })}
-          </div>
+          {recipe_Details.id === id ? (
+            <div className={styles.containerDetailPart2}>
+              <h2>Instrucciones</h2>
+              {allInstrucctions.map((element, index) => {
+                let indInstr = index + 1;
+                return (
+                  <div className={styles.allInstrucctions}>
+                    <p>
+                      {indInstr}- {element}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className={styles.containerDetailPart2}>
+              <h2>Instrucciones</h2>
+              {allInstrucctions.map((element) => {
+                return (
+                  <div className={styles.allInstrucctions}>
+                    <p>{element}</p>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       ) : (
         <CargandoPage />

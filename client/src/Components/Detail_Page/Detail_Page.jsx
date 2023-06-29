@@ -104,7 +104,7 @@ export default function DetailsPage() {
         </span>
       </div>
 
-      {recipe_Details > 0 ? (
+      {String(recipe_Details.id) === id ? (
         <div className={styles.containerDetail}>
           <div className={styles.containerDetailPart1}>
             <div className={styles.containerImage}>

@@ -283,7 +283,7 @@ export default function CreateRecipeApp() {
       </div>
 
       <div className={styles.labelPage}>
-        <h1>CREANDO UNA NUEVA RECETA</h1>
+        <h1>Create Recipes</h1>
       </div>
 
       <form

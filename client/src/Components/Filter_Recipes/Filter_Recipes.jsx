@@ -8,6 +8,7 @@ import {
   filter_For_Origen,
   order_For_Health_Score,
   orden_For_Name,
+  reload,
 } from "../../Redux/Actions";
 
 import styles from "./Filter_Recipes.module.css";
@@ -18,13 +19,7 @@ export default function FilterRecipesCards() {
   const diets = useSelector((state) => state.diets);
   // const recipes = useSelector((state) => state.allRecipes);
 
-  function handleReload() {
-    // dispatch(reload(event.target.value));
-    // filte_Recipe_For_Diets();
-    // filter_For_Origen();
-    // orden_For_Name();
-    // order_For_Health_Score();
-  }
+  function handleReload(event) {}
 
   function handle_Filter_for_Diet(event) {
     dispatch(filte_Recipe_For_Diets(event.target.value));

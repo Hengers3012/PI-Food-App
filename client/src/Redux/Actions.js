@@ -77,10 +77,9 @@ export function detail_Recipe(detail) {
 
 //Reload, Fileter and Orders
 
-export const reload = (payload) => {
+export const reload = () => {
   return {
     type: RELOAD,
-    payload: payload,
   };
 };
 

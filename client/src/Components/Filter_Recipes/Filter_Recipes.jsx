@@ -19,7 +19,9 @@ export default function FilterRecipesCards() {
   const diets = useSelector((state) => state.diets);
   // const recipes = useSelector((state) => state.allRecipes);
 
-  function handleReload(event) {}
+  function handleReload(event) {
+    dispatch(reload());
+  }
 
   function handle_Filter_for_Diet(event) {
     dispatch(filte_Recipe_For_Diets(event.target.value));
@@ -73,7 +75,7 @@ export default function FilterRecipesCards() {
     <div className={styles.containerFilterBar}>
       <div className={styles.containerFilter}>
         <div className={styles.container_Reload}>
-          <button onClick={handleReload}>
+          <button onClick={(event) => handleReload(event)}>
             <li className={styles.lista}>
               <i class="fa-solid fa-arrows-rotate"></i>
             </li>

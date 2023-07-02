@@ -158,8 +158,10 @@ function reducer(state = initialState, action) {
     //-------------------------------------------------------------------------------------//
 
     case RELOAD:
+      const recipesReload = state.allRecipes;
       return {
         ...state,
+        recipes: recipesReload,
       };
 
     default:

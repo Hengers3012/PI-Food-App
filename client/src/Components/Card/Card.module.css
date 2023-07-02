@@ -1,16 +1,14 @@
 .continer_Card .link {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 4fr 5fr;
+  grid-template-rows: 2fr 4fr 5fr;
   font-family: cursive;
   /* flex-direction: column;
   align-items: center;
   justify-content: flex-start; */
 
-  height: 550px;
+  height: 310px;
   width: 300px;
-  margin: 5px;
-
   background-color: rgba(7, 7, 10, 0.9);
   /*border: solid yellow;*/
 }
@@ -49,12 +47,12 @@
   font-family: cursive;
   font-size: large;
   margin: 5px 10px;
-  color: rgb(255, 255, 255);
+  color: #8b8b8b;
 }
 
 .contImageName h2:hover {
-  color: #b1cd2a;
-  -webkit-text-stroke: 0.5px #b1cd2a;
+  color: #ffffff;
+  -webkit-text-stroke: 0.5px #ffffff;
 }
 .contImageName img {
   width: 90%;
@@ -69,20 +67,18 @@
 }
 
 .dietsName {
-  display: flex;
-  flex-direction: column;
-  color: #02729e;
-
-  margin: -10px 5px;
-  overflow: auto;
+  position: absolute;
+  border: solid red;
+  color: #000000;
 }
 
 .dietsName h2 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   height: 100%;
-  width: 90%;
+  width: 100%;
 
   font-size: 17px;
   margin-left: 25px;

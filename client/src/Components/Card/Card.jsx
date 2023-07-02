@@ -17,7 +17,6 @@ export default function CardRecipe(props) {
       >
         <div className={styles.healthScoreText}>
           <p
-            onMouseMove={"hola"}
             className={
               health_score < 40
                 ? styles.redColor
@@ -37,37 +36,28 @@ export default function CardRecipe(props) {
             >
               Health Score:
             </span>
-
             {` ${health_score}%`}
           </p>
         </div>
 
         <div className={styles.contImageName}>
-          {/* <img
-            src="https://cdn.aarp.net/content/dam/aarp/health/caregiving/2018/03/1140-nutrients-food-loved-ones-caregiving-esp.jpg"
-            alt=""
-          /> */}
-          <img
-            src={image}
-            alt={`receta ${name}`}
-            className={styles.imageRecipe}
-          />
+          <img src={image} alt={name} className={styles.imageRecipe} />
           <h2 className={styles.cardName}>
             {name[0].toUpperCase() + name.slice(1)}
           </h2>
         </div>
-
-        <div className={styles.dietsName}>
-          <h1>Diets:</h1>
-          <h2>
-            {diets.map((diet) => (
-              <div className={styles.dietName} key={diet.name}>
-                {diet.name[0].toUpperCase() + diet.name.slice(1)}
-              </div>
-            ))}
-          </h2>
-        </div>
       </Link>
+
+      <div className={styles.dietsName}>
+        <h1>Diets:</h1>
+        <h2>
+          {diets.map((diet) => (
+            <div className={styles.dietName} key={diet.name}>
+              {diet.name[0].toUpperCase() + diet.name.slice(1)}
+            </div>
+          ))}
+        </h2>
+      </div>
     </div>
   );
 }

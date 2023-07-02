@@ -11,6 +11,7 @@ import {
   ORDEN_BY_NAME,
   ADD_FAVORITES,
   DELETE_FAVORITES,
+  RELOAD,
 } from "./Action_Types";
 
 export function getRecipe_Info() {
@@ -74,7 +75,15 @@ export function detail_Recipe(detail) {
   };
 }
 
-//Filtrados y Ordenamientos
+//Reload, Fileter and Orders
+
+export const reload = (payload) => {
+  return {
+    type: RELOAD,
+    payload: payload,
+  };
+};
+
 export function filter_For_Origen(payload) {
   console.log(payload);
   return {

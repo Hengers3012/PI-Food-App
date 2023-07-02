@@ -86,26 +86,33 @@ export default function DetailsPage() {
           </Link>
         </div>
       </div>
-
-      <div className={styles.dataVarTop}>
-        {isFavorite ? (
-          <button onClick={handlerFavorite}>💖</button>
-        ) : (
+      {String(recipe_Details.id) === id ? (
+        <div className={styles.dataVarTop}>
+          {isFavorite ? (
+            <button onClick={handlerFavorite}>💖</button>
+          ) : (
+            <button onClick={handlerFavorite}>🤍</button>
+          )}
+          <span
+            className={
+              recipe_Details.health_score < 40
+                ? styles.redColor
+                : recipe_Details.health_score < 75
+                ? styles.orangeColor
+                : styles.greenColor
+            }
+          >
+            Heath Score: {recipe_Details.health_score}%
+          </span>
+          <span>ID: {recipe_Details.id} </span>
+        </div>
+      ) : (
+        <div className={styles.dataVarTop}>
           <button onClick={handlerFavorite}>🤍</button>
-        )}
-        <span
-          className={
-            recipe_Details.health_score < 40
-              ? styles.redColor
-              : recipe_Details.health_score < 75
-              ? styles.orangeColor
-              : styles.greenColor
-          }
-        >
-          Heath Score: {recipe_Details.health_score}%
-        </span>
-        <span>ID: {recipe_Details.id} </span>
-      </div>
+          <span>Heath Score: --%</span>
+          <span>ID: -- </span>
+        </div>
+      )}
 
       {String(recipe_Details.id) === id ? (
         <div className={styles.containerDetail}>

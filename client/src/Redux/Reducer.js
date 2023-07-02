@@ -10,6 +10,7 @@ import {
   ORDEN_BY_NAME,
   ADD_FAVORITES,
   DELETE_FAVORITES,
+  RELOAD,
 } from "./Action_Types";
 
 const initialState = {
@@ -151,6 +152,16 @@ function reducer(state = initialState, action) {
         ...state,
         favorites: favoritesFilter,
       };
+
+    //-------------------------------------------------------------------------------------//
+    //                                        RELOAD                                       //
+    //-------------------------------------------------------------------------------------//
+
+    case RELOAD:
+      return {
+        ...state,
+      };
+
     default:
       return {
         ...state,

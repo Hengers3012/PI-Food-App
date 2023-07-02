@@ -14,8 +14,17 @@ import styles from "./Filter_Recipes.module.css";
 
 export default function FilterRecipesCards() {
   const dispatch = useDispatch();
+
   const diets = useSelector((state) => state.diets);
   // const recipes = useSelector((state) => state.allRecipes);
+
+  function handleReload() {
+    // dispatch(reload(event.target.value));
+    // filte_Recipe_For_Diets();
+    // filter_For_Origen();
+    // orden_For_Name();
+    // order_For_Health_Score();
+  }
 
   function handle_Filter_for_Diet(event) {
     dispatch(filte_Recipe_For_Diets(event.target.value));
@@ -68,6 +77,14 @@ export default function FilterRecipesCards() {
   return (
     <div className={styles.containerFilterBar}>
       <div className={styles.containerFilter}>
+        <div className={styles.container_Reload}>
+          <button onClick={handleReload}>
+            <li className={styles.lista}>
+              <i class="fa-solid fa-arrows-rotate"></i>
+            </li>
+          </button>
+        </div>
+
         <div className={styles.containerFilterOrigen}>
           <select
             defaultValue="Filter by Source"

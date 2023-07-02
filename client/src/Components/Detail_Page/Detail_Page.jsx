@@ -128,7 +128,7 @@ export default function DetailsPage() {
               </div>
 
               <div className={styles.containerDiets}>
-                <h2>Dietas</h2>
+                <h2>Diets</h2>
                 <div className={styles.allDiets}>
                   {allDiets?.map((element) => {
                     return (
@@ -147,7 +147,7 @@ export default function DetailsPage() {
 
           {recipe_Details.id === id ? (
             <div className={styles.containerDetailPart2}>
-              <h2>Instrucciones</h2>
+              <h2>Instruction</h2>
               {allInstrucctions.map((element, index) => {
                 let indInstr = index + 1;
                 return (
@@ -161,7 +161,7 @@ export default function DetailsPage() {
             </div>
           ) : (
             <div className={styles.containerDetailPart2}>
-              <h2>Instrucciones</h2>
+              <h2>Instruction</h2>
               {allInstrucctions.map((element) => {
                 return (
                   <div className={styles.allInstrucctions}>

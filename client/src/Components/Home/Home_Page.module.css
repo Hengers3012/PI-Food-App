@@ -101,7 +101,7 @@
   align-items: center;
   justify-content: flex-start;
 
-  height: 310px;
+  height: 510px;
   width: 300px;
 
   /* border: solid rgb(0, 255, 89); */
@@ -143,4 +143,13 @@
   .containerBackBtn {
     margin-bottom: 15px;
   }
+}
+
+.cardInfo {
+  color: orangered;
+  border: 1px solid green;
+  position: absolute;
+  left: 200px;
+  top: 25px;
+  visibility: visible;
 }

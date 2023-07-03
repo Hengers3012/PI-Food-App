@@ -27,7 +27,7 @@ export default function HomePage() {
 
   const recipes = allRecipes.slice(prim_Recipe_Index, ult_Recipe_Index);
 
-  console.log(recipes);
+  //console.log(recipes);
   console.log(allRecipes);
 
   const paginado = (pages) => {
@@ -38,7 +38,26 @@ export default function HomePage() {
     dispatch(getRecipe_Info());
   }, [dispatch]);
 
-  console.log(allRecipes);
+  //console.log(allRecipes);
+
+  function cardMouseOverHandler(event) {
+    const ele = event.target.childNodes[0];
+    console.log(ele);
+
+    const tooltip = document.getElementById("cardInfo");
+    tooltip.style.visibility = "visible";
+
+    const tips = document.createElement("p");
+    tips.innerText = ele.innerText;
+
+    tooltip.appendChild(tips);
+    tooltip.style.visibility = "visible";
+  }
+  function cardMouseOutHandler(event) {
+    const tooltip = document.getElementById("cardInfo");
+    tooltip.style.visibility = "hidden";
+    //console.log(event.target);
+  }
 
   return (
     <div>
@@ -70,7 +89,10 @@ export default function HomePage() {
                   key={`card${index}`}
                   className={styles.containerCard_indiv}
                 >
-                  <div>
+                  <div
+                    onMouseEnter={cardMouseOverHandler}
+                    onMouseLeave={cardMouseOutHandler}
+                  >
                     <CardRecipe
                       id={element.id}
                       health_score={element.health_score}
@@ -87,6 +109,9 @@ export default function HomePage() {
         ) : (
           <CargandoPage />
         )}
+        <div id="cardInfo" className={styles.cardInfo}>
+          <h1>CARD INFO</h1>
+        </div>
         <div className={styles.containerPaginate}>
           <Paginate
             pagination={paginado}

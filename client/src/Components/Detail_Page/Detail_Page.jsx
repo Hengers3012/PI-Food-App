@@ -8,6 +8,7 @@ import {
   addMyFavorite,
   deleteMyFavorite,
 } from "../../Redux/Actions";
+
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
 import Footer from "../Footer/Footer";
 import CargandoPage from "../Cargando/Cargando";
@@ -18,7 +19,7 @@ export default function DetailsPage() {
   const dispatch = useDispatch();
 
   const { id } = useParams();
-
+  console.log(id);
   const recipe_Details = useSelector((state) => state.detail);
   const favorites = useSelector((state) => state.recipesFavorites);
 
@@ -71,8 +72,8 @@ export default function DetailsPage() {
     : recipe_Details.instructions;
   console.log(allInstrucctions);
 
-  // console.log(id); -----> String
-  // console.log(recipe_Details.id);  -----> Number
+  console.log(id); //-----> String
+  console.log(recipe_Details.id); //-----> Number
 
   return (
     <div className={styles.detailContainer}>

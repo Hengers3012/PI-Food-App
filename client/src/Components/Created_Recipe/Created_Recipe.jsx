@@ -293,12 +293,12 @@ export default function CreateRecipeApp() {
         <div className={styles.containerInfoRecipe}>
           <div className={styles.containerGridLeft}>
             <div className={styles.containerNameRecipe}>
-              <h3>Nombre</h3>
+              <h3>Recipe Name</h3>
               <input
                 autoComplete="off"
                 type="text"
                 name="name"
-                placeholder="Introduce un nombre..."
+                placeholder="Enter a name..."
                 value={recipeData.name}
                 onChange={(event) => handleChange(event)}
                 onPaste={(event) => handleChange(event)}
@@ -308,9 +308,10 @@ export default function CreateRecipeApp() {
               )}
             </div>
             <div className={styles.containerSummaryRecipe}>
-              <h3>Descripción</h3>
+              <h3>Recipe Description</h3>
               <textarea
                 name="summary_of_the_dish"
+                placeholder="Enter a description..."
                 value={recipeData.summary_of_the_dish}
                 onChange={(event) => handleChange(event)}
                 onPaste={(event) => handleChange(event)}
@@ -324,10 +325,14 @@ export default function CreateRecipeApp() {
 
             <div className={styles.containerInstructionRecipe}>
               <div className={styles.containerInstructionInputs}>
-                <h3>Instrucciones</h3>
+                <h3>Recipe Instructions</h3>
                 <ol id="instLista" start="1">
                   <li>
-                    <textarea type="text" onChange={handleChangeIntructions} />
+                    <textarea
+                      type="text"
+                      onChange={handleChangeIntructions}
+                      placeholder="Enter a instruction..."
+                    />
                     <input
                       className={styles.deleteInstruction}
                       type="button"

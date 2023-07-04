@@ -2,6 +2,7 @@ import axios from "axios";
 
 import {
   DETAIL_RECIPE,
+  TOOLTIPS,
   GET_RECIPES,
   GET_DIETS,
   SEARCH_BAR,
@@ -70,6 +71,17 @@ export function detail_Recipe(detail) {
     console.log(json);
     return dispatch({
       type: DETAIL_RECIPE,
+      payload: json.data,
+    });
+  };
+}
+
+export function tooltips_Detail(detail) {
+  return async function (dispatch) {
+    const json = await axios.get(`/recipes/${detail}`);
+    console.log(json);
+    return dispatch({
+      type: TOOLTIPS,
       payload: json.data,
     });
   };

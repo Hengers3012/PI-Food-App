@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: flex-start; */
 
-  height: 510px;
+  height: 305px;
   width: 300px;
   background-color: rgba(7, 7, 10, 0.9);
   /*border: solid yellow;*/
@@ -15,6 +15,10 @@
 
 .continer_Card .link:hover {
   background-color: rgba(23, 23, 23);
+}
+
+.id {
+  display: none;
 }
 
 .healthScoreText {
@@ -46,7 +50,7 @@
 .contImageName h2 {
   font-family: cursive;
   font-size: large;
-  margin: 5px 10px;
+  margin: 2px 5px;
   color: #8b8b8b;
 }
 
@@ -55,7 +59,7 @@
   -webkit-text-stroke: 0.5px #ffffff;
 }
 .contImageName img {
-  width: 90%;
+  width: 93%;
   border-radius: 15px;
   transition: all 0.3s ease;
 

@@ -1,5 +1,6 @@
 import {
   DETAIL_RECIPE,
+  TOOLTIPS,
   GET_RECIPES,
   GET_DIETS,
   POST_RECIPE,
@@ -18,6 +19,7 @@ const initialState = {
   allRecipes: [],
   diets: [],
   detail: [],
+  tooltips: [],
   recipesFavorites: [],
 };
 
@@ -52,6 +54,11 @@ function reducer(state = initialState, action) {
         detail: action.payload,
       };
 
+    case TOOLTIPS:
+      return {
+        ...state,
+        tooltips: action.payload,
+      };
     case POST_RECIPE:
       return {
         ...state,

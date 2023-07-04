@@ -85,7 +85,7 @@
   align-items: flex-start;
   justify-content: space-around;
   flex-wrap: wrap;
-  height: auto;
+  height: 100%;
   width: 100%;
   padding: 10px;
 
@@ -101,7 +101,7 @@
   align-items: center;
   justify-content: flex-start;
 
-  height: 510px;
+  height: 305px;
   width: 300px;
 
   /* border: solid rgb(0, 255, 89); */
@@ -146,10 +146,16 @@
 }
 
 .cardInfo {
-  color: orangered;
+  color: rgb(255, 255, 255);
   border: 1px solid green;
   position: absolute;
-  left: 200px;
-  top: 25px;
-  visibility: visible;
+  text-align: justify;
+  background-size: contain;
+  height: 400px;
+  width: 250px;
+  left: 20px;
+  top: 20px;
+  visibility: hidden;
+  transform: scale(1);
+  overflow: auto;
 }

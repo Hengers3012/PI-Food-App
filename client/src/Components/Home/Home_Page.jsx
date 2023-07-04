@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import CardRecipe from "../Card/Card";
+import Tooltips from "../Tooltips/Tooltips";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
 import SearchBar from "../SearchBar/Search_Bar";
 import FilterRecipesCards from "../Filter_Recipes/Filter_Recipes";
@@ -11,7 +12,7 @@ import Paginate from "../Paginate/Paginate";
 import Footer from "../Footer/Footer";
 import CargandoPage from "../Cargando/Cargando";
 
-import { getRecipe_Info } from "../../Redux/Actions";
+import { getRecipe_Info, tooltips_Detail } from "../../Redux/Actions";
 
 import styles from "./Home_Page.module.css";
 
@@ -27,8 +28,26 @@ export default function HomePage() {
 
   const recipes = allRecipes.slice(prim_Recipe_Index, ult_Recipe_Index);
 
+  function cardMouseOverHandler(event) {
+    const tooltip = document.getElementById("cardInfo");
+    tooltip.style.visibility = "visible";
+
+    const parent = event.target.parentElement.firstChild.firstChild;
+
+    if (parent !== undefined && parent !== null) {
+      dispatch(tooltips_Detail(parent.wholeText));
+      //console.log(parent.wholeText);
+    }
+  }
+  function cardMouseOutHandler(event) {
+    const tooltip = document.getElementById("cardInfo");
+    tooltip.style.visibility = "hidden";
+    dispatch(tooltips_Detail(""));
+    //console.log(event.target);
+  }
+
   //console.log(recipes);
-  console.log(allRecipes);
+  //console.log(allRecipes);
 
   const paginado = (pages) => {
     setPagePresent(pages);
@@ -39,25 +58,31 @@ export default function HomePage() {
   }, [dispatch]);
 
   //console.log(allRecipes);
+  //Funcion que muestra el div en la posicion del mouse
 
-  function cardMouseOverHandler(event) {
-    const ele = event.target.childNodes[0];
-    console.log(ele);
+  // function cardMouseOverHandler(event) {
+  //   // const ele = event.target.childNodes[0];
+  //   // console.log(ele);
+  //   const parent = event.target.parentElement.parentElement; // parent UL/OL element
+  //   console.log(parent);
+  //   // let i;
+  //   // for (i = 0; i < parent.childNodes.length; i++) {
+  //   //   if (event.target.parentElement === parent.childNodes[i]) break;
+  //   // }
+  //   const tooltip = document.getElementById("cardInfo");
+  //   tooltip.style.visibility = "visible";
 
-    const tooltip = document.getElementById("cardInfo");
-    tooltip.style.visibility = "visible";
+  //   const tips = document.getElementById("id");
+  //   tips.innerHTML = parent;
 
-    const tips = document.createElement("p");
-    tips.innerText = ele.innerText;
-
-    tooltip.appendChild(tips);
-    tooltip.style.visibility = "visible";
-  }
-  function cardMouseOutHandler(event) {
-    const tooltip = document.getElementById("cardInfo");
-    tooltip.style.visibility = "hidden";
-    //console.log(event.target);
-  }
+  //   tooltip.appendChild(tips);
+  //   tooltip.style.visibility = "visible";
+  // }
+  // function cardMouseOutHandler(event) {
+  //   const tooltip = document.getElementById("cardInfo");
+  //   tooltip.style.visibility = "hidden";
+  //   //console.log(event.target);
+  // }
 
   return (
     <div>
@@ -98,7 +123,6 @@ export default function HomePage() {
                       health_score={element.health_score}
                       image={element.image}
                       name={element.name}
-                      diets={element.diets}
                       createdInDb={element.createdInDb}
                     />
                   </div>
@@ -110,7 +134,9 @@ export default function HomePage() {
           <CargandoPage />
         )}
         <div id="cardInfo" className={styles.cardInfo}>
-          <h1>CARD INFO</h1>
+          <div id="id">
+            <Tooltips />
+          </div>
         </div>
         <div className={styles.containerPaginate}>
           <Paginate

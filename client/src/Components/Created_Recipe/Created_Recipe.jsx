@@ -32,21 +32,21 @@ export default function CreateRecipeApp() {
     let recipeError = {};
 
     if (!recipeData.name.length) {
-      recipeError.name = "Se requiere un nombre";
+      recipeError.name = "A name is required";
     }
     if (!recipeData.summary_of_the_dish.length) {
       recipeError.summary_of_the_dish =
-        "Se requiere una descripcción para la receta";
+        "A description is required for the recipe";
     }
     // if (!recipeData.instructions === [""]) {
     //   recipeError.instructions =
     //     "Se requieren las instrucciones para la receta";
     // }
     if (!recipeData.diet.length) {
-      recipeError.diet = "Seleccione almenos una dieta.";
+      recipeError.diet = "Select at least one diet";
     }
     if (recipeData.name.length > 100) {
-      recipeError.name = `El nombre no puede contener mas de 100 Caracteres: ${recipeData.name.length} Caracteres)`;
+      recipeError.name = `The name cannot contain more than 100 characters: ${recipeData.name.length} characters)`;
     }
     if (recipeData.summary_of_the_dish.length > 1000) {
       recipeError.summary_of_the_dish = `La descripción no puede contener mas de 1000 Caracteres: ${recipeData.summary_of_the_dish.length} Caracteres)`;
@@ -373,7 +373,7 @@ export default function CreateRecipeApp() {
               <input
                 type="text"
                 name="image"
-                placeholder="Introduce la url de la imagen deseada..."
+                placeholder="Enter the url of the desired image..."
                 value={recipeData.image}
                 onChange={(event) => handleChangeImage(event)}
               />

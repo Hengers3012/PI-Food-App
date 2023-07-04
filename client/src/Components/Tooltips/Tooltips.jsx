@@ -31,13 +31,13 @@ export default function Tooltips() {
           >
             Heath Score: {recipe_Details.health_score}%
           </span>
-          <span>ID: {recipe_Details.id} </span>
+          <span> ID: {recipe_Details.id} </span>
         </div>
       ) : (
         <div className={styles.dataVarTop}>
           {/* <button onClick={handlerFavorite}>🤍</button> */}
           <span>Heath Score: --%</span>
-          <span>ID: -- </span>
+          <span> ID: -- </span>
         </div>
       )}
 
@@ -45,7 +45,7 @@ export default function Tooltips() {
         <div className={styles.containerDetail}>
           <div className={styles.containerDetailPart1}>
             <div className={styles.containerName}>
-              <h3>Name:{recipe_Details.name}</h3>
+              <h3>Name: {recipe_Details.name}</h3>
             </div>
             <div className={styles.containerImage}>
               {/* <img

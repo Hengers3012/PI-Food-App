@@ -21,6 +21,18 @@ export default function FilterRecipesCards() {
 
   function handleReload(event) {
     dispatch(reload());
+
+    const filter_by_Origen = document.getElementById("origen");
+    filter_by_Origen.selectedIndex = 0;
+
+    const filter_by_Diets = document.getElementById("diet");
+    filter_by_Diets.selectedIndex = 0;
+
+    const filter_by_Alfabeto = document.getElementById("alfabeto");
+    filter_by_Alfabeto.selectedIndex = 0;
+
+    const filter_by_HealthScore = document.getElementById("health_score");
+    filter_by_HealthScore.selectedIndex = 0;
   }
 
   function handle_Filter_for_Diet(event) {
@@ -84,6 +96,7 @@ export default function FilterRecipesCards() {
 
         <div className={styles.containerFilterOrigen}>
           <select
+            id="origen"
             defaultValue="Filter by Source"
             onChange={(event) => handle_Filter_for_Origen(event)}
           >

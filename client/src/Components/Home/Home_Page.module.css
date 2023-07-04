@@ -146,16 +146,20 @@
 }
 
 .cardInfo {
-  color: rgb(255, 255, 255);
-  border: 1px solid green;
   position: absolute;
-  text-align: justify;
   background-size: contain;
-  height: 400px;
-  width: 250px;
-  left: 20px;
-  top: 20px;
+
+  margin: 30px;
+  height: auto;
+  width: auto;
+
+  text-align: justify;
+
   visibility: hidden;
+
+  border: 2px ridge grey;
+
   transform: scale(1);
+  pointer-events: none;
   overflow: auto;
 }

@@ -13,7 +13,8 @@ export default function CardRecipe(props) {
         to={`/detail/${id}`}
         style={{ textDecoration: "none" }}
       >
-        <div className={styles.id}>{id}</div>
+        <h3 className={styles.id}>{id}</h3>
+
         <div className={styles.healthScoreText}>
           <p
             className={

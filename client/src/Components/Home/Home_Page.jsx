@@ -26,23 +26,33 @@ export default function HomePage() {
   const ult_Recipe_Index = pagePresent * recipe_for_page;
   const prim_Recipe_Index = ult_Recipe_Index - recipe_for_page;
 
-  const recipes = allRecipes.slice(prim_Recipe_Index, ult_Recipe_Index);
+  const recipes = allRecipes.length
+    ? allRecipes.slice(prim_Recipe_Index, ult_Recipe_Index)
+    : [];
 
-  function cardMouseOverHandler(event) {
+  const cardMouseOverHandler = async (event) => {
+    // console.log(event.clientX);
+    // console.log(event.clientY);
+
+    let x = event.clientX;
+    let y = event.clientY;
+
     const tooltip = document.getElementById("cardInfo");
     tooltip.style.visibility = "visible";
+    tooltip.style.left = `${x}px`;
+    tooltip.style.top = `${y}px`;
 
     const parent = event.target.parentElement.firstChild.firstChild;
 
     if (parent !== undefined && parent !== null) {
-      dispatch(tooltips_Detail(parent.wholeText));
-      //console.log(parent.wholeText);
+      //dispatch(tooltips_Detail(parent.wholeText));
+      console.log(parent);
     }
-  }
+  };
   function cardMouseOutHandler(event) {
     const tooltip = document.getElementById("cardInfo");
     tooltip.style.visibility = "hidden";
-    dispatch(tooltips_Detail(""));
+    //dispatch(tooltips_Detail(""));
     //console.log(event.target);
   }
 
@@ -59,7 +69,6 @@ export default function HomePage() {
 
   //console.log(allRecipes);
   //Funcion que muestra el div en la posicion del mouse
-
   // function cardMouseOverHandler(event) {
   //   // const ele = event.target.childNodes[0];
   //   // console.log(ele);
@@ -134,9 +143,7 @@ export default function HomePage() {
           <CargandoPage />
         )}
         <div id="cardInfo" className={styles.cardInfo}>
-          <div id="id">
-            <Tooltips />
-          </div>
+          <Tooltips />
         </div>
         <div className={styles.containerPaginate}>
           <Paginate

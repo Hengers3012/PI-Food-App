@@ -7,6 +7,9 @@ const getDataDiets = async function () {
     const dietList = await axios.get(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`
     );
+    // const dietList = await axios.get(
+    //   "https://apimocha.com/n.s.recipes/allrecipes"
+    // );
 
     const repeated = await dietList.data.results
       .map((diet) => diet.diets)

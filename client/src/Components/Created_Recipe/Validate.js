@@ -5,10 +5,6 @@ const validate = (newRecipe) => {
       errorMessage:
         "The recipe name must be between 10 and 100 characters and cannot contain special characters.",
     },
-    // health_score: {
-    //   pattern: /^([1-9][0-9]|100)$/,
-    //   errorMessage: "El puntaje nutricial debe ser del 10 al 100",
-    // },
     image: {
       pattern:
         /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?.*(png|jpg|jpeg|gif)$/,
@@ -16,12 +12,12 @@ const validate = (newRecipe) => {
         "A secure link (https) in jpg, jpeg, png or gift format is required",
     },
     instructions: {
-      pattern: /^[a-zA-ZÀ-ÿ0-999\s]{25,300}$/u,
+      pattern: /^[a-zA-ZÀ-ÿ0-999\s]/u,
       errorMessage:
-        "Your description can only contain 25 to 300 characters maximum.",
+        "Recipe instructions should only contain letters and numbers.",
     },
     summary_of_the_dish: {
-      pattern: /^[a-zA-ZÀ-ÿ0-999\s]{25,1000}$/u,
+      pattern: /^[a-zA-ZÀ-ÿ0-999\s]{100,600}$/u,
       errorMessage:
         "Your description can only contain 100 to 600 characters maximum.",
     },

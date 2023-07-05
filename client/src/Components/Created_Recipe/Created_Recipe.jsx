@@ -137,18 +137,18 @@ export default function CreateRecipeApp() {
     console.log(recipeData);
 
     if (!recipeData.name) {
-      return alert("The name of the recipe is required");
+      return alert("The name of the recipe is required.");
     } else if (recipeData.name.length > 100) {
-      return alert("The entered name is too long");
+      return alert("The entered name is too long.");
     } else if (allRecipes.find((ele) => ele.name === recipeData.name)) {
-      return alert("This name already exists");
+      return alert("This name already exists.");
     } else {
       const name = recipeData.name;
       recipeData.name = recipeData.name[0].toUpperCase() + name.substring(1);
     }
 
     if (!recipeData.summary_of_the_dish) {
-      return alert("The recipe must include a description");
+      return alert("The recipe must include a description.");
     }
 
     if (!recipeData.instructions) {
@@ -156,7 +156,11 @@ export default function CreateRecipeApp() {
     }
 
     if (!recipeData.diet.length) {
-      return alert("The recipe must include at least one diet");
+      return alert("The recipe must include at least one diet.");
+    }
+
+    if (!recipeData.health_score > 0) {
+      return alert("Recipe health score must be greater than 0.");
     }
 
     let instruct = recipeData.instructions.filter((inst) => inst !== "");

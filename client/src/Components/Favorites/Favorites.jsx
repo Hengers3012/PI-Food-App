@@ -38,16 +38,12 @@ export default function Favorites() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.favoriteContainer}>
         <div className={styles.containerNavBarTop}>
           <div>
             <NavBarTop />
           </div>
-
-          {/* <div className={styles.searchBar}>
-            <SearchBar />
-          </div> */}
 
           <div className={styles.containerBackBtn}>
             <Link to="/home" className={styles.backBtn}>

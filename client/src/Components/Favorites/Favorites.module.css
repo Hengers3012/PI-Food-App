@@ -1,20 +1,25 @@
+.container {
+  height: 100%;
+  width: 100%;
+}
+
 .favoriteContainer {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.8fr 0.2fr 8.4fr 0.2fr 0.2fr;
+  grid-template-rows: 0.8fr 8.6fr 0.2fr 0.2fr;
   background-size: contain;
 
   height: 100%;
   width: 100%;
 
-  /* border: solid white; */
-  /* background-image: url(./Backgrownd_Recipe.jpg); */
+  /* border: solid white;  */
+  background-image: url(./Backgrownd_Recipe.jpg);
   background-color: rgb(255, 255, 255);
 }
 
 .containerNavBarTop {
   display: grid;
-  grid-template-columns: 7.5fr 2fr 0.5fr;
+  grid-template-columns: 7.5fr 0.5fr;
   grid-template-rows: 1fr;
   align-items: center;
   height: 100px;
@@ -67,25 +72,12 @@
   background-color: rgb(185, 25, 1);
 }
 
-.continerFilter {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 50px;
-  width: auto;
-  background-color: rgba(7, 7, 10, 0.9);
-}
-
-.continerFilter:hover {
-  background-color: rgba(23, 23, 23);
-}
-
 .cardRecipeContainer {
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  height: auto;
+  height: 100%;
   width: 100%;
   padding: 10px;
 
@@ -101,12 +93,12 @@
   align-items: center;
   justify-content: center;
 
-  height: 535px;
+  height: fit-content;
   width: 300px;
-  margin: 5px;
+  margin: 10px;
 
   /* border: solid rgb(0, 255, 89); */
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
 }
 

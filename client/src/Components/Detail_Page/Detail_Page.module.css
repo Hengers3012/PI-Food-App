@@ -188,7 +188,7 @@
   padding-left: 10px;
   display: flex;
   align-items: center;
-  justify-content: start;
+  /* justify-content: start; */
 }
 
 .allDiets {
@@ -217,7 +217,7 @@
   padding-left: 30px;
   display: flex;
   align-items: center;
-  justify-content: start;
+  /*justify-content: start;*/
 }
 .allInstrucctions {
   display: flex;

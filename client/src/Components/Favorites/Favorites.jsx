@@ -46,9 +46,9 @@ export default function Favorites() {
             <NavBarTop />
           </div>
 
-          <div className={styles.searchBar}>
+          {/* <div className={styles.searchBar}>
             <SearchBar />
-          </div>
+          </div> */}
 
           <div className={styles.containerBackBtn}>
             <Link to="/home" className={styles.backBtn}>
@@ -57,9 +57,9 @@ export default function Favorites() {
           </div>
         </div>
 
-        <div className={styles.continerFilter}>
+        {/* <div className={styles.continerFilter}>
           <FilterRecipesCards />
-        </div>
+        </div> */}
         {favorites.length > 0 ? (
           <div className={styles.cardRecipeContainer}>
             {recipes?.map((element, index) => {

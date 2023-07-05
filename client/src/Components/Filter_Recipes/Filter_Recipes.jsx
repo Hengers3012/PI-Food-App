@@ -10,7 +10,6 @@ import {
   orden_For_Name,
   reload,
 } from "../../Redux/Actions";
-
 import styles from "./Filter_Recipes.module.css";
 
 export default function FilterRecipesCards() {
@@ -18,10 +17,8 @@ export default function FilterRecipesCards() {
 
   const diets = useSelector((state) => state.diets);
   // const recipes = useSelector((state) => state.allRecipes);
-
   function handleReload(event) {
     dispatch(reload());
-
     const filter_by_Origen = document.getElementById("origen");
     filter_by_Origen.selectedIndex = 0;
 

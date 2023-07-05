@@ -8,6 +8,7 @@ import {
   filter_For_Origen,
   order_For_Health_Score,
   orden_For_Name,
+  change_page,
   reload,
 } from "../../Redux/Actions";
 import styles from "./Filter_Recipes.module.css";
@@ -30,6 +31,7 @@ export default function FilterRecipesCards() {
 
     const filter_by_HealthScore = document.getElementById("health_score");
     filter_by_HealthScore.selectedIndex = 0;
+    dispatch(change_page(1));
   }
 
   function handle_Filter_for_Diet(event) {
@@ -40,6 +42,7 @@ export default function FilterRecipesCards() {
 
     const filter_by_HealthScore = document.getElementById("health_score");
     filter_by_HealthScore.selectedIndex = 0;
+    dispatch(change_page(1));
   }
 
   function handle_Filter_for_Origen(event) {
@@ -53,6 +56,7 @@ export default function FilterRecipesCards() {
 
     const filter_by_HealthScore = document.getElementById("health_score");
     filter_by_HealthScore.selectedIndex = 0;
+    dispatch(change_page(1));
   }
 
   function handle_Orden_For_Name(event) {
@@ -60,6 +64,7 @@ export default function FilterRecipesCards() {
 
     const filter_by_HealthScore = document.getElementById("health_score");
     filter_by_HealthScore.selectedIndex = 0;
+    dispatch(change_page(1));
   }
 
   function handle_Orden_for_Score(event) {
@@ -67,6 +72,7 @@ export default function FilterRecipesCards() {
 
     const filter_by_Alfabeto = document.getElementById("alfabeto");
     filter_by_Alfabeto.selectedIndex = 0;
+    dispatch(change_page(1));
   }
 
   useEffect(() => {

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
 
+import { useSelector, useDispatch } from "react-redux";
 import { getDiets_Info, post_Recipe } from "../../Redux/Actions";
+
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
 import Footer from "../Footer/Footer";
+
+import validate from "./Validate";
 
 import styles from "./Created_Recipe.module.css";
 
@@ -16,9 +19,14 @@ export default function CreateRecipeApp() {
   const diets = useSelector((state) => state.diets);
   const allRecipes = useSelector((state) => state.allRecipes);
 
-  let recipesNames = allRecipes.map((el) => el.name);
-
-  const [recipeError, setRecipeErrors] = useState({});
+  const [recipeError, setRecipeErrors] = useState({
+    name: "",
+    summary_of_the_dish: "",
+    health_score: 0,
+    instructions: [""],
+    image: "",
+    diet: [],
+  });
   const [recipeData, setRecipeData] = useState({
     name: "",
     summary_of_the_dish: "",
@@ -27,38 +35,6 @@ export default function CreateRecipeApp() {
     image: "",
     diet: [],
   });
-
-  function validate(newRecipe) {
-    let recipeError = {};
-
-    if (!recipeData.name.length) {
-      recipeError.name = "A name is required";
-    }
-    if (!recipeData.summary_of_the_dish.length) {
-      recipeError.summary_of_the_dish =
-        "A description is required for the recipe";
-    }
-    // if (!recipeData.instructions === [""]) {
-    //   recipeError.instructions =
-    //     "Se requieren las instrucciones para la receta";
-    // }
-    if (!recipeData.diet.length) {
-      recipeError.diet = "Select at least one diet";
-    }
-    if (recipeData.name.length > 100) {
-      recipeError.name = `The name cannot contain more than 100 characters: ${recipeData.name.length} characters)`;
-    }
-    if (recipeData.summary_of_the_dish.length > 1000) {
-      recipeError.summary_of_the_dish = `La descripción no puede contener mas de 1000 Caracteres: ${recipeData.summary_of_the_dish.length} Caracteres)`;
-    }
-    if (recipeData.instructions.length > 12) {
-      recipeError.instructions = `La receta no debe incluir mas de 12 pasos: ${recipeData.instructions.length} pasos)`;
-    }
-    if (recipeData.image.length > 255) {
-      recipeError.image = `255 characters or less(Characters:${recipeData.image.length})`;
-    }
-    return recipeError;
-  }
 
   function handleChange(event) {
     //const { data, value } = event.target;
@@ -161,24 +137,26 @@ export default function CreateRecipeApp() {
     console.log(recipeData);
 
     if (!recipeData.name) {
-      return alert("El nombre de la receta es requerido");
+      return alert("The name of the recipe is required");
     } else if (recipeData.name.length > 100) {
-      return alert("El nombre introducido es muy largo");
-    } else if (recipesNames.includes(recipeData.name)) {
-      return alert("Este nombre ya existe");
+      return alert("The entered name is too long");
+    } else if (allRecipes.find((ele) => ele.name === recipeData.name)) {
+      return alert("This name already exists");
     } else {
       const name = recipeData.name;
       recipeData.name = recipeData.name[0].toUpperCase() + name.substring(1);
     }
 
     if (!recipeData.summary_of_the_dish) {
-      return alert("La receta debe incluir una descripción");
+      return alert("The recipe must include a description");
     }
+
     if (!recipeData.instructions) {
-      return alert("La receta debe incluir las instrucciones de preparación");
+      return alert("The recipe must include preparation instructions.");
     }
+
     if (!recipeData.diet.length) {
-      return alert("La receta debe incluir almenos una dieta");
+      return alert("The recipe must include at least one diet");
     }
 
     let instruct = recipeData.instructions.filter((inst) => inst !== "");
@@ -191,6 +169,7 @@ export default function CreateRecipeApp() {
     dispatch(post_Recipe(recipeData));
 
     alert("⭐La receta fue creada exitosamente!!!⭐");
+
     setRecipeData({
       name: "",
       summary_of_the_dish: "",
@@ -199,6 +178,7 @@ export default function CreateRecipeApp() {
       image: "",
       diet: [],
     });
+
     history.push("/home");
   }
 
@@ -283,7 +263,7 @@ export default function CreateRecipeApp() {
       </div>
 
       <div className={styles.labelPage}>
-        <h1>Create Recipes</h1>
+        <h1>CREATE A NEW RECIPE</h1>
       </div>
 
       <form
@@ -341,7 +321,7 @@ export default function CreateRecipeApp() {
                     />
                   </li>
                 </ol>
-                {recipeError.instructions}
+                <p style={{ color: "red" }}>{recipeError.instructions}</p>
               </div>
               {/* <textarea
                 name="instructions"
@@ -382,7 +362,7 @@ export default function CreateRecipeApp() {
             <div className={styles.containerGridRigth_Diet_HS}>
               {diets.length ? (
                 <div className={styles.containerCheckbox}>
-                  <h3>Dietas</h3>
+                  <h3>Diets</h3>
                   {diets.map((diet, index) => {
                     return (
                       <label className={styles.dietsLabel}>

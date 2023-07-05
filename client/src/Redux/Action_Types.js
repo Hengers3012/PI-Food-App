@@ -1,5 +1,6 @@
 export const GET_RECIPES = "GET_RECIPES";
 export const GET_DIETS = "GET_DIETS";
+
 export const DETAIL_RECIPE = "DETAIL_RECIPE";
 export const TOOLTIPS = "TOOLTIPS";
 
@@ -15,5 +16,8 @@ export const ORDEN_BY_NAME = "ORDEN_BY_NAME";
 
 export const ADD_FAVORITES = "ADD_FAVORITES";
 export const DELETE_FAVORITES = "DELETE_FAVORITES";
+
+export const SET_PAGES = "SET_PAGES";
+export const CHANGE_PAGE = "CHANGE_PAGE";
 
 export const RELOAD = "RELOAD";

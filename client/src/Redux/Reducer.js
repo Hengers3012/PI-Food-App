@@ -11,6 +11,8 @@ import {
   ORDEN_BY_NAME,
   ADD_FAVORITES,
   DELETE_FAVORITES,
+  SET_PAGES,
+  CHANGE_PAGE,
   RELOAD,
 } from "./Action_Types";
 
@@ -21,6 +23,7 @@ const initialState = {
   detail: [],
   tooltips: [],
   recipesFavorites: [],
+  currentPage: 1,
 };
 
 function reducer(state = initialState, action) {
@@ -163,6 +166,18 @@ function reducer(state = initialState, action) {
     //-------------------------------------------------------------------------------------//
     //                                        RELOAD                                       //
     //-------------------------------------------------------------------------------------//
+    case SET_PAGES: {
+      return {
+        ...state,
+        currentPage: action.payload,
+      };
+    }
+
+    case CHANGE_PAGE:
+      return {
+        ...state,
+        currentPage: action.payload,
+      };
 
     case RELOAD:
       const recipesReload = state.allRecipes;

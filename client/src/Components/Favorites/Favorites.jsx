@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 
 import CardRecipe from "../Card/Card";
 import NavBarTop from "../Nav_Bar_Top/Nav_Bar_Top";
-import SearchBar from "../SearchBar/Search_Bar";
-import FilterRecipesCards from "../Filter_Recipes/Filter_Recipes";
 import Paginate from "../Paginate/Paginate";
 import Footer from "../Footer/Footer";
 import CargandoPage from "../Cargando/Cargando";
@@ -36,6 +34,7 @@ export default function Favorites() {
 
   useEffect(() => {
     dispatch(getRecipe_Info());
+    setPagePresent(1);
   }, [dispatch]);
 
   return (

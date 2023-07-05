@@ -12,6 +12,8 @@ import {
   ORDEN_BY_NAME,
   ADD_FAVORITES,
   DELETE_FAVORITES,
+  SET_PAGES,
+  CHANGE_PAGE,
   RELOAD,
 } from "./Action_Types";
 
@@ -88,6 +90,19 @@ export function tooltips_Detail(detail) {
 }
 
 //Reload, Fileter and Orders
+export const setPage = (payload) => {
+  return {
+    type: SET_PAGES,
+    payload,
+  };
+};
+
+export const change_page = (Pagenumber) => {
+  return {
+    type: CHANGE_PAGE,
+    payload: Pagenumber++,
+  };
+};
 
 export const reload = () => {
   return {

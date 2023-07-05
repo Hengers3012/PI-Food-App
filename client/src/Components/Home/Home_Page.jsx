@@ -42,12 +42,12 @@ export default function HomePage() {
     tooltip.style.left = `${x}px`;
     tooltip.style.top = `${y}px`;
 
-    const parent = event.target.parentElement.firstChild.firstChild;
-
-    if (parent !== undefined && parent !== null) {
+    const element = event.target.parentElement.firstChild.firstChild;
+    const id = element;
+    if (id !== undefined && id !== null) {
       //dispatch(tooltips_Detail(parent.wholeText));
-      console.log(parent);
-    }
+      console.log(id);
+    } else console.log(id);
   };
   function cardMouseOutHandler(event) {
     const tooltip = document.getElementById("cardInfo");
@@ -132,6 +132,7 @@ export default function HomePage() {
                       health_score={element.health_score}
                       image={element.image}
                       name={element.name}
+                      diets={element.diets}
                       createdInDb={element.createdInDb}
                     />
                   </div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
 export default function CardRecipe(props) {
-  const { id, name, health_score, image } = props;
+  const { id, name, health_score, image, diets } = props;
 
   return (
     <div className={styles.continer_Card}>
@@ -13,8 +13,6 @@ export default function CardRecipe(props) {
         to={`/detail/${id}`}
         style={{ textDecoration: "none" }}
       >
-        <h3 className={styles.id}>{id}</h3>
-
         <div className={styles.healthScoreText}>
           <p
             className={
@@ -45,6 +43,17 @@ export default function CardRecipe(props) {
           <h2 className={styles.cardName}>
             {name[0].toUpperCase() + name.slice(1)}
           </h2>
+        </div>
+
+        <div className={styles.diets}>
+          <h1>Diets:</h1>
+          <div className={styles.dietsNames}>
+            {diets.map((diet) => (
+              <div className={styles.dietName} key={diet.name}>
+                {"> " + diet.name[0].toUpperCase() + diet.name.slice(1)}
+              </div>
+            ))}
+          </div>
         </div>
       </Link>
     </div>

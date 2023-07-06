@@ -60,9 +60,6 @@ export default function HomePage() {
   //   //console.log(event.target);
   // }
 
-  //console.log(recipes);
-  //console.log(allRecipes);
-
   // const paginado = (pages) => {
   //   setPagePresent(pages);
   // };
@@ -131,7 +128,6 @@ export default function HomePage() {
             // renderiza Pagination si el número total de páginas es mayor o igual a 2 y showRecipes es un array válido. El componente Pagination se encarga de mostrar la barra de paginación que permite al usuario navegar entre diferentes páginas de la lista.
           )}
         </div>
-
         <div className={styles.containerFooter}>
           <Footer />
         </div>

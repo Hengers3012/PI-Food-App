@@ -7,7 +7,7 @@ const validate = (newRecipe) => {
     },
     image: {
       pattern:
-        /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?.*(png|jpg|jpeg|gif)$/,
+        /(http|https|ftp|ftps)\\:\/\/[a-zA-Z0-9\-\\.]+\.[a-zA-Z]{2,3}(\/\S*)?.*(png|jpg|jpeg|gif)$/,
       errorMessage:
         "A secure link (https) in jpg, jpeg, png or gift format is required",
     },

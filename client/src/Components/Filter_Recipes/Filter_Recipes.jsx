@@ -116,14 +116,16 @@ export default function FilterRecipesCards() {
             defaultValue="default"
           >
             <option value="default">All Diets</option>
-            {diets.map((diet, index) => {
-              return (
-                <option key={`Diet${index}`} value={diet.name}>
-                  {diet.name[0].toUpperCase() + diet.name.slice(1)}
-                  {/* {diet.name} */}
-                </option>
-              );
-            })}
+
+            {Array.isArray(diets) &&
+              diets?.map((diet, index) => {
+                return (
+                  <option key={`Diet${index}`} value={diet.name}>
+                    {diet.name[0].toUpperCase() + diet.name.slice(1)}
+                    {/* {diet.name} */}
+                  </option>
+                );
+              })}
           </select>
         </div>
 

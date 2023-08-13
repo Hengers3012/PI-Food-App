@@ -364,14 +364,13 @@ export default function CreateRecipeApp() {
               <p style={{ color: "red" }}>{recipeError.image}</p>
             </div>
             <div className={styles.containerGridRigth_Diet_HS}>
-              {diets.length ? (
+              {Array.isArray(diets) && diets.length > 0 ? (
                 <div className={styles.containerCheckbox}>
                   <h3>Diets</h3>
                   {diets.map((diet, index) => {
                     return (
-                      <label className={styles.dietsLabel}>
+                      <label key={`diet${index}`} className={styles.dietsLabel}>
                         <input
-                          key={`diet${index}`}
                           type="checkbox"
                           name={diet.name}
                           value={diet.name}

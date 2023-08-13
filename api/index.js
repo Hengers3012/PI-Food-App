@@ -52,6 +52,6 @@ const dietsBDD = async function () {
 conn.sync({ force: true }).then(() => {
   server.listen(PORT, () => {
     dietsBDD();
-    console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
+    console.log("%s listening at", process.env.PORT); // eslint-disable-line no-console
   });
 });

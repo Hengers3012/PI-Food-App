@@ -3,7 +3,7 @@ const axios = require("axios");
 const { API_KEYS } = process.env;
 
 const allDataAPI = async function () {
-  const keys = API_KEYS.split(","); // Convierte la cadena en un array de claves de API
+  const keys = API_KEYS.split(","); // Convierte la cadena en un array de claves de la API spoonacular
 
   try {
     let infoApi = [];

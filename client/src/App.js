@@ -9,7 +9,7 @@ import Favorites from "./Components/Favorites/Favorites";
 import Error_404 from "./Components/Error/Error_404";
 import styles from "./App.module.css";
 
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "http://localhost:3001/";
 
 function App() {
   return (

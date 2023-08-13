@@ -19,25 +19,34 @@ import {
 
 export function getRecipe_Info() {
   return async function (dispatch) {
-    const json = await axios.get("/recipes");
-    console.log(json);
+    try {
+      const json = await axios.get("/recipes");
+      console.log(json);
 
-    return dispatch({
-      type: GET_RECIPES,
-      payload: json.data,
-    });
+      return dispatch({
+        type: GET_RECIPES,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.error(error);
+      // Realiza la acción adecuada para manejar el error, como mostrar un mensaje de error o realizar otra acción necesaria.
+    }
   };
 }
-
 export function getDiets_Info() {
   return async function (dispatch) {
-    const json = await axios.get("/diets");
-    console.log(json);
+    try {
+      const json = await axios.get("/diets");
+      console.log(json);
 
-    return dispatch({
-      type: GET_DIETS,
-      payload: json.data,
-    });
+      return dispatch({
+        type: GET_DIETS,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.error(error);
+      // Realiza la acción adecuada para manejar el error, como mostrar un mensaje de error o realizar otra acción necesaria.
+    }
   };
 }
 
@@ -52,40 +61,57 @@ export function search_Bar(recipe_diets_name) {
         payload: json.data,
       });
     } catch (error) {
-      return alert(`La Dieta o Receta ${recipe_diets_name} no Existe...`);
+      console.error(error);
+      return alert(
+        `Ocurrió un error al realizar la solicitud: ${error.message}`
+      );
     }
   };
 }
-
 export function post_Recipe(createdRecipe) {
   console.log(createdRecipe);
 
   return async function (dispatch) {
-    const respose = await axios.post("/recipes", createdRecipe);
-    console.log(respose);
-    return respose;
+    try {
+      const respose = await axios.post("/recipes", createdRecipe);
+      console.log(respose);
+      return respose;
+    } catch (error) {
+      console.error(error);
+      // Realiza la acción adecuada para manejar el error, como mostrar un mensaje de error o realizar otra acción necesaria.
+    }
   };
 }
 
 export function detail_Recipe(detail) {
   return async function (dispatch) {
-    const json = await axios.get(`/recipes/${detail}`);
-    console.log(json);
-    return dispatch({
-      type: DETAIL_RECIPE,
-      payload: json.data,
-    });
+    try {
+      const json = await axios.get(`/recipes/${detail}`);
+      console.log(json);
+      return dispatch({
+        type: DETAIL_RECIPE,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.error(error);
+      // Realiza la acción adecuada para manejar el error, como mostrar un mensaje de error o realizar otra acción necesaria.
+    }
   };
 }
 
 export function tooltips_Detail(detail) {
   return async function (dispatch) {
-    const json = await axios.get(`/recipes/${detail}`);
-    console.log(json);
-    return dispatch({
-      type: TOOLTIPS,
-      payload: json.data,
-    });
+    try {
+      const json = await axios.get(`/recipes/${detail}`);
+      console.log(json);
+      return dispatch({
+        type: TOOLTIPS,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.error(error);
+      // Realiza la acción adecuada para manejar el error, como mostrar un mensaje de error o realizar otra acción necesaria.
+    }
   };
 }
 

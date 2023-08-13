@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0fb5c494.chunk.css",
+    "main.js": "/static/js/main.1f4d5c85.chunk.js",
+    "main.js.map": "/static/js/main.1f4d5c85.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9465df78.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9465df78.js.map",
+    "static/js/2.655c1a5e.chunk.js": "/static/js/2.655c1a5e.chunk.js",
+    "static/js/2.655c1a5e.chunk.js.map": "/static/js/2.655c1a5e.chunk.js.map",
+    "static/js/3.a0e3c27d.chunk.js": "/static/js/3.a0e3c27d.chunk.js",
+    "static/js/3.a0e3c27d.chunk.js.map": "/static/js/3.a0e3c27d.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.0fb5c494.chunk.css.map": "/static/css/main.0fb5c494.chunk.css.map",
+    "static/js/2.655c1a5e.chunk.js.LICENSE.txt": "/static/js/2.655c1a5e.chunk.js.LICENSE.txt",
+    "static/media/Favorites.module.css": "/static/media/Backgrownd_Recipe.360809e2.jpg",
+    "static/media/Food_Logo.0ddb21e3.png": "/static/media/Food_Logo.0ddb21e3.png",
+    "static/media/c9dfc4bf28a6886e9d11b513bf2669af-cocinero-leyendo-personaje-de-libro-de-recetas.4cfbd515.png": "/static/media/c9dfc4bf28a6886e9d11b513bf2669af-cocinero-leyendo-personaje-de-libro-de-recetas.4cfbd515.png",
+    "static/media/cook-said-oops-no-food-available-2119974-1784257.9cb15d0f.png": "/static/media/cook-said-oops-no-food-available-2119974-1784257.9cb15d0f.png",
+    "static/media/Landing_Page.module.css": "/static/media/food-backgrownd.4000a783.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9465df78.js",
+    "static/js/2.655c1a5e.chunk.js",
+    "static/css/main.0fb5c494.chunk.css",
+    "static/js/main.1f4d5c85.chunk.js"
+  ]
+}

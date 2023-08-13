@@ -10,7 +10,7 @@ const getDataDiets = async function () {
 
     try {
       const dietList = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=100&addRecipeInformation=true`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=5&addRecipeInformation=true`
       );
 
       const repeated = await dietList.data.results

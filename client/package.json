@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-    "jest": {
+  "jest": {
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
     }
@@ -37,7 +37,6 @@
   "overrides": {
     "react-error-overlay": "6.0.9"
   },
-  
   "browserslist": {
     "production": [
       ">0.2%",

@@ -13,7 +13,7 @@ const allDataAPI = async function () {
 
       try {
         const urlApi = await axios.get(
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=5&addRecipeInformation=true`
+          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=100&addRecipeInformation=true`
         );
 
         infoApi = urlApi.data.results.map((element) => {

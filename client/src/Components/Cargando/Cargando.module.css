@@ -1,9 +1,40 @@
-.containerCargando {
+.container {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100%;
-  width: auto;
-  font-size: xx-large;
-  background-color: #edf1f4;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.loading {
+  display: inline-block;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.letter {
+  display: inline-block;
+  color: #edf1f4;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  -webkit-text-stroke: 2px #78ad8f;
+  animation: wave 1.5s linear infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
